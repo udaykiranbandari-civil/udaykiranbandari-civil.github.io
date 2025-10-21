@@ -39,12 +39,13 @@
   .thumb.active{border-color:var(--accent)}
   .controls-progress{height:6px;background:#e6eef9;border-radius:6px;overflow:hidden;margin-top:8px}
   .controls-progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ff8a4b);width:0%;transition:width linear}
+  .warning { background: #fff6f0; border-left: 4px solid var(--accent); padding:10px; margin:12px 0; color:#6b2d00; border-radius:6px }
+  .muted { color:var(--muted); font-size:0.95rem }
   /* lightbox */
   .lightbox{position:fixed;inset:0;background:rgba(2,6,23,0.82);display:none;align-items:center;justify-content:center;z-index:60;padding:20px}
   .lightbox.open{display:flex}
   .lightbox img{max-width:96%;max-height:90%;border-radius:6px;box-shadow:0 24px 60px rgba(0,0,0,0.6)}
   .lightbox .close{position:absolute;top:18px;right:18px;background:#fff;border-radius:8px;padding:6px 8px;border:none;cursor:pointer}
-  /* responsive */
   @media (max-width:880px){
     .thumb{width:84px;height:56px;flex:0 0 84px}
     .slide img{max-height:54vh}
@@ -58,6 +59,8 @@
 </header>
 
 <main class="container">
+  <div id="missingNotice" style="display:none" class="warning"></div>
+
   <div class="card">
     <!-- slideshow container -->
     <div class="slideshow-wrap" id="slideshow" aria-live="polite" aria-atomic="true"></div>
@@ -99,7 +102,7 @@
 </div>
 
 <script>
-/* ========== CONFIG: change filenames/captions here if needed ========== */
+/* ========== CONFIG: filenames + captions ========== */
 const images = [
   { src: "figure 1.png",  alt: "Abaqus: geometry overview and dimensions", caption: "Geometry — beam length 4000 mm, section 230 × 300 mm. Shows block geometry and layout used for the model." },
   { src: "fig 2.png",     alt: "Abaqus wireframe mesh showing rebars", caption: "Wireframe & rebars — shows embedded reinforcement layout and geometry prior to meshing." },
@@ -112,7 +115,10 @@ const images = [
   { src: "fig 7.png",     alt: "Stress S, Mises contour", caption: "Stress (S, Mises) contour — distribution of von Mises stress across the beam under the applied load." },
   { src: "fig 8.png",     alt: "Results comparison plot (deflection / stress)", caption: "Result summary: comparison plot of Abaqus vs manual calculations (deflection and stress) — shows good agreement for the studied case." }
 ];
-/* ==================================================================== */
+/* ================================================== */
+
+/* helper to encode filenames with spaces/special chars */
+function safeSrc(path){ return encodeURI(path); }
 
 const slideshow = document.getElementById('slideshow');
 const thumbs = document.getElementById('thumbs');
@@ -124,6 +130,7 @@ const speedSelect = document.getElementById('speedSelect');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxClose = document.getElementById('lightboxClose');
+const missingNotice = document.getElementById('missingNotice');
 
 let current = 0;
 let slides = [];
@@ -131,51 +138,66 @@ let autoTimer = null;
 let progressTimer = null;
 let autoplayInterval = parseInt(speedSelect.value, 10);
 let playing = true;
+let missingFiles = [];
 
 /* create slides and thumbs */
 images.forEach((it, idx) => {
-  // slide
+  // slide element
   const s = document.createElement('figure');
   s.className = 'slide';
   s.setAttribute('data-index', idx);
   s.setAttribute('role','group');
   s.setAttribute('aria-label', `${idx+1} of ${images.length}`);
+
+  // image (use encodeURI to handle spaces)
   const img = document.createElement('img');
-  img.src = it.src;
+  img.src = safeSrc(it.src);
   img.alt = it.alt || `Figure ${idx+1}`;
   img.loading = 'lazy';
   s.appendChild(img);
+
+  // caption
   const cap = document.createElement('figcaption');
   cap.className = 'caption';
   cap.textContent = it.caption || '';
   s.appendChild(cap);
 
-  // clicking opens lightbox
+  // click opens lightbox
   s.addEventListener('click', (e) => {
-    // ignore clicks on caption area
     if (e.target.tagName.toLowerCase() === 'button') return;
     openLightbox(idx);
+  });
+
+  // error handling for image not found
+  img.addEventListener('error', () => {
+    console.warn("Missing image:", it.src);
+    missingFiles.push(it.src);
+    cap.textContent = "Image missing: " + it.src + " — check filename in the repository.";
+    img.style.opacity = 0.12;
+    img.style.filter = "grayscale(80%)";
   });
 
   slideshow.appendChild(s);
   slides.push(s);
 
-  // thumb
+  // thumbnail
   const t = document.createElement('button');
   t.className = 'thumb';
   t.setAttribute('data-index', idx);
   t.setAttribute('aria-label', `Open slide ${idx+1}`);
   t.type = 'button';
   const tImg = document.createElement('img');
-  tImg.src = it.src;
+  tImg.src = safeSrc(it.src);
   tImg.alt = it.alt || `Thumb ${idx+1}`;
+  tImg.loading = 'lazy';
   t.appendChild(tImg);
   t.addEventListener('click', (ev) => { ev.stopPropagation(); goToSlide(idx); });
+  tImg.addEventListener('error', () => { tImg.style.opacity = 0.25; });
   thumbs.appendChild(t);
 });
 
 /* show initial slide */
-function showSlide(i, immediate=false) {
+function showSlide(i) {
   if(i < 0) i = slides.length - 1;
   if(i >= slides.length) i = 0;
   slides.forEach((s, idx) => {
@@ -191,9 +213,7 @@ function startAutoplay() {
   stopAutoplay();
   playing = true;
   playPauseBtn.textContent = '⏸';
-  autoTimer = setInterval(() => {
-    nextSlide();
-  }, autoplayInterval);
+  autoTimer = setInterval(() => { nextSlide(); }, autoplayInterval);
   startProgress();
 }
 function stopAutoplay() {
@@ -227,7 +247,7 @@ function prevSlide(){ showSlide((current - 1 + slides.length) % slides.length); 
 function nextSlide(){ showSlide((current + 1) % slides.length); }
 function goToSlide(i){ showSlide(i); if(playing){ stopAutoplay(); startAutoplay(); } }
 
-/* keyboard controls */
+/* keyboard */
 document.addEventListener('keydown', (e) => {
   if(e.key === 'ArrowLeft'){ prevSlide(); stopAutoplay(); }
   if(e.key === 'ArrowRight'){ nextSlide(); stopAutoplay(); }
@@ -236,15 +256,12 @@ document.addEventListener('keydown', (e) => {
 });
 
 /* play/pause */
-function togglePlay(){
-  if(playing) stopAutoplay();
-  else startAutoplay();
-}
+function togglePlay(){ if(playing) stopAutoplay(); else startAutoplay(); }
 
 /* lightbox */
 function openLightbox(idx){
   const it = images[idx];
-  lightboxImg.src = it.src;
+  lightboxImg.src = safeSrc(it.src);
   lightboxImg.alt = it.alt || `Figure ${idx+1}`;
   lightbox.classList.add('open');
   lightbox.setAttribute('aria-hidden','false');
@@ -255,11 +272,9 @@ function closeLightbox(){
   lightboxImg.src = '';
 }
 lightboxClose.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', (e) => {
-  if(e.target === lightbox) closeLightbox();
-});
+lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
 
-/* mouse pause on hover */
+/* pause on hover */
 slideshow.addEventListener('mouseenter', () => { stopAutoplay(); });
 slideshow.addEventListener('mouseleave', () => { if(!playing) startAutoplay(); });
 
@@ -269,24 +284,29 @@ speedSelect.addEventListener('change', () => {
   if(playing) { startAutoplay(); }
 });
 
-/* button wiring */
+/* buttons */
 prevBtn.addEventListener('click', () => { prevSlide(); stopAutoplay(); });
 nextBtn.addEventListener('click', () => { nextSlide(); stopAutoplay(); });
 playPauseBtn.addEventListener('click', () => { togglePlay(); });
 
-/* initial setup */
+/* initial */
 showSlide(0);
 startAutoplay();
 
-/* graceful fallback: detect missing images and mark captions */
-slides.forEach((sl, idx) => {
-  const img = sl.querySelector('img');
-  img.addEventListener('error', () => {
-    sl.querySelector('.caption').textContent = "Image not found: " + (images[idx].src || "missing file") + " — check filename in the repo.";
-    img.style.opacity = 0.25;
-  });
+/* after initial creation, report missing files if any (shows notice) */
+setTimeout(() => {
+  if(missingFiles.length > 0){
+    const unique = Array.from(new Set(missingFiles));
+    missingNotice.style.display = 'block';
+    missingNotice.innerHTML = "<strong>Missing images detected:</strong><br>" + unique.map(x => "<code>"+x+"</code>").join(", ");
+    console.warn("Missing image files (check repo):", unique);
+  }
+}, 900);
+
+/* graceful fallback: mark thumb images that fail */
+Array.from(thumbs.querySelectorAll('img')).forEach((ti)=>{
+  ti.addEventListener('error', ()=> ti.style.opacity = 0.25);
 });
 </script>
 </body>
 </html>
-
