@@ -1,62 +1,290 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>From IS to EN — Visual Research</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    body{font-family:Lato,system-ui,Arial;margin:0;padding:18px;background:#f8fbff;color:#00263a}
-    header{background:#004080;color:#fff;padding:20px;border-radius:10px;text-align:center}
-    main{max-width:980px;margin:20px auto}
-    section{background:#fff;padding:16px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.06);margin-bottom:14px}
-    h1,h2{margin:0 0 8px 0}
-    p{margin:0 0 8px 0}
-    img{max-width:100%;border-radius:8px;margin-top:8px}
-    dl{display:grid;grid-template-columns:130px 1fr;gap:6px 12px}
-    footer{text-align:center;color:#556;margin-top:8px}
-    a{color:#004080}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>From IS to EN — Visual Research (Animated Slideshow)</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<meta name="description" content="Animated slideshow of FEA screenshots (Abaqus) with captions and thumbnails.">
+<style>
+  :root{
+    --tu-blue: #004080;
+    --accent: #d94800;
+    --muted: #6b7280;
+    --bg: #f8fbff;
+    --card: #fff;
+    --max-width: 1100px;
+    --radius: 10px;
+  }
+  *{box-sizing:border-box}
+  body{font-family:Lato,system-ui,Arial;margin:0;background:var(--bg);color:#06202b}
+  header{background:var(--tu-blue);color:#fff;padding:20px 18px;text-align:center}
+  header h1{margin:0;font-weight:700}
+  .container{max-width:var(--max-width);margin:20px auto;padding:0 18px}
+  .row{display:flex;gap:18px;flex-wrap:wrap}
+  .card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+  .slideshow-wrap{position:relative;overflow:hidden;border-radius:8px;background:#081424}
+  .slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12px;opacity:0;transition:opacity .8s ease,transform .6s ease;transform:scale(.995)}
+  .slide.visible{opacity:1;transform:none}
+  .slide img{max-width:100%;max-height:68vh;border-radius:6px;box-shadow:0 8px 24px rgba(2,6,23,0.3)}
+  .caption{position:absolute;left:14px;bottom:12px;background:rgba(0,0,0,0.56);color:#fff;padding:8px 12px;border-radius:6px;font-size:0.95rem;max-width:calc(100% - 28px)}
+  .controls{display:flex;gap:8px;align-items:center;margin-top:12px}
+  .btn{background:var(--tu-blue);color:#fff;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:700}
+  .btn.secondary{background:transparent;color:var(--tu-blue);border:2px solid var(--tu-blue)}
+  .btn.icon{width:44px;height:44px;display:inline-grid;place-items:center;padding:0;border-radius:8px}
+  .meta { color:var(--muted);margin-top:10px;font-size:0.95rem }
+  .thumbs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .thumb{width:120px;height:72px;overflow:hidden;border-radius:6px;border:2px solid transparent;cursor:pointer;flex:0 0 120px}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb.active{border-color:var(--accent)}
+  .controls-progress{height:6px;background:#e6eef9;border-radius:6px;overflow:hidden;margin-top:8px}
+  .controls-progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ff8a4b);width:0%;transition:width linear}
+  /* lightbox */
+  .lightbox{position:fixed;inset:0;background:rgba(2,6,23,0.82);display:none;align-items:center;justify-content:center;z-index:60;padding:20px}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:96%;max-height:90%;border-radius:6px;box-shadow:0 24px 60px rgba(0,0,0,0.6)}
+  .lightbox .close{position:absolute;top:18px;right:18px;background:#fff;border-radius:8px;padding:6px 8px;border:none;cursor:pointer}
+  /* responsive */
+  @media (max-width:880px){
+    .thumb{width:84px;height:56px;flex:0 0 84px}
+    .slide img{max-height:54vh}
+  }
+</style>
 </head>
 <body>
-  <header><h1>From IS to EN</h1><p>Visual summary — IS 456 vs Eurocode 2</p></header>
-  <main>
-    <section>
-      <h2>Summary</h2>
-      <p>This project compares design from Indian Standard IS 456 and Eurocode 2 for a simple reinforced concrete beam and verifies results with Abaqus. Manual design and FEA show closely matching outcomes for the studied case.</p>
-      <img src="https://images.unsplash.com/photo-1581091012184-8b2a6a5b1c3b?q=80&w=1200&auto=format&fit=crop" alt="FEA visualization">
-    </section>
+<header>
+  <h1>From IS to EN — Visual Research (Animated Slideshow)</h1>
+  <p style="margin:6px 0 0 0;opacity:0.95">Abaqus screenshots explained — autoplaying slideshow with captions and thumbnails.</p>
+</header>
 
-    <section>
-      <h2>Beam at a glance</h2>
-      <dl>
-        <dt>Span (L)</dt><dd>4000 mm</dd>
-        <dt>Section</dt><dd>230 × 300 mm</dd>
-        <dt>Load</dt><dd>UDL = 15 kN/m</dd>
-        <dt>Materials</dt><dd>Concrete: M25 · Steel: Fe500</dd>
-      </dl>
-    </section>
+<main class="container">
+  <div class="card">
+    <!-- slideshow -->
+    <div class="slideshow-wrap" id="slideshow" aria-live="polite" aria-atomic="true">
+      <!-- Slides (images listed in JS below) -->
+      <!-- Each slide includes an <img> and will show captions added by JS -->
+    </div>
 
-    <section>
-      <h2>Manual vs Eurocode (simple)</h2>
-      <ul>
-        <li><strong>IS 456</strong>: required steel ≈ 285 mm²</li>
-        <li><strong>Eurocode 2</strong>: required steel ≈ 274 mm²</li>
-        <li><strong>Provided</strong>: 2×16 mm = 402 mm² (conservative)</li>
-      </ul>
-      <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=1200&auto=format&fit=crop" alt="Concrete beams">
-    </section>
+    <!-- controls -->
+    <div class="controls" style="justify-content:space-between;align-items:center">
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="btn icon" id="prev" aria-label="Previous (left arrow)">◀</button>
+        <button class="btn icon" id="playPause" aria-label="Play / Pause">⏸</button>
+        <button class="btn icon" id="next" aria-label="Next (right arrow)">▶</button>
+        <button class="btn secondary" id="openReport" onclick="location.href='research.pdf'">📄 Open Full Report (PDF)</button>
+      </div>
 
-    <section>
-      <h2>Try this demo</h2>
-      <p>Place a ruler on two supports and add a small weight in the middle. The bend you see is what FEA predicts — small but measurable.</p>
-    </section>
+      <div style="display:flex;flex-direction:column;align-items:flex-end">
+        <div style="font-size:0.95rem;color:var(--muted)">Autoplay interval</div>
+        <select id="speedSelect" style="padding:6px;border-radius:6px;border:1px solid #e6eef9">
+          <option value="2500">2.5s</option>
+          <option value="3500" selected>3.5s</option>
+          <option value="5000">5.0s</option>
+        </select>
+      </div>
+    </div>
 
-    <section>
-      <h2>Read full report</h2>
-      <p>Download the full technical PDF from the main portfolio page (link there), or <a href="research.pdf" target="_blank">click here to open research.pdf</a>.</p>
-    </section>
-  </main>
-  <footer>Made for TU Dresden ACCESS • © 2025 Uday Kiran Bandari</footer>
+    <div class="controls-progress" aria-hidden>
+      <i id="progressBar" style="width:0%"></i>
+    </div>
+
+    <div class="meta">Tip: hover the slideshow to pause; use ← → keys to navigate; click any slide to view full size.</div>
+
+    <!-- thumbnails -->
+    <div class="thumbs" id="thumbs" role="list" aria-label="Slide thumbnails">
+      <!-- thumbnails added by JS -->
+    </div>
+  </div>
+</main>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="close" aria-label="Close" id="lightboxClose">✕</button>
+  <img id="lightboxImg" alt="Expanded figure">
+</div>
+
+<script>
+/* ========== CONFIG: change filenames/captions here if needed ========== */
+const images = [
+  { src: "figure 1.png", alt: "Abaqus: geometry overview and dimensions", caption: "Figure: geometry — beam length 4000 mm, section 230×300 mm. (Model view used to show dimensions and layout.)" },
+  { src: "fig 2.png", alt: "Abaqus wireframe mesh showing rebars", caption: "Wireframe mesh showing embedded rebars and mesh partition used for hex elements." },
+  { src: "fig 4.png", alt: "Loads and supports (UDL shown)", caption: "Loads & boundary conditions: UDL applied as pressure on top surface — distributed along the span." },
+  { src: "fig 4a.png", alt: "Material properties dialog (Concrete M25)", caption: "Material: Concrete M25 (Elastic properties for linear verification). Young's modulus set to 25,000 N/mm² in the simplified model." },
+  { src: "fig 5a.png", alt: "Material properties dialog (Steel Fe500)", caption: "Steel reinforcement defined with Fe500 properties (Young's modulus 200,000 N/mm²)." },
+  { src: "fig 5b.png", alt: "Mesh and deformed shape preview", caption: "Mesh & preview: hex-dominant meshing and an initial deformed shape view (linear-elastic run)." },
+  { src: "fig 6.png", alt: "Deformed shape with U2 displacement", caption: "Deformed shape and displacement (U2 vertical) — midspan deflection ~ -1.98 mm in the linear-elastic run." },
+  { src: "fig 7.png", alt: "Stress S, Mises contour", caption: "Stress (S, Mises) contour showing peak stresses for the applied load case and mesh." }
+];
+/* ==================================================================== */
+
+const slideshow = document.getElementById('slideshow');
+const thumbs = document.getElementById('thumbs');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const playPauseBtn = document.getElementById('playPause');
+const progressBar = document.getElementById('progressBar');
+const speedSelect = document.getElementById('speedSelect');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+
+let current = 0;
+let slides = [];
+let autoTimer = null;
+let progressTimer = null;
+let autoplayInterval = parseInt(speedSelect.value, 10);
+let playing = true;
+
+/* create slides and thumbs */
+images.forEach((it, idx) => {
+  // slide
+  const s = document.createElement('figure');
+  s.className = 'slide';
+  s.setAttribute('data-index', idx);
+  s.setAttribute('role','group');
+  s.setAttribute('aria-label', `${idx+1} of ${images.length}`);
+  const img = document.createElement('img');
+  img.src = it.src;
+  img.alt = it.alt || `Figure ${idx+1}`;
+  img.loading = 'lazy';
+  s.appendChild(img);
+  const cap = document.createElement('figcaption');
+  cap.className = 'caption';
+  cap.textContent = it.caption || '';
+  s.appendChild(cap);
+
+  // clicking opens lightbox
+  s.addEventListener('click', () => openLightbox(idx));
+
+  slideshow.appendChild(s);
+  slides.push(s);
+
+  // thumb
+  const t = document.createElement('button');
+  t.className = 'thumb';
+  t.setAttribute('data-index', idx);
+  t.setAttribute('aria-label', `Open slide ${idx+1}`);
+  t.type = 'button';
+  const tImg = document.createElement('img');
+  tImg.src = it.src;
+  tImg.alt = it.alt || `Thumb ${idx+1}`;
+  t.appendChild(tImg);
+  t.addEventListener('click', () => goToSlide(idx));
+  thumbs.appendChild(t);
+});
+
+/* show initial slide */
+function showSlide(i, immediate=false) {
+  if(i < 0) i = slides.length - 1;
+  if(i >= slides.length) i = 0;
+  slides.forEach((s, idx) => {
+    s.classList.toggle('visible', idx === i);
+  });
+  Array.from(thumbs.children).forEach((t, idx) => t.classList.toggle('active', idx === i));
+  current = i;
+  resetProgress();
+}
+
+/* autoplay & progress */
+function startAutoplay() {
+  stopAutoplay();
+  playing = true;
+  playPauseBtn.textContent = '⏸';
+  autoTimer = setInterval(() => {
+    nextSlide();
+  }, autoplayInterval);
+  startProgress();
+}
+function stopAutoplay() {
+  playing = false;
+  playPauseBtn.textContent = '▶';
+  if(autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  stopProgress();
+}
+function resetProgress() {
+  progressBar.style.width = '0%';
+  stopProgress();
+  if(playing) startProgress();
+}
+function startProgress() {
+  const start = performance.now();
+  const dur = autoplayInterval;
+  stopProgress();
+  progressTimer = requestAnimationFrame(function animate(now) {
+    const elapsed = now - start;
+    const pct = Math.min(100, (elapsed / dur) * 100);
+    progressBar.style.width = pct + '%';
+    if (pct < 100) progressTimer = requestAnimationFrame(animate);
+  });
+}
+function stopProgress() {
+  if(progressTimer) { cancelAnimationFrame(progressTimer); progressTimer = null; }
+}
+
+/* navigation */
+function prevSlide(){ showSlide((current - 1 + slides.length) % slides.length); }
+function nextSlide(){ showSlide((current + 1) % slides.length); }
+function goToSlide(i){ showSlide(i); if(playing){ stopAutoplay(); startAutoplay(); } }
+
+/* keyboard controls */
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'ArrowLeft'){ prevSlide(); stopAutoplay(); }
+  if(e.key === 'ArrowRight'){ nextSlide(); stopAutoplay(); }
+  if(e.key === ' '){ e.preventDefault(); togglePlay(); }
+  if(e.key === 'Escape'){ closeLightbox(); }
+});
+
+/* play/pause */
+function togglePlay(){
+  if(playing) stopAutoplay();
+  else startAutoplay();
+}
+
+/* lightbox */
+function openLightbox(idx){
+  const it = images[idx];
+  lightboxImg.src = it.src;
+  lightboxImg.alt = it.alt || `Figure ${idx+1}`;
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden','false');
+}
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden','true');
+  lightboxImg.src = '';
+}
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => {
+  if(e.target === lightbox) closeLightbox();
+});
+
+/* mouse pause on hover */
+slideshow.addEventListener('mouseenter', () => { stopAutoplay(); });
+slideshow.addEventListener('mouseleave', () => { if(!playing) startAutoplay(); });
+
+/* speed select */
+speedSelect.addEventListener('change', () => {
+  autoplayInterval = parseInt(speedSelect.value, 10);
+  if(playing) { startAutoplay(); }
+});
+
+/* button wiring */
+prevBtn.addEventListener('click', () => { prevSlide(); stopAutoplay(); });
+nextBtn.addEventListener('click', () => { nextSlide(); stopAutoplay(); });
+playPauseBtn.addEventListener('click', () => { togglePlay(); });
+
+/* initial setup */
+showSlide(0);
+startAutoplay();
+
+/* graceful fallback: detect missing images and mark captions */
+slides.forEach((sl, idx) => {
+  const img = sl.querySelector('img');
+  img.addEventListener('error', () => {
+    sl.querySelector('.caption').textContent = "Image not found: " + (images[idx].src || "missing file") + " — check filename in the repo.";
+    img.style.opacity = 0.25;
+  });
+});
+</script>
 </body>
 </html>
