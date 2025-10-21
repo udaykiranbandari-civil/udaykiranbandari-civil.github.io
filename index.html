@@ -1,248 +1,124 @@
 <!doctype html>
-<!--
-  Final Portfolio - index.html
-  For: Uday Kiran Bandari
-  - Primary color: TU Dresden blue (#004080)
-  - Accent: dark orange (#d94800)
-  - Requires these files in same folder:
-      HEADSHOT.png
-      cv.pdf            (recommended PDF of CV)
-      research.pdf
-      final report word.docx
-      FINAL PROJECT CERTIFICATE .pdf
-      10th_marksheet.pdf
-      12th_marksheet.pdf
-      engineering_marksheets_transcripts.pdf
-      provisional_degree_certificate.pdf
-      degree_certificate.pdf
-      merit_certificate_gold_medal.pdf
-      module_handbook_bachelors.pdf
-  - Notes: filenames must match or update links here.
--->
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Uday Kiran Bandari — Portfolio</title>
-  <meta name="description" content="Civil Engineer, Gold Medalist — Portfolio for TU Dresden ACCESS application." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-  <meta name="theme-color" content="#004080" />
+  <meta name="description" content="Uday Kiran Bandari — Civil Engineering graduate (Gold Medalist). Research in FEA & code adaptation from Indian codes to Eurocodes.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#004080">
   <style>
-    /* === Theme tokens === */
     :root{
-      --tu-blue:#004080;        /* TU Dresden blue */
-      --accent-orange:#d94800; /* dark orange */
-      --bg:#f8fafc;
-      --card:#ffffff;
-      --muted:#6b7280;
-      --radius:12px;
-      --max-width:1100px;
-      --shadow: 0 10px 30px rgba(2,6,23,0.06);
+      --tu-blue:#004080;
+      --accent-orange:#d94800;
+      --bg:#f8fafc;--card:#ffffff;--muted:#6b7280;--radius:12px;--max:1100px
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:var(--bg);font-family:Lato,system-ui,Segoe UI,Roboto,Arial;color:#071124}
-    a{color:var(--tu-blue)}
-    code{background:#f1f5f9;padding:2px 6px;border-radius:6px}
-    /* === Header / hero === */
-    header{background:var(--tu-blue);color:#fff;padding:48px 18px;position:relative;overflow:hidden}
-    .container{max-width:var(--max-width);margin:0 auto;padding:0 18px}
+    html,body{height:100%;margin:0;font-family:Lato,system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:#0f172a}
+    header{position:relative;overflow:hidden;background:var(--tu-blue);color:white;padding:48px 18px}
+    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
     .hero{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-    .hero-left{flex:1;min-width:260px}
-    h1{margin:0;font-size:clamp(1.6rem,3.8vw,2.6rem);letter-spacing:0.3px}
+    h1{margin:0;font-size:clamp(1.6rem,3.6vw,2.6rem);letter-spacing:0.4px}
     .subtitle{margin:8px 0 0 0;font-size:1rem;opacity:0.95}
-    .badges{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-    .badge{background:rgba(255,255,255,0.08);padding:8px 12px;border-radius:999px;font-weight:700;display:flex;gap:8px;align-items:center}
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--accent-orange);display:inline-block}
-    .profile-wrap{width:220px}
-    .profile{width:220px;height:220px;border-radius:50%;object-fit:cover;border:4px solid var(--accent-orange);box-shadow:0 6px 18px rgba(0,0,0,0.18);display:block}
-    nav{margin-top:14px}
-    .nav-links{display:inline-flex;gap:10px;flex-wrap:wrap}
+    .badges{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+    .badge{background:rgba(255,255,255,0.08);padding:8px 12px;border-radius:999px;font-weight:700}
+    .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent-orange);margin-right:8px;vertical-align:middle}
+    nav{margin-top:18px}
     .nav-links a{color:white;text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:700}
-    .nav-links a:hover{background:rgba(255,255,255,0.06)}
-    .wave{position:absolute;right:-10%;bottom:-4px;width:140%;opacity:0.12;pointer-events:none}
-    /* === Main layout === */
-    main{padding:36px 0}
+    main{padding:38px 0}
     section{padding:18px 0}
     h2{color:var(--tu-blue);margin:0 0 12px 0}
-    .grid{display:grid;grid-template-columns:1fr 340px;gap:22px;align-items:start}
-    .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .28s,box-shadow .28s}
-    .card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(2,6,23,0.12)}
-    .accent-line{height:5px;background:var(--accent-orange);width:140px;border-radius:6px;margin:10px 0}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;border:0;cursor:pointer}
-    .btn-orange{background:var(--accent-orange);color:#fff}
-    .btn-outline{background:transparent;border:2px solid var(--tu-blue);color:var(--tu-blue)}
-    .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:20px}
+    .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 8px 26px rgba(2,6,23,0.06);transition:transform .28s,box-shadow .28s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(2,6,23,0.1)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn-orange{background:var(--accent-orange);color:white}
+    .btn-outline{border:2px solid var(--tu-blue);color:var(--tu-blue);background:transparent}
+    .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
     .tile{display:block;padding:14px;border-radius:10px;background:linear-gradient(180deg,#fff,#f8fbff);text-decoration:none;color:inherit;border:1px solid #eef2f7}
     .tile strong{color:var(--tu-blue)}
-    /* responsive */
-    @media (max-width:980px){
-      .grid{grid-template-columns:1fr}
-      .profile-wrap{width:160px}
-      .profile{width:160px;height:160px}
-      .nav-links{display:none}
-    }
-    /* reveal */
+    .accent-line{height:4px;background:var(--accent-orange);border-radius:6px;margin:10px 0;width:120px}
     .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.3,1)}
     .reveal.visible{opacity:1;transform:none}
-    footer{padding:18px 0;background:var(--tu-blue);color:#fff;text-align:center;margin-top:28px}
+    footer{padding:18px 0;text-align:center;color:#fff;background:var(--tu-blue);margin-top:28px}
+    a{color:var(--tu-blue)}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.hero{flex-direction:column;align-items:flex-start}.nav-links{display:none}}
   </style>
 </head>
 <body>
-  <!-- Header / Hero -->
   <header>
     <div class="container">
-      <div class="hero" role="banner">
-        <div class="hero-left">
+      <div class="hero">
+        <div style="flex:1">
           <h1>Uday Kiran Bandari</h1>
           <p class="subtitle">Civil Engineer · Gold Medalist · Aspiring ACCESS Candidate</p>
-
-          <div class="badges" aria-hidden>
-            <div class="badge"><span class="dot" aria-hidden></span>9.5 CGPA</div>
-            <div class="badge"><span class="dot" aria-hidden></span>Gold Medal</div>
-            <div class="badge"><span class="dot" aria-hidden></span>Winter 2026</div>
+          <div class="badges">
+            <div class="badge"><span class="dot"></span>9.5 CGPA</div>
+            <div class="badge"><span class="dot"></span>Gold Medal</div>
+            <div class="badge"><span class="dot"></span>Winter 2026</div>
           </div>
-
-          <nav aria-label="Primary navigation">
-            <div class="nav-links" id="primary-nav">
+          <nav aria-label="Primary navigation" style="margin-top:14px">
+            <div class="nav-links">
               <a href="#about">About</a>
               <a href="#research">Research</a>
               <a href="#project">Project</a>
               <a href="#documents">Documents</a>
-              <a href="#cv">CV</a>
               <a href="#contact">Contact</a>
             </div>
           </nav>
         </div>
-
-        <!-- Profile image (replace HEADSHOT.png in repo root if different) -->
-        <div class="profile-wrap" aria-hidden>
-          <img src="HEADSHOT.png" alt="Uday Kiran Bandari - profile" class="profile" />
+        <div style="width:220px">
+          <!-- Replaced with uploaded profile image -->
+          <img src="HEADSHOT.png" alt="profile" style="width:220px;height:220px;object-fit:cover;border-radius:50%;border:4px solid var(--accent-orange);box-shadow:0 0 10px rgba(0,0,0,0.2)">
         </div>
       </div>
     </div>
-
-    <!-- decorative wave (aria-hidden) -->
-    <svg class="wave" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden>
-      <path fill="#ffffff" d="M0,192L40,213.3C80,235,160,277,240,266.7C320,256,400,192,480,176C560,160,640,192,720,197.3C800,203,880,181,960,154.7C1040,128,1120,96,1200,101.3C1280,107,1360,149,1400,170.7L1440,192L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
-    </svg>
   </header>
-
-  <!-- Main -->
-  <main class="container" id="top">
-    <!-- About -->
-    <section id="about" class="reveal" aria-labelledby="about-heading">
+  <main class="container">
+    <section id="about" class="reveal">
       <div class="card">
-        <h2 id="about-heading">About Me</h2>
+        <h2>About Me</h2>
         <div class="accent-line" aria-hidden></div>
-        <p>
-          I am a Civil Engineering graduate (9.5 CGPA, Gold Medalist) from Ballari Institute of Technology and Management.
-          My interests are computational structural engineering, finite element analysis and BIM workflows. I develop reproducible
-          Abaqus workflows to compare IS code practice with Eurocode design approaches and produce clear, verifiable results.
-        </p>
+        <p>I am a Civil Engineering graduate (9.5 CGPA, Gold Medalist) from Ballari Institute of Technology and Management with strengths in computational structural engineering, finite element analysis and BIM workflows. Skilled in AutoCAD, STAAD.Pro, Revit, Lumion, QGIS and Python. My work focuses on adapting Indian design practice (IS codes) to Eurocodes/DIN and producing reproducible Abaqus workflows.</p>
       </div>
     </section>
 
-    <!-- Research -->
-    <section id="research" class="reveal" aria-labelledby="research-heading">
-      <div class="card">
-        <h2 id="research-heading">Research</h2>
-        <h3>From IS to EN — Bridging Indian and European Concrete Design</h3>
-        <p>
-          A concise study comparing IS 456 and Eurocode 2 for a singly reinforced concrete beam (span 4 m). The project
-          includes manual design checks, code-parameter comparison, and Abaqus linear-elastic verification.
-        </p>
-        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn btn-orange" href="research.pdf" target="_blank" rel="noopener">📘 Download Report</a>
-          <button class="btn btn-outline" onclick="openResearchPage()" aria-controls="research-mini">🧠 Visual Research Page</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Project -->
-    <section id="project" class="reveal" aria-labelledby="project-heading">
-      <div class="card">
-        <h2 id="project-heading">Major Project</h2>
-        <h3>Overflow Detection in Drainage Systems</h3>
-        <p>
-          IoT-based monitoring system using NodeMCU and sensors (gas, float, tilt, DHT11) to detect overflow and alert operators.
-          Designed to be integrated with municipal dashboards for quick response.
-        </p>
-        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn btn-orange" href="final report word.docx" target="_blank" rel="noopener">📄 Full Report</a>
-          <a class="btn btn-outline" href="FINAL PROJECT CERTIFICATE .pdf" target="_blank" rel="noopener">🏅 Certificate</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Documents -->
-    <section id="documents" class="reveal" aria-labelledby="docs-heading">
-      <div class="card">
-        <h2 id="docs-heading">Documents & Academic Records</h2>
-        <p style="margin-top:6px">Click a tile to open the file. Place the actual PDFs/docx in the same folder as this index.html.</p>
-
-        <div class="tiles" role="list" aria-label="Academic documents">
-          <a class="tile" role="listitem" href="cv.pdf" target="_blank" rel="noopener"><strong>CV (cv.pdf)</strong></a>
-          <a class="tile" role="listitem" href="10th_marksheet.pdf" target="_blank" rel="noopener"><strong>10th Marksheet</strong></a>
-          <a class="tile" role="listitem" href="12th_marksheet.pdf" target="_blank" rel="noopener"><strong>12th Marksheet</strong></a>
-          <a class="tile" role="listitem" href="engineering_marksheets_transcripts.pdf" target="_blank" rel="noopener"><strong>Engineering Transcripts</strong></a>
-          <a class="tile" role="listitem" href="provisional_degree_certificate.pdf" target="_blank" rel="noopener"><strong>Provisional Degree</strong></a>
-          <a class="tile" role="listitem" href="degree_certificate.pdf" target="_blank" rel="noopener"><strong>Final Degree</strong></a>
-          <a class="tile" role="listitem" href="merit_certificate_gold_medal.pdf" target="_blank" rel="noopener"><strong>Gold Medal Certificate</strong></a>
-          <a class="tile" role="listitem" href="module_handbook_bachelors.pdf" target="_blank" rel="noopener"><strong>Module Handbook</strong></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CV with preview toggle -->
     <section id="cv" class="reveal" aria-labelledby="cv-heading">
       <div class="card">
         <h2 id="cv-heading">Curriculum Vitae</h2>
-        <p style="margin-top:6px">Detailed CV available to download or preview below.</p>
+        <p style="margin-top:6px">Full CV (detailed education, internships, projects and awards). Download or preview below.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
-          <a class="btn btn-orange" href="cv.pdf" target="_blank" rel="noopener">📄 Download CV</a>
-          <button class="btn btn-outline" onclick="toggleCvPreview()">🔍 Toggle CV preview</button>
+          <a class="btn btn-orange" href="cv.pdf" target="_blank" rel="noopener">📄 Download CV (cv.pdf)</a>
+          <a class="btn btn-outline" href="javascript:void(0)" onclick="toggleCvPreview()">🔍 Toggle CV preview</a>
         </div>
 
+        <!-- Embedded preview (PDF only). Replace cv.pdf with PDF version of your CV for preview. -->
         <div id="cvPreview" style="margin-top:12px;display:none">
-          <p style="color:var(--muted);margin:0 0 8px 0">Preview (PDF):</p>
+          <p style="color:var(--muted);margin:0 0 8px 0">Preview (PDF only):</p>
           <iframe id="cvFrame" src="cv.pdf" style="width:100%;height:520px;border:1px solid #e6eef9;border-radius:8px"></iframe>
         </div>
 
+        <!-- Achievements summary extracted from CV -->
         <div style="margin-top:12px">
           <h4 style="margin:0 0 8px 0">Selected Achievements</h4>
           <ul style="margin:0 0 0 18px;color:var(--muted)">
             <li>Gold Medal — Branch Topper, Civil Engineering (2025)</li>
-            <li>2nd Prize, Poster Presentation — Overflow Detection</li>
-            <li>Mathematics Teacher (preparation year)</li>
+            <li>2nd Prize, Poster Presentation — Overflow Detection (ODDS)</li>
+            <li>Teaching experience as Mathematics Teacher (post-graduation year)</li>
           </ul>
         </div>
       </div>
     </section>
-
-    <!-- Contact -->
-    <section id="contact" class="reveal" aria-labelledby="contact-heading">
-      <div class="card">
-        <h2 id="contact-heading">Contact</h2>
-        <p>Email: <a href="mailto:udaykiranbandari@email.com">udaykiranbandari@email.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/udaykiranbandari" target="_blank" rel="noopener">linkedin.com/in/udaykiranbandari</a></p>
-        <div style="margin-top:12px">
-          <a class="btn btn-orange" href="cv.pdf" target="_blank" rel="noopener">📄 Download CV</a>
-        </div>
-      </div>
-    </section>
   </main>
-
-  <!-- Footer -->
-  <footer role="contentinfo">
+  <footer>
     <div class="container">
       <small>© 2025 Uday Kiran Bandari • Prepared for TU Dresden ACCESS applications</small>
     </div>
   </footer>
 
-  <!-- === Scripts: reveal, smooth scroll, CV preview, research mini-page === -->
   <script>
-    // IntersectionObserver reveal
+    // Reveal animation for sections
     (function(){
       const reveals = document.querySelectorAll('.reveal');
       const io = new IntersectionObserver((entries, obs) => {
@@ -256,95 +132,14 @@
       reveals.forEach((r, i) => { r.style.transitionDelay = (i * 120) + 'ms'; io.observe(r); });
     })();
 
-    // Smooth scroll for internal anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
-        const href = this.getAttribute('href');
-        if (href.length > 1) {
-          e.preventDefault();
-          const el = document.querySelector(href);
-          el && el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
     // Toggle CV preview
     function toggleCvPreview(){
       const p = document.getElementById('cvPreview');
       if (!p) return;
       p.style.display = (p.style.display === 'none' || p.style.display === '') ? 'block' : 'none';
-      // Attempt to reload iframe if visible (in case user uploaded new cv.pdf)
       const frame = document.getElementById('cvFrame');
-      if (p.style.display === 'block' && frame) {
-        // Force reload
-        frame.src = frame.src;
-      }
-    }
-
-    // Research mini-page (kid-friendly) opens in new tab and writes HTML
-    function openResearchPage(){
-      const researchHTML = `<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>From IS to EN — Visual Research</title>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-<style>
-  body{font-family:Lato,system-ui,Arial;margin:0;padding:18px;background:#f8fbff;color:#00263a}
-  header{background:#004080;color:#fff;padding:20px;border-radius:10px;text-align:center}
-  main{max-width:980px;margin:20px auto}
-  section{background:#fff;padding:16px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.06);margin-bottom:14px}
-  h1{margin:0 0 6px 0}
-  img{max-width:100%;border-radius:8px;margin-top:8px}
-  dl{display:grid;grid-template-columns:130px 1fr;gap:6px 12px}
-  footer{text-align:center;color:#556}
-</style>
-</head>
-<body>
-  <header><h1>From IS to EN</h1><p>Visual summary: IS 456 vs Eurocode 2 (Abaqus & manual checks)</p></header>
-  <main>
-    <section>
-      <h2>Summary</h2>
-      <p>We designed a reinforced concrete beam and compared hand calculations using IS 456 and Eurocode 2. Abaqus FEA validated the hand calculations; results were closely aligned for the studied case.</p>
-      <img src="https://images.unsplash.com/photo-1581091012184-8b2a6a5b1c3b?q=80&w=1200&auto=format&fit=crop" alt="FEA visualization">
-    </section>
-    <section>
-      <h2>Beam at a glance</h2>
-      <dl>
-        <dt>Span (L)</dt><dd>4000 mm</dd>
-        <dt>Section</dt><dd>230 × 300 mm</dd>
-        <dt>Load</dt><dd>UDL = 15 kN/m</dd>
-        <dt>Materials</dt><dd>Concrete: M25 · Steel: Fe500</dd>
-      </dl>
-    </section>
-    <section>
-      <h2>Manual vs Eurocode (simple)</h2>
-      <ul>
-        <li><strong>IS 456</strong>: required steel ≈ 285 mm²</li>
-        <li><strong>Eurocode 2</strong>: required steel ≈ 274 mm²</li>
-        <li><strong>Provided</strong>: 2×16 mm = 402 mm² (conservative)</li>
-      </ul>
-      <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=1200&auto=format&fit=crop" alt="Concrete beams">
-    </section>
-    <section>
-      <h2>Try a simple demo</h2>
-      <p>Place a ruler on two supports and put weight in the middle. See how it bends — that's what FEA predicts.</p>
-    </section>
-    <section>
-      <h2>Read more</h2>
-      <p>Download the full technical report from the main portfolio (link there).</p>
-    </section>
-  </main>
-  <footer>Made for TU Dresden ACCESS • © 2025 Uday Kiran Bandari</footer>
-</body>
-</html>`;
-      const w = window.open('', '_blank');
-      if (!w) { alert('Popup blocked — allow popups to open the visual research page.'); return; }
-      w.document.write(researchHTML);
-      w.document.close();
+      if (p.style.display === 'block' && frame) frame.src = frame.src;
     }
   </script>
 </body>
 </html>
-
