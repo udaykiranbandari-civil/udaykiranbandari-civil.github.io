@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>From IS to EN — Visual Research</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:Lato,system-ui,Arial;margin:0;padding:18px;background:#f8fbff;color:#00263a}
+    header{background:#004080;color:#fff;padding:20px;border-radius:10px;text-align:center}
+    main{max-width:980px;margin:20px auto}
+    section{background:#fff;padding:16px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.06);margin-bottom:14px}
+    h1,h2{margin:0 0 8px 0}
+    p{margin:0 0 8px 0}
+    img{max-width:100%;border-radius:8px;margin-top:8px}
+    dl{display:grid;grid-template-columns:130px 1fr;gap:6px 12px}
+    footer{text-align:center;color:#556;margin-top:8px}
+    a{color:#004080}
+  </style>
+</head>
+<body>
+  <header><h1>From IS to EN</h1><p>Visual summary — IS 456 vs Eurocode 2</p></header>
+  <main>
+    <section>
+      <h2>Summary</h2>
+      <p>This project compares design from Indian Standard IS 456 and Eurocode 2 for a simple reinforced concrete beam and verifies results with Abaqus. Manual design and FEA show closely matching outcomes for the studied case.</p>
+      <img src="https://images.unsplash.com/photo-1581091012184-8b2a6a5b1c3b?q=80&w=1200&auto=format&fit=crop" alt="FEA visualization">
+    </section>
+
+    <section>
+      <h2>Beam at a glance</h2>
+      <dl>
+        <dt>Span (L)</dt><dd>4000 mm</dd>
+        <dt>Section</dt><dd>230 × 300 mm</dd>
+        <dt>Load</dt><dd>UDL = 15 kN/m</dd>
+        <dt>Materials</dt><dd>Concrete: M25 · Steel: Fe500</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Manual vs Eurocode (simple)</h2>
+      <ul>
+        <li><strong>IS 456</strong>: required steel ≈ 285 mm²</li>
+        <li><strong>Eurocode 2</strong>: required steel ≈ 274 mm²</li>
+        <li><strong>Provided</strong>: 2×16 mm = 402 mm² (conservative)</li>
+      </ul>
+      <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=1200&auto=format&fit=crop" alt="Concrete beams">
+    </section>
+
+    <section>
+      <h2>Try this demo</h2>
+      <p>Place a ruler on two supports and add a small weight in the middle. The bend you see is what FEA predicts — small but measurable.</p>
+    </section>
+
+    <section>
+      <h2>Read full report</h2>
+      <p>Download the full technical PDF from the main portfolio page (link there), or <a href="research.pdf" target="_blank">click here to open research.pdf</a>.</p>
+    </section>
+  </main>
+  <footer>Made for TU Dresden ACCESS • © 2025 Uday Kiran Bandari</footer>
+</body>
+</html>
