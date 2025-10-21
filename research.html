@@ -20,8 +20,8 @@
   body{font-family:Lato,system-ui,Arial;margin:0;background:var(--bg);color:#06202b}
   header{background:var(--tu-blue);color:#fff;padding:20px 18px;text-align:center}
   header h1{margin:0;font-weight:700}
+  header p{margin:6px 0 0 0;opacity:.95}
   .container{max-width:var(--max-width);margin:20px auto;padding:0 18px}
-  .row{display:flex;gap:18px;flex-wrap:wrap}
   .card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
   .slideshow-wrap{position:relative;overflow:hidden;border-radius:8px;background:#081424}
   .slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12px;opacity:0;transition:opacity .8s ease,transform .6s ease;transform:scale(.995)}
@@ -54,16 +54,13 @@
 <body>
 <header>
   <h1>From IS to EN — Visual Research (Animated Slideshow)</h1>
-  <p style="margin:6px 0 0 0;opacity:0.95">Abaqus screenshots explained — autoplaying slideshow with captions and thumbnails.</p>
+  <p>Abaqus screenshots explained — autoplaying slideshow with captions, thumbnails and lightbox.</p>
 </header>
 
 <main class="container">
   <div class="card">
-    <!-- slideshow -->
-    <div class="slideshow-wrap" id="slideshow" aria-live="polite" aria-atomic="true">
-      <!-- Slides (images listed in JS below) -->
-      <!-- Each slide includes an <img> and will show captions added by JS -->
-    </div>
+    <!-- slideshow container -->
+    <div class="slideshow-wrap" id="slideshow" aria-live="polite" aria-atomic="true"></div>
 
     <!-- controls -->
     <div class="controls" style="justify-content:space-between;align-items:center">
@@ -91,9 +88,7 @@
     <div class="meta">Tip: hover the slideshow to pause; use ← → keys to navigate; click any slide to view full size.</div>
 
     <!-- thumbnails -->
-    <div class="thumbs" id="thumbs" role="list" aria-label="Slide thumbnails">
-      <!-- thumbnails added by JS -->
-    </div>
+    <div class="thumbs" id="thumbs" role="list" aria-label="Slide thumbnails"></div>
   </div>
 </main>
 
@@ -106,14 +101,16 @@
 <script>
 /* ========== CONFIG: change filenames/captions here if needed ========== */
 const images = [
-  { src: "figure 1.png", alt: "Abaqus: geometry overview and dimensions", caption: "Figure: geometry — beam length 4000 mm, section 230×300 mm. (Model view used to show dimensions and layout.)" },
-  { src: "fig 2.png", alt: "Abaqus wireframe mesh showing rebars", caption: "Wireframe mesh showing embedded rebars and mesh partition used for hex elements." },
-  { src: "fig 4.png", alt: "Loads and supports (UDL shown)", caption: "Loads & boundary conditions: UDL applied as pressure on top surface — distributed along the span." },
-  { src: "fig 4a.png", alt: "Material properties dialog (Concrete M25)", caption: "Material: Concrete M25 (Elastic properties for linear verification). Young's modulus set to 25,000 N/mm² in the simplified model." },
-  { src: "fig 5a.png", alt: "Material properties dialog (Steel Fe500)", caption: "Steel reinforcement defined with Fe500 properties (Young's modulus 200,000 N/mm²)." },
-  { src: "fig 5b.png", alt: "Mesh and deformed shape preview", caption: "Mesh & preview: hex-dominant meshing and an initial deformed shape view (linear-elastic run)." },
-  { src: "fig 6.png", alt: "Deformed shape with U2 displacement", caption: "Deformed shape and displacement (U2 vertical) — midspan deflection ~ -1.98 mm in the linear-elastic run." },
-  { src: "fig 7.png", alt: "Stress S, Mises contour", caption: "Stress (S, Mises) contour showing peak stresses for the applied load case and mesh." }
+  { src: "figure 1.png",  alt: "Abaqus: geometry overview and dimensions", caption: "Geometry — beam length 4000 mm, section 230 × 300 mm. Shows block geometry and layout used for the model." },
+  { src: "fig 2.png",     alt: "Abaqus wireframe mesh showing rebars", caption: "Wireframe & rebars — shows embedded reinforcement layout and geometry prior to meshing." },
+  { src: "fig 3.png",     alt: "Mesh and block partitioning", caption: "Mesh & block partitions — hexahedral meshing strategy and block divisions used for element control." },
+  { src: "fig 4.png",     alt: "Loads and supports (UDL shown)", caption: "Loads & boundary conditions: Uniformly distributed load (UDL) applied as pressure on the top surface; supports at beam ends." },
+  { src: "fig 4a.png",    alt: "Material properties dialog (Concrete M25)", caption: "Material: Concrete M25 (elastic properties for linear verification). Young's modulus set accordingly for the simplified model." },
+  { src: "fig 5a.png",    alt: "Material properties dialog (Steel Fe500)", caption: "Rebar material: Steel Fe500 properties defined (E ≈ 200000 N/mm²) used for reinforcement modeling." },
+  { src: "fig 5b.png",    alt: "Mesh and deformed shape preview", caption: "Mesh preview and initial deformed shape — linear-elastic preview to check mesh and constraints." },
+  { src: "fig 6.png",     alt: "Deformed shape with U2 displacement", caption: "Deformed shape and vertical displacement (U2) — midspan deflection approx. -1.98 mm (linear-elastic run)." },
+  { src: "fig 7.png",     alt: "Stress S, Mises contour", caption: "Stress (S, Mises) contour — distribution of von Mises stress across the beam under the applied load." },
+  { src: "fig 8.png",     alt: "Results comparison plot (deflection / stress)", caption: "Result summary: comparison plot of Abaqus vs manual calculations (deflection and stress) — shows good agreement for the studied case." }
 ];
 /* ==================================================================== */
 
@@ -154,7 +151,11 @@ images.forEach((it, idx) => {
   s.appendChild(cap);
 
   // clicking opens lightbox
-  s.addEventListener('click', () => openLightbox(idx));
+  s.addEventListener('click', (e) => {
+    // ignore clicks on caption area
+    if (e.target.tagName.toLowerCase() === 'button') return;
+    openLightbox(idx);
+  });
 
   slideshow.appendChild(s);
   slides.push(s);
@@ -169,7 +170,7 @@ images.forEach((it, idx) => {
   tImg.src = it.src;
   tImg.alt = it.alt || `Thumb ${idx+1}`;
   t.appendChild(tImg);
-  t.addEventListener('click', () => goToSlide(idx));
+  t.addEventListener('click', (ev) => { ev.stopPropagation(); goToSlide(idx); });
   thumbs.appendChild(t);
 });
 
@@ -288,3 +289,4 @@ slides.forEach((sl, idx) => {
 </script>
 </body>
 </html>
+
