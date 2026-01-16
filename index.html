@@ -2,226 +2,281 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Uday Kiran Bandari | Academic Dossier</title>
+<title>Uday Kiran Bandari | Academic Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --bg:#0b1220;
-  --card:#121a2f;
+  --panel:#111a33;
   --accent:#4f9cff;
   --text:#e6ebf5;
   --muted:#9aa4bf;
-  --line:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,.1);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
 
 body{
   background:linear-gradient(180deg,#0b1220,#0e1730);
   color:var(--text);
-  overflow-x:hidden;
-}
-
-/* ===== INTRO VIDEO ===== */
-#intro{
-  position:fixed;
-  inset:0;
-  background:black;
-  z-index:9999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-#intro video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-#enterBtn{
-  position:absolute;
-  bottom:60px;
-  padding:14px 28px;
-  font-size:1rem;
-  border:none;
-  border-radius:30px;
-  background:rgba(0,0,0,0.6);
-  color:white;
-  cursor:pointer;
-  backdrop-filter:blur(10px);
-}
-
-/* ===== MAIN CONTENT ===== */
-main{
-  opacity:0;
-  transition:opacity 1.5s ease;
-}
-
-main.show{
-  opacity:1;
+  line-height:1.8;
 }
 
 section{
-  max-width:1100px;
+  max-width:1200px;
   margin:auto;
   padding:100px 24px;
 }
 
-h1{font-size:3rem}
-h2{color:var(--accent);margin-bottom:18px}
-p{color:var(--muted);max-width:900px}
+h1{font-size:3.2rem;font-weight:900}
+h2{font-size:2.2rem;color:var(--accent);margin-bottom:24px}
+h3{font-size:1.3rem;margin-bottom:12px}
+
+p{color:var(--muted);max-width:950px;font-size:1.05rem}
+
+.divider{
+  height:1px;
+  background:linear-gradient(to right,transparent,var(--border),transparent);
+  margin:100px 0;
+}
 
 .card{
-  background:var(--card);
+  background:var(--panel);
+  padding:40px;
   border-radius:16px;
-  padding:32px;
-  box-shadow:0 25px 60px rgba(0,0,0,.4);
+  border:1px solid var(--border);
+  box-shadow:0 30px 70px rgba(0,0,0,.5);
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:26px;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
 }
 
-img,video{
+img{
   width:100%;
   border-radius:14px;
   margin-top:16px;
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
-.divider{
-  height:1px;
-  background:linear-gradient(to right,transparent,var(--line),transparent);
-  margin:80px 0;
+video{
+  width:100%;
+  border-radius:14px;
+  margin-top:20px;
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
-/* Reveal animation */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 1.1s ease;
+iframe{
+  width:100%;
+  height:420px;
+  border:none;
+  border-radius:14px;
+  margin-top:16px;
+  background:#000;
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
-.reveal.visible{
-  opacity:1;
-  transform:none;
+
+.caption{
+  font-size:.95rem;
+  color:#b8c1dd;
+  margin-top:10px;
 }
 
 footer{
   text-align:center;
-  padding:60px;
+  padding:80px;
+  border-top:1px solid var(--border);
   color:var(--muted);
-  border-top:1px solid var(--line);
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===== INTRO ===== -->
-<div id="intro">
-  <video id="introVideo" autoplay muted playsinline>
-    <source src="videos/gold_medal_ceremony.mp4" type="video/mp4">
-  </video>
-  <button id="enterBtn">Enter Academic Dossier</button>
-</div>
-
-<!-- ===== MAIN ===== -->
-<main id="content">
-
-<section class="reveal">
+<!-- ================= HERO ================= -->
+<section>
   <h1>Uday Kiran Bandari</h1>
   <p>
-    Gold Medalist in Civil Engineering (CGPA 9.5 · German GPA ≈ 1.25).
-    Research-oriented engineer focusing on computational structural engineering,
-    Eurocode-based design, and finite-element verification.
+    Gold Medalist in Civil Engineering (CGPA 9.5 / German GPA ≈ 1.25).  
+    Research-oriented civil engineer with strong interest in
+    computational structural engineering, reinforced concrete behaviour,
+    and Eurocode-based design philosophy.
   </p>
+  <img src="images/Uday_Kiran_Bandari_Profile.png">
 </section>
 
 <div class="divider"></div>
 
-<section class="reveal">
-  <h2>Research Philosophy</h2>
+<!-- ================= WHO I AM ================= -->
+<section>
+  <h2>Who I Am</h2>
   <div class="card">
     <p>
-      I approach structural engineering as a balance between
-      analytical reasoning and numerical verification.
-      My interest lies in understanding how design codes translate
-      safety philosophy into structural behaviour.
+      I am a civil engineering graduate driven by a deep curiosity
+      for how structures behave under load and how design codes translate
+      safety philosophy into engineering decisions.
+    </p>
+    <p>
+      Rather than treating codes as rulebooks, I focus on understanding
+      their assumptions, limitations, and the mechanics behind them.
+      This mindset has guided my academic performance, research work,
+      and project execution throughout my undergraduate studies.
     </p>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<section class="reveal">
-  <h2>Recent Research & Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>IS 456 vs Eurocode 2 RC Beam</h3>
-      <p>Manual design + Abaqus FEA verification.</p>
-      <img src="images/rc_beam_geometry.png">
-    </div>
-    <div class="card">
-      <h3>Finite Element Modelling</h3>
-      <p>3D solid discretization & stress validation.</p>
-      <img src="images/abaqus_mesh_model.png">
-    </div>
-    <div class="card">
-      <h3>Stress Behaviour</h3>
-      <p>Von-Mises stress interpretation.</p>
-      <img src="images/stress_distribution_plot.png">
-    </div>
+<!-- ================= RESEARCH PHILOSOPHY ================= -->
+<section>
+  <h2>Research Philosophy</h2>
+  <div class="card">
+    <p>
+      My research approach is centered on verification-based engineering.
+      I believe analytical calculations must be supported by numerical
+      validation to fully understand structural behaviour.
+    </p>
+    <p>
+      I am particularly interested in the transition from Indian Standards
+      (IS 456) to European design philosophy (Eurocodes), focusing on
+      partial safety factors, serviceability criteria, and stress distribution.
+    </p>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<section class="reveal">
-  <h2>Recognition</h2>
+<!-- ================= PROJECTS ================= -->
+<section>
+  <h2>Recent Research, Projects & Internship</h2>
+
   <div class="grid">
-    <div>
-      <img src="images/graduation_photo_1.jpg">
+
+    <div class="card">
+      <h3>Comparative RC Beam Design (IS 456 vs Eurocode 2)</h3>
+      <p>
+        Independent analytical and numerical study of a singly reinforced
+        concrete beam designed using IS 456:2000 and EN 1992-1-1.
+      </p>
+      <p>
+        Manual calculations were carried out for bending and serviceability,
+        followed by finite element verification using Abaqus to study
+        stress distribution and behavioural differences.
+      </p>
+      <img src="images/rc_beam_geometry.png">
+      <div class="caption">RC beam geometry used for analytical comparison</div>
     </div>
-    <div>
-      <img src="images/graduation_photo_2.jpg">
+
+    <div class="card">
+      <h3>Finite Element Modelling & Verification</h3>
+      <p>
+        The beam was modelled as a 3D solid with appropriate boundary conditions
+        and material properties to reflect analytical assumptions.
+      </p>
+      <p>
+        Von-Mises stress contours were used to verify bending behaviour
+        and to study how Eurocode partial factors influence stress levels.
+      </p>
+      <img src="images/abaqus_mesh_model.png">
+      <img src="images/stress_distribution_plot.png">
     </div>
+
+    <div class="card">
+      <h3>Overflow Detection in Drainage Systems (ODDS)</h3>
+      <p>
+        Academic project focused on monitoring overflow conditions in
+        urban drainage systems using sensor-based logic.
+      </p>
+      <p>
+        The project emphasized problem identification, system logic,
+        and communication of engineering solutions.
+        Awarded <b>2nd Prize</b> in a technical poster presentation.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Industry Internship – Medini Technologies</h3>
+      <p>
+        Completed a 15-week internship focusing on professional drafting,
+        modelling, and documentation workflows.
+      </p>
+      <p>
+        Gained exposure to AutoCAD, Revit-based modelling,
+        coordination drawings, and industry documentation standards.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= CERTIFICATES (PDF PREVIEW) ================= -->
+<section>
+  <h2>Certifications & Technical Credentials</h2>
+
+  <div class="grid">
+    <div class="card"><h3>AUTOCAD</h3><iframe src="documents/AUTOCAD.pdf"></iframe></div>
+    <div class="card"><h3>INTRENSHIP</h3><iframe src="documents/INTRENSHIP.pdf"></iframe></div>
+    <div class="card"><h3>LUMION</h3><iframe src="documents/LUMION.pdf"></iframe></div>
+    <div class="card"><h3>PRIMEVERA</h3><iframe src="documents/PRIMEVERA.pdf"></iframe></div>
+    <div class="card"><h3>REVIT ARCH</h3><iframe src="documents/REVIT ARCH.pdf"></iframe></div>
+    <div class="card"><h3>REVIT MEP</h3><iframe src="documents/REVIT MEP.pdf"></iframe></div>
+    <div class="card"><h3>SKETCHUP</h3><iframe src="documents/SKETCHUP.pdf"></iframe></div>
+    <div class="card"><h3>STAADPRO</h3><iframe src="documents/STAADPRO.pdf"></iframe></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= DEGREE ================= -->
+<section>
+  <h2>Degree Certificate</h2>
+  <div class="card">
+    <iframe src="documents/degree_certificate.pdf"></iframe>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= GRADUATION ================= -->
+<section>
+  <h2>Graduation & Recognition</h2>
+  <div class="grid">
+    <img src="images/graduation_photo_1.jpg">
+    <img src="images/graduation_photo_2.jpg">
+  </div>
+  <video controls>
+    <source src="videos/gold_medal_ceremony.mp4" type="video/mp4">
+  </video>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= WHY ACCESS ================= -->
+<section>
+  <h2>Why ACCESS – TU Dresden</h2>
+  <div class="card">
+    <p>
+      ACCESS aligns directly with my academic direction and long-term goals.
+      Its emphasis on structural mechanics, numerical methods,
+      and Eurocode-based design reflects the way I already approach engineering problems.
+    </p>
+    <p>
+      I see ACCESS not as a change in direction, but as a continuation
+      of my effort to develop into a research-oriented structural engineer.
+    </p>
   </div>
 </section>
 
 <footer>
-Academic Dossier · Prepared for TU Dresden ACCESS  
-<br>Uday Kiran Bandari
+Academic Portfolio · Uday Kiran Bandari · 2026
 </footer>
-
-</main>
-
-<script>
-/* ===== INTRO EXIT SAFE ===== */
-const intro=document.getElementById("intro");
-const content=document.getElementById("content");
-const btn=document.getElementById("enterBtn");
-
-function enterSite(){
-  intro.style.display="none";
-  content.classList.add("show");
-}
-
-btn.onclick=enterSite;
-
-// Safety timeout (prevents black screen)
-setTimeout(enterSite,6000);
-
-/* Reveal animation */
-const obs=new IntersectionObserver(e=>{
-  e.forEach(x=>x.isIntersecting&&x.target.classList.add("visible"))
-},{threshold:0.15});
-document.querySelectorAll(".reveal").forEach(r=>obs.observe(r));
-</script>
 
 </body>
 </html>
