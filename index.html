@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Uday Kiran Bandari | Academic Portfolio</title>
+<title>Uday Kiran Bandari | Academic Dossier</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
 body{
   background:linear-gradient(180deg,#0b1220,#0e1730);
   color:var(--text);
-  line-height:1.85;
+  line-height:1.9;
 }
 
 section{
@@ -45,7 +45,7 @@ p{color:var(--muted);max-width:980px;font-size:1.05rem}
 
 .card{
   background:var(--panel);
-  padding:40px;
+  padding:42px;
   border-radius:18px;
   border:1px solid var(--border);
   box-shadow:0 30px 70px rgba(0,0,0,.55);
@@ -62,7 +62,7 @@ p{color:var(--muted);max-width:980px;font-size:1.05rem}
 img{
   max-width:100%;
   border-radius:14px;
-  margin-top:16px;
+  margin-top:18px;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
@@ -73,29 +73,28 @@ img{
 video{
   width:100%;
   border-radius:14px;
-  margin-top:20px;
+  margin-top:24px;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
-/* PDF CERTIFICATE PREVIEW (FULL FIRST PAGE) */
+/* PDF preview */
 .cert-frame{
   width:100%;
-  height:420px;
+  height:440px;
   border:none;
-  border-radius:10px;
-  margin-top:16px;
+  border-radius:12px;
+  margin-top:18px;
   background:#111;
-  box-shadow:0 14px 35px rgba(0,0,0,.65);
+  box-shadow:0 16px 40px rgba(0,0,0,.7);
   transition:transform .35s ease, box-shadow .35s ease;
 }
 
 .cert-frame:hover{
-  transform:scale(1.18);
-  box-shadow:0 45px 90px rgba(0,0,0,.85);
+  transform:scale(1.15);
+  box-shadow:0 50px 110px rgba(0,0,0,.9);
   z-index:10;
 }
 
-/* Prevent mobile overflow */
 @media(max-width:900px){
   .cert-frame:hover{transform:none}
 }
@@ -103,7 +102,7 @@ video{
 .caption{
   font-size:.95rem;
   color:#b8c1dd;
-  margin-top:10px;
+  margin-top:12px;
 }
 
 footer{
@@ -117,62 +116,112 @@ footer{
 
 <body>
 
+<!-- HERO -->
 <section>
   <h1>Uday Kiran Bandari</h1>
   <p>
     Gold Medalist in Civil Engineering (CGPA 9.5 / German GPA ≈ 1.25).  
-    Research-oriented civil engineer focused on computational structural engineering,
-    reinforced concrete behaviour, and Eurocode-based design philosophy.
+    Research-oriented civil engineer with strong grounding in
+    structural mechanics, reinforced concrete design,
+    and computational verification.
   </p>
   <img src="images/Uday_Kiran_Bandari_Profile.png" class="profile-img">
 </section>
 
 <div class="divider"></div>
 
+<!-- WHO I AM -->
 <section>
-  <h2>Who I Am</h2>
+  <h2>Who I Am & What I Am Capable Of</h2>
   <div class="card">
     <p>
-      I am a civil engineering graduate driven by a deep curiosity for
-      structural behaviour, mechanics, and design philosophy.
+      I am a civil engineering graduate trained to think analytically,
+      reason structurally, and verify assumptions rather than blindly apply formulas.
+      My academic strength lies in understanding *why* structures behave the way they do.
     </p>
     <p>
-      My work emphasizes verification-based engineering —
-      analytical design supported by numerical simulation.
+      I am capable of performing manual structural design,
+      translating design intent into numerical models,
+      and critically interpreting results using engineering judgement.
+    </p>
+    <p>
+      My background as a mathematics teacher further strengthens my
+      conceptual clarity, logical reasoning, and ability to communicate
+      complex technical ideas precisely.
     </p>
   </div>
 </section>
 
 <div class="divider"></div>
 
+<!-- RESEARCH PHILOSOPHY -->
 <section>
-  <h2>Research, Projects & Internship</h2>
+  <h2>Research Philosophy</h2>
+  <div class="card">
+    <p>
+      My academic philosophy is rooted in verification-based engineering.
+      Analytical calculations are meaningful only when supported
+      by numerical simulation and behavioural understanding.
+    </p>
+    <p>
+      I am particularly interested in the transition from Indian Standards (IS 456)
+      to Eurocode-based design philosophy, including differences in
+      partial safety factors, serviceability limits, and stress distribution.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section>
+  <h2>Research, Academic Projects & Internship</h2>
   <div class="grid">
 
     <div class="card">
-      <h3>Comparative RC Beam Design (IS vs Eurocode)</h3>
+      <h3>Comparative RC Beam Design (IS 456 vs Eurocode 2)</h3>
       <p>
-        Manual design verified using Abaqus finite element modelling.
+        Independent research comparing Indian and European reinforced concrete
+        design philosophies using a simply supported RC beam.
+      </p>
+      <p>
+        Manual design calculations were carried out under both codes,
+        followed by finite element verification in Abaqus to study
+        stress distribution and structural response.
       </p>
       <img src="images/rc_beam_geometry.png">
     </div>
 
     <div class="card">
-      <h3>Finite Element Modelling</h3>
+      <h3>Finite Element Modelling & Verification</h3>
+      <p>
+        Developed 3D solid finite element models to validate analytical assumptions.
+        Emphasis was placed on boundary conditions, material behaviour,
+        and interpretation of stress contours.
+      </p>
       <img src="images/abaqus_mesh_model.png">
       <img src="images/stress_distribution_plot.png">
     </div>
 
     <div class="card">
-      <h3>Overflow Detection in Drainage Systems</h3>
+      <h3>Overflow Detection in Drainage Systems (ODDS)</h3>
+      <p>
+        Academic project addressing real-world urban drainage overflow issues
+        through sensor-based monitoring logic.
+      </p>
       <img src="images/project_odds.jpg">
-      <p><b>2nd Prize</b> – Technical Poster Presentation</p>
+      <div class="caption">Awarded <b>2nd Prize</b> – Technical Poster Presentation</div>
     </div>
 
     <div class="card">
       <h3>Industry Internship – Medini Technologies</h3>
       <p>
-        BIM workflows, drafting standards, professional documentation.
+        Completed a 15-week internship focusing on drafting standards,
+        BIM workflows, and professional engineering documentation.
+      </p>
+      <p>
+        Gained hands-on experience with AutoCAD, Revit,
+        and coordination drawings used in practice.
       </p>
     </div>
 
@@ -181,39 +230,31 @@ footer{
 
 <div class="divider"></div>
 
+<!-- DOCUMENTS -->
 <section>
   <h2>Academic Records & Certifications</h2>
   <div class="grid">
 
-    <div class="card"><h3>Degree Certificate</h3>
-      <a href="documents/degree_certificate.pdf" target="_blank">
-        <iframe class="cert-frame" src="documents/degree_certificate.pdf#page=1&zoom=page-width"></iframe>
-      </a>
-    </div>
+    <div class="card"><h3>Degree Certificate</h3><iframe class="cert-frame" src="documents/degree_certificate.pdf#page=1&zoom=page-width"></iframe></div>
+    <div class="card"><h3>Merit / Gold Medal Certificate</h3><iframe class="cert-frame" src="documents/merit_certificate.pdf#page=1&zoom=page-width"></iframe></div>
+    <div class="card"><h3>Transcript</h3><iframe class="cert-frame" src="documents/transcript.pdf#page=1&zoom=page-width"></iframe></div>
+    <div class="card"><h3>Semester Marksheets</h3><iframe class="cert-frame" src="documents/semester_marksheets.pdf#page=1&zoom=page-width"></iframe></div>
 
-    <div class="card"><h3>Merit / Gold Medal</h3>
-      <a href="documents/merit_certificate.pdf" target="_blank">
-        <iframe class="cert-frame" src="documents/merit_certificate.pdf#page=1&zoom=page-width"></iframe>
-      </a>
-    </div>
-
-    <div class="card"><h3>Transcript</h3>
-      <a href="documents/transcript.pdf" target="_blank">
-        <iframe class="cert-frame" src="documents/transcript.pdf#page=1&zoom=page-width"></iframe>
-      </a>
-    </div>
-
-    <div class="card"><h3>Semester Marksheets</h3>
-      <a href="documents/semester_marksheets.pdf" target="_blank">
-        <iframe class="cert-frame" src="documents/semester_marksheets.pdf#page=1&zoom=page-width"></iframe>
-      </a>
-    </div>
+    <div class="card"><h3>AUTOCAD</h3><iframe class="cert-frame" src="documents/AUTOCAD.pdf#page=1&zoom=page-width"></iframe></div>
+    <div class="card"><h3>INTRENSHIP</h3><iframe class="cert-frame" src="documents/INTRENSHIP.pdf#page=1&zoom=page-width"></iframe></div>
+    <div class="card"><h3>LUMION</h3><iframe class="cert-frame" src="documents/LUMION.pdf#page=1&zoom=page-width"></iframe></div>
+    <div class="card"><h3>PRIMEVERA</h3><iframe class="cert-frame" src="documents/PRIMEVERA.pdf#page=1&zoom=page-width"></iframe></div>
+    <div class="card"><h3>REVIT ARCH</h3><iframe class="cert-frame" src="documents/REVIT ARCH.pdf#page=1&zoom=page-width"></iframe></div>
+    <div class="card"><h3>REVIT MEP</h3><iframe class="cert-frame" src="documents/REVIT MEP.pdf#page=1&zoom=page-width"></iframe></div>
+    <div class="card"><h3>SKETCHUP</h3><iframe class="cert-frame" src="documents/SKETCHUP.pdf#page=1&zoom=page-width"></iframe></div>
+    <div class="card"><h3>STAADPRO</h3><iframe class="cert-frame" src="documents/STAADPRO.pdf#page=1&zoom=page-width"></iframe></div>
 
   </div>
 </section>
 
 <div class="divider"></div>
 
+<!-- GRADUATION -->
 <section>
   <h2>Graduation & Recognition</h2>
   <div class="grid">
@@ -228,18 +269,21 @@ footer{
 
 <div class="divider"></div>
 
+<!-- WHY ACCESS -->
 <section>
   <h2>Why ACCESS – TU Dresden</h2>
   <div class="card">
     <p>
-      ACCESS aligns directly with my research orientation,
-      numerical focus, and Eurocode-based structural thinking.
+      ACCESS directly aligns with my research orientation,
+      computational focus, and Eurocode-based structural thinking.
+      Its curriculum reflects the analytical and verification-driven
+      approach I already follow.
     </p>
   </div>
 </section>
 
 <footer>
-Academic Portfolio · Uday Kiran Bandari · 2026
+Academic Dossier · Uday Kiran Bandari · 2026
 </footer>
 
 </body>
