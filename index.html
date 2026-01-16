@@ -8,9 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* =======================
-   TU DRESDEN–STYLE THEME
-   ======================= */
 :root{
   --bg:#f7f8fa;
   --panel:#ffffff;
@@ -29,9 +26,7 @@ body{
   line-height:1.7;
 }
 
-/* =======================
-   HEADER (PORTAL STYLE)
-   ======================= */
+/* HEADER */
 header{
   background:#ffffff;
   border-bottom:1px solid var(--line);
@@ -44,18 +39,17 @@ header{
 }
 
 .header-inner h1{
-  font-size:2.1rem;
+  font-size:2rem;
   font-weight:600;
 }
 
 .header-inner p{
   color:var(--muted);
   margin-top:6px;
+  font-size:.95rem;
 }
 
-/* =======================
-   NAVIGATION
-   ======================= */
+/* NAV */
 nav{
   background:#ffffff;
   border-bottom:1px solid var(--line);
@@ -67,25 +61,21 @@ nav{
 .nav-inner{
   max-width:1200px;
   margin:auto;
-  padding:12px 32px;
+  padding:10px 32px;
   display:flex;
-  gap:26px;
+  gap:24px;
   flex-wrap:wrap;
 }
 
 .nav-inner a{
   text-decoration:none;
   color:var(--muted);
-  font-size:.95rem;
+  font-size:.9rem;
 }
 
-.nav-inner a:hover{
-  color:var(--accent);
-}
+.nav-inner a:hover{color:var(--accent)}
 
-/* =======================
-   CONTENT SECTIONS
-   ======================= */
+/* SECTIONS */
 section{
   max-width:1200px;
   margin:auto;
@@ -93,7 +83,7 @@ section{
 }
 
 section h2{
-  font-size:1.9rem;
+  font-size:1.8rem;
   color:var(--accent);
   margin-bottom:22px;
 }
@@ -101,12 +91,10 @@ section h2{
 section p{
   max-width:900px;
   color:var(--muted);
-  font-size:1.05rem;
+  font-size:1.02rem;
 }
 
-/* =======================
-   PANELS & GRIDS
-   ======================= */
+/* PANELS */
 .panel{
   background:var(--panel);
   border:1px solid var(--line);
@@ -114,6 +102,7 @@ section p{
   margin-top:26px;
 }
 
+/* GRID */
 .grid-2{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -132,17 +121,13 @@ section p{
   .grid-2,.grid-3{grid-template-columns:1fr}
 }
 
-/* =======================
-   MEDIA
-   ======================= */
+/* MEDIA */
 img,video{
   width:100%;
   border:1px solid var(--line);
 }
 
-/* =======================
-   DOCUMENT LINKS
-   ======================= */
+/* DOC LINKS */
 .doc{
   display:block;
   padding:18px;
@@ -150,35 +135,31 @@ img,video{
   background:#fff;
   text-decoration:none;
   color:var(--text);
+  font-size:.95rem;
 }
 
-.doc:hover{
-  border-color:var(--accent);
-}
+.doc:hover{border-color:var(--accent)}
 
-/* =======================
-   SUBTLE MOTION
-   ======================= */
+/* ENGINEER-CINEMATIC MOTION */
 .reveal{
   opacity:0;
-  transform:translateY(40px);
-  transition:0.9s ease;
+  transform:translateY(24px);
+  transition:0.7s linear;
 }
+
 .reveal.visible{
   opacity:1;
   transform:none;
 }
 
-/* =======================
-   FOOTER
-   ======================= */
+/* FOOTER */
 footer{
   background:#ffffff;
   border-top:1px solid var(--line);
   padding:40px 32px;
   text-align:center;
   color:var(--muted);
-  font-size:.9rem;
+  font-size:.85rem;
 }
 </style>
 </head>
@@ -197,7 +178,6 @@ footer{
     <a href="#profile">Profile</a>
     <a href="#academics">Academic Record</a>
     <a href="#research">Research</a>
-    <a href="#skills">Skills</a>
     <a href="#documents">Documents</a>
     <a href="#recognition">Recognition</a>
     <a href="#access">Why ACCESS</a>
@@ -210,30 +190,27 @@ footer{
   <div class="grid-2">
     <div>
       <p>
-        I am a Civil Engineering graduate with a CGPA of <b>9.5/10</b>
+        Civil Engineering graduate with a CGPA of <b>9.5/10</b>
         (German GPA ≈ <b>1.25</b>), graduating as
         <b>Branch Topper and Gold Medalist</b>.
       </p>
-      <p style="margin-top:16px">
-        My academic interest lies in structural analysis,
-        reinforced concrete design, and computational verification,
-        with a strong focus on understanding structural behaviour
-        beyond formula-based application.
+      <p style="margin-top:14px">
+        Primary academic interest in structural behaviour,
+        reinforced concrete design, and verification-based
+        computational analysis.
       </p>
     </div>
-    <img src="images/Uday_Kiran_Bandari_Profile.png" alt="Profile Photo">
+    <img src="images/Uday_Kiran_Bandari_Profile.png">
   </div>
 </section>
 
 <!-- ACADEMICS -->
 <section id="academics" class="reveal">
   <h2>Academic Record</h2>
-  <div class="panel">
-    <div class="grid-3">
-      <p><b>Degree</b><br>B.E. Civil Engineering</p>
-      <p><b>Performance</b><br>CGPA 9.5 / Gold Medal</p>
-      <p><b>Strength</b><br>Mathematics & Structural Subjects</p>
-    </div>
+  <div class="panel grid-3">
+    <p><b>Degree</b><br>B.E. Civil Engineering</p>
+    <p><b>Performance</b><br>CGPA 9.5 / Gold Medal</p>
+    <p><b>Strength</b><br>Mathematics & Structural Analysis</p>
   </div>
 </section>
 
@@ -242,31 +219,15 @@ footer{
   <h2>Research Orientation</h2>
   <div class="panel">
     <p>
-      Independent research comparing <b>IS 456:2000</b> and
-      <b>Eurocode 2 (EN 1992-1-1)</b> using analytical RC beam design
-      verified through finite element modelling in Abaqus.
-    </p>
-    <p style="margin-top:16px">
-      The focus was on design philosophy, partial safety factors,
-      serviceability behaviour, and numerical verification.
+      Independent research comparing IS 456 and Eurocode 2 through
+      analytical RC beam design verified using finite element
+      modelling in Abaqus.
     </p>
   </div>
-
   <div class="grid-3">
     <img src="images/rc_beam_geometry.png">
     <img src="images/abaqus_mesh_model.png">
     <img src="images/stress_distribution_plot.png">
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="reveal">
-  <h2>Technical & Computational Skills</h2>
-  <div class="panel">
-    <p>
-      AutoCAD, Revit, STAAD.Pro, Abaqus, Python, BIM workflows.
-      Emphasis on verification-based modelling and interpretation.
-    </p>
   </div>
 </section>
 
@@ -278,8 +239,6 @@ footer{
     <a class="doc" href="documents/semester_marksheets.pdf" target="_blank">Semester Marksheets</a>
     <a class="doc" href="documents/degree_certificate.pdf" target="_blank">Degree Certificate</a>
     <a class="doc" href="documents/gold_medal_certificate.pdf" target="_blank">Gold Medal Certificate</a>
-    <a class="doc" href="documents/module_handbook.pdf" target="_blank">Module Handbook</a>
-    <a class="doc" href="documents/internship_certificate.pdf" target="_blank">Internship Certificate</a>
   </div>
 </section>
 
@@ -290,29 +249,33 @@ footer{
     <img src="images/graduation_photo_1.jpg">
     <img src="images/graduation_photo_2.jpg">
   </div>
-  <video controls style="margin-top:26px">
+  <video controls style="margin-top:24px">
     <source src="images/gold_medal_ceremony.mp4" type="video/mp4">
   </video>
 </section>
 
 <!-- WHY ACCESS -->
 <section id="access" class="reveal">
-  <h2>Why ACCESS (TU Dresden)</h2>
-  <div class="panel">
-    <p>
-      The ACCESS program aligns with my interest in computational mechanics,
-      numerical verification, and research-oriented structural engineering.
-    </p>
-    <p style="margin-top:16px">
-      Its academic rigor and emphasis on advanced mechanics
-      provide a strong foundation for doctoral research
-      and long-term academic contribution.
-    </p>
+  <h2>Target Programme</h2>
+
+  <div class="panel grid-2">
+    <div>
+      <p>
+        Target Programme: <b>Advanced Computational Civil Engineering
+        Structural Studies (ACCESS)</b>
+      </p>
+      <p style="margin-top:14px">
+        TU Dresden provides an academically rigorous environment
+        aligned with computational mechanics, numerical methods,
+        and research-oriented structural engineering.
+      </p>
+    </div>
+    <img src="images/tu_dresden_logo.png" alt="TU Dresden Logo">
   </div>
 </section>
 
 <footer>
-© Uday Kiran Bandari · Academic Profile · 2026
+Prepared independently · Academic profile · 2026
 </footer>
 
 <script>
