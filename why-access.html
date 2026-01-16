@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Why ACCESS | Uday Kiran Bandari</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121a2f;
+      --accent:#4f9cff;
+      --text:#e6ebf5;
+      --muted:#9aa4bf;
+      --line:rgba(255,255,255,0.08);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:"Inter",system-ui,sans-serif;
+    }
+
+    body{
+      background:linear-gradient(180deg,#0b1220,#0e1730);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    /* ---------- TOP NAVIGATION ---------- */
+    .top-nav{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11,18,32,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner{
+      max-width: 1100px;
+      margin: auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand a{
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .links a{
+      margin-left: 18px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .links a:hover{
+      color: var(--accent);
+    }
+    /* ------------------------------------ */
+
+    section{
+      max-width:1100px;
+      margin:auto;
+      padding:90px 24px;
+    }
+
+    h1{
+      font-size:3rem;
+      letter-spacing:-1px;
+    }
+
+    h2{
+      color:var(--accent);
+      font-size:2.1rem;
+      margin-bottom:18px;
+    }
+
+    p{
+      color:var(--muted);
+      max-width:900px;
+      font-size:1.05rem;
+    }
+
+    .divider{
+      height:1px;
+      background:linear-gradient(to right,transparent,var(--line),transparent);
+      margin:70px 0;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      padding:34px;
+      box-shadow:0 25px 60px rgba(0,0,0,0.35);
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all 1.1s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    footer{
+      text-align:center;
+      padding:50px 20px;
+      color:var(--muted);
+      font-size:.95rem;
+      border-top:1px solid var(--line);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <a href="index.html">Uday Kiran Bandari</a>
+    </div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="documents.html">Documents</a>
+      <a href="recognition.html">Recognition</a>
+      <a href="why-access.html">Why ACCESS</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<section class="reveal">
+  <h1>Why ACCESS?</h1>
+  <p>
+    This page explains my academic motivation for applying to the MSc
+    Advanced Computational Civil Engineering Structural Studies (ACCESS)
+    program and how my background aligns with its research-oriented structure.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<!-- MOTIVATION -->
+<section class="reveal">
+  <h2>Academic Motivation</h2>
+
+  <div class="card">
+    <p>
+      My academic interests have always been strongly connected to
+      mathematics, mechanics, and analytical problem-solving.
+      During my undergraduate studies in Civil Engineering,
+      I developed a particular interest in understanding structural behaviour
+      beyond formula-based design, which motivated me to explore
+      computational and numerical methods.
+    </p>
+
+    <p style="margin-top:14px;">
+      Through coursework, projects, and independent study,
+      I realized that modern structural engineering increasingly relies on
+      simulation-based analysis to complement traditional code-based design.
+      This realization shaped my decision to pursue advanced training
+      in computational civil engineering.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PREPARATION -->
+<section class="reveal">
+  <h2>Preparation for Computational Engineering</h2>
+
+  <div class="card">
+    <p>
+      During my bachelor’s degree, I completed a 15-week internship
+      at Medini Technologies in association with BIM Construct,
+      where I was trained in tools such as AutoCAD, Revit, STAAD.Pro,
+      Primavera, Lumion, and SketchUp.
+      This exposure helped me understand how digital workflows
+      improve efficiency and accuracy in structural design.
+    </p>
+
+    <p style="margin-top:14px;">
+      I also gained introductory experience in Python and C programming,
+      which sparked my interest in numerical methods and algorithmic thinking.
+      After graduation, I further strengthened this interest by carrying out
+      an independent mini research project comparing Indian Standards (IS 456)
+      with Eurocode 2 using finite element simulations in Abaqus.
+      This work gave me my first structured exposure to
+      code comparison and verification-based modelling.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY ACCESS -->
+<section class="reveal">
+  <h2>Why the ACCESS Program</h2>
+
+  <div class="card">
+    <p>
+      After evaluating several leading programs in structural and civil engineering,
+      including those at RWTH Aachen and the University of Stuttgart,
+      I found that the ACCESS program at TU Dresden aligns most closely
+      with my academic goals.
+    </p>
+
+    <p style="margin-top:14px;">
+      The program’s strong emphasis on computational methods,
+      flexible elective structure, and mentoring support
+      provides an ideal environment for refining research interests.
+      Modules related to computational dynamics,
+      bridge design, digital twins, and BIM-based approaches
+      directly match my current academic focus,
+      while still allowing room for exploration and specialization.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FUTURE -->
+<section class="reveal">
+  <h2>Academic and Long-Term Goals</h2>
+
+  <div class="card">
+    <p>
+      In the short term, my goal is to apply the knowledge gained from ACCESS
+      to computational design and simulation-oriented roles in industry
+      or research institutions.
+      In the long term, I aim to pursue a PhD and develop a career
+      as a researcher and educator in structural engineering.
+    </p>
+
+    <p style="margin-top:14px;">
+      I am particularly interested in developing code-adaptable
+      and sustainable design methodologies that can be applied
+      across different regulatory environments.
+      I believe the research-oriented training offered by ACCESS
+      provides the right foundation to achieve these goals.
+    </p>
+  </div>
+</section>
+
+<footer>
+  Why ACCESS · Academic Motivation  
+  <br>Uday Kiran Bandari
+</footer>
+
+<script>
+  const reveals=document.querySelectorAll('.reveal');
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  },{threshold:0.2});
+  reveals.forEach(r=>observer.observe(r));
+</script>
+
+</body>
+</html>
