@@ -30,6 +30,44 @@
       line-height: 1.7;
     }
 
+    /* ---------- TOP NAVIGATION ---------- */
+    .top-nav{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11,18,32,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner{
+      max-width: 1100px;
+      margin: auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand a{
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .links a{
+      margin-left: 18px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .links a:hover{
+      color: var(--accent);
+    }
+    /* ------------------------------------ */
+
     section {
       max-width: 1100px;
       margin: auto;
@@ -65,7 +103,6 @@
       margin: 70px 0;
     }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -86,7 +123,6 @@
       color: var(--accent);
     }
 
-    /* CARD */
     .card {
       background: var(--card);
       border-radius: 16px;
@@ -94,7 +130,6 @@
       box-shadow: 0 25px 60px rgba(0,0,0,0.35);
     }
 
-    /* GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -102,7 +137,6 @@
       margin-top: 30px;
     }
 
-    /* IMAGE BLOCK */
     .img-block img {
       width: 100%;
       border-radius: 12px;
@@ -110,7 +144,6 @@
       box-shadow: 0 18px 40px rgba(0,0,0,0.45);
     }
 
-    /* FADE ANIMATION */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -141,6 +174,21 @@
 
 <body>
 
+<!-- NAVIGATION -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <a href="index.html">Uday Kiran Bandari</a>
+    </div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="documents.html">Documents</a>
+      <a href="recognition.html">Recognition</a>
+    </div>
+  </div>
+</nav>
+
 <!-- HERO / IDENTITY -->
 <section class="hero reveal">
   <div>
@@ -167,97 +215,11 @@
 <!-- ACADEMIC PROFILE -->
 <section class="reveal">
   <h2>Academic Profile</h2>
-
   <div class="card">
     <p>
       I completed my Bachelor of Engineering in Civil Engineering at
       <b>Ballari Institute of Technology and Management</b>, graduating as
       <b>Branch Topper and Gold Medalist</b>.
-    </p>
-
-    <div class="grid">
-      <div>
-        <h3>Core Strengths</h3>
-        <p>
-          Structural Analysis, Reinforced Concrete Design, Numerical Methods,
-          Operational Research, and Engineering Mathematics.
-        </p>
-      </div>
-
-      <div>
-        <h3>Academic Consistency</h3>
-        <p>
-          Strong performance from secondary education through undergraduate studies,
-          with particular excellence in Mathematics and Structural Engineering subjects.
-        </p>
-      </div>
-
-      <div>
-        <h3>Teaching Experience</h3>
-        <p>
-          Currently working as a full-time Mathematics Teacher, strengthening
-          conceptual clarity, communication skills, and pedagogical thinking —
-          essential qualities for research and academia.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- RESEARCH PREVIEW -->
-<section class="reveal">
-  <h2>Research Orientation</h2>
-
-  <p>
-    My primary academic interest lies in bridging traditional code-based design
-    with numerical verification and computational methods.
-  </p>
-
-  <div class="grid">
-    <div class="card img-block">
-      <h3>RC Beam Geometry</h3>
-      <p>Defined problem geometry for comparative design using IS 456 and Eurocode 2.</p>
-      <img src="images/rc_beam_geometry.png" alt="RC Beam Geometry">
-    </div>
-
-    <div class="card img-block">
-      <h3>Finite Element Modelling</h3>
-      <p>3D solid finite-element discretization and boundary condition modelling in Abaqus.</p>
-      <img src="images/abaqus_mesh_model.png" alt="Abaqus FEM Mesh">
-    </div>
-
-    <div class="card img-block">
-      <h3>Stress Distribution</h3>
-      <p>Von-Mises stress contours used to verify analytical design assumptions.</p>
-      <img src="images/stress_distribution_plot.png" alt="Stress Distribution">
-    </div>
-  </div>
-
-  <p style="margin-top:30px;">
-    This research demonstrates my ability to combine manual design,
-    numerical reasoning, and verification-based engineering thinking —
-    a core requirement of research-oriented master’s programs such as ACCESS.
-  </p>
-</section>
-
-<div class="divider"></div>
-
-<!-- RECOGNITION -->
-<section class="reveal">
-  <h2>Recognition & Achievement</h2>
-
-  <div class="card">
-    <p>
-      Awarded the <b>Gold Medal for Academic Excellence</b> as Branch Topper
-      in Civil Engineering — a recognition of sustained academic discipline,
-      conceptual strength, and commitment to engineering fundamentals.
-    </p>
-
-    <p style="margin-top:16px;">
-      This milestone represents not just high grades, but a consistent
-      approach to learning, problem-solving, and intellectual growth.
     </p>
   </div>
 </section>
@@ -276,7 +238,6 @@
       }
     });
   }, { threshold: 0.2 });
-
   reveals.forEach(r => observer.observe(r));
 </script>
 
