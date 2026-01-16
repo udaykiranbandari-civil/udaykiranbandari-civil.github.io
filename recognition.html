@@ -30,6 +30,44 @@
       line-height:1.7;
     }
 
+    /* ---------- TOP NAVIGATION ---------- */
+    .top-nav{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11,18,32,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner{
+      max-width: 1100px;
+      margin: auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand a{
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .links a{
+      margin-left: 18px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .links a:hover{
+      color: var(--accent);
+    }
+    /* ------------------------------------ */
+
     section{
       max-width:1100px;
       margin:auto;
@@ -92,7 +130,6 @@
       color:var(--muted);
     }
 
-    /* reveal */
     .reveal{
       opacity:0;
       transform:translateY(40px);
@@ -114,6 +151,21 @@
 </head>
 
 <body>
+
+<!-- NAVIGATION -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <a href="index.html">Uday Kiran Bandari</a>
+    </div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="documents.html">Documents</a>
+      <a href="recognition.html">Recognition</a>
+    </div>
+  </div>
+</nav>
 
 <!-- HEADER -->
 <section class="reveal">
@@ -156,14 +208,14 @@
 
   <div class="grid">
     <div class="photo">
-      <img src="images/graduation_photo_1.jpg" alt="Graduation Ceremony Photo 1">
+      <img src="images/graduation_photo_1.jpg">
       <div class="caption">
         Receiving the Gold Medal during the official graduation ceremony.
       </div>
     </div>
 
     <div class="photo">
-      <img src="images/graduation_photo_2.jpg" alt="Graduation Ceremony Photo 2">
+      <img src="images/graduation_photo_2.jpg">
       <div class="caption">
         Formal recognition on stage in the presence of faculty and peers.
       </div>
@@ -175,23 +227,17 @@
 
 <!-- CEREMONY VIDEO -->
 <section class="reveal">
-  <h2>Ceremony Video (22 seconds)</h2>
+  <h2>Ceremony Video</h2>
 
   <div class="card">
     <p>
-      A brief excerpt from the graduation ceremony capturing the moment
-      of receiving the Gold Medal.
-      Included for authenticity and verification.
+      A brief official excerpt from the graduation ceremony documenting
+      the award presentation.
     </p>
 
     <video controls>
       <source src="images/gold_medal_ceremony.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
-
-    <div class="caption">
-      Short official clip documenting the award presentation.
-    </div>
   </div>
 </section>
 
