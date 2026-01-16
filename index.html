@@ -17,12 +17,7 @@
   --border:rgba(255,255,255,.12);
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Inter,sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
 
 body{
   background:linear-gradient(180deg,#0b1220,#0e1730);
@@ -30,7 +25,6 @@ body{
   line-height:1.85;
 }
 
-/* Layout */
 section{
   max-width:1200px;
   margin:auto;
@@ -41,11 +35,7 @@ h1{font-size:3.2rem;font-weight:900}
 h2{font-size:2.3rem;color:var(--accent);margin-bottom:24px}
 h3{font-size:1.35rem;margin-bottom:12px}
 
-p{
-  color:var(--muted);
-  max-width:980px;
-  font-size:1.05rem;
-}
+p{color:var(--muted);max-width:980px;font-size:1.05rem}
 
 .divider{
   height:1px;
@@ -53,13 +43,14 @@ p{
   margin:100px 0;
 }
 
-/* Cards & grid */
 .card{
   background:var(--panel);
   padding:40px;
   border-radius:18px;
   border:1px solid var(--border);
   box-shadow:0 30px 70px rgba(0,0,0,.55);
+  position:relative;
+  overflow:visible;
 }
 
 .grid{
@@ -76,15 +67,8 @@ img{
   box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
-/* Profile image */
-.profile-img{
-  max-width:260px;
-}
-
-/* Recognition images */
-.recognition-img{
-  max-width:420px;
-}
+.profile-img{max-width:260px}
+.recognition-img{max-width:420px}
 
 /* Video */
 video{
@@ -94,8 +78,8 @@ video{
   box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
-/* PDF thumbnails (image-like) */
-iframe{
+/* Certificate PDF thumbnails */
+.cert-frame{
   width:100%;
   height:260px;
   border:none;
@@ -103,7 +87,14 @@ iframe{
   margin-top:16px;
   background:#111;
   box-shadow:0 12px 30px rgba(0,0,0,.6);
-  pointer-events:none; /* looks like image */
+  transition:transform .35s ease, box-shadow .35s ease;
+  pointer-events:none;
+}
+
+.cert-frame:hover{
+  transform:scale(1.25);
+  box-shadow:0 40px 90px rgba(0,0,0,.85);
+  z-index:20;
 }
 
 .caption{
@@ -120,14 +111,13 @@ footer{
 }
 
 @media(max-width:900px){
-  .profile-img{margin:auto}
+  .cert-frame:hover{transform:none}
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <section>
   <h1>Uday Kiran Bandari</h1>
   <p>
@@ -135,53 +125,44 @@ footer{
     Research-oriented civil engineer focused on computational structural engineering,
     reinforced concrete behaviour, and Eurocode-based design philosophy.
   </p>
-  <img src="images/Uday_Kiran_Bandari_Profile.png"
-       alt="Uday Kiran Bandari"
-       class="profile-img">
+  <img src="images/Uday_Kiran_Bandari_Profile.png" class="profile-img">
 </section>
 
 <div class="divider"></div>
 
-<!-- WHO I AM -->
 <section>
   <h2>Who I Am</h2>
   <div class="card">
     <p>
-      I am a civil engineering graduate driven by a deep curiosity for
-      structural behaviour and the mechanics behind design codes.
-      My academic approach emphasizes understanding assumptions,
-      verification of results, and disciplined engineering reasoning.
+      I am a civil engineering graduate driven by a deep curiosity for structural
+      behaviour and the mechanics behind design codes. My academic approach emphasizes
+      verification, reasoning, and engineering judgement.
     </p>
     <p>
-      Rather than applying formulas mechanically, I focus on why
-      structures behave the way they do and how safety philosophies
-      influence design decisions.
+      Rather than applying formulas mechanically, I focus on understanding
+      assumptions, limitations, and real structural response.
     </p>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- RESEARCH PHILOSOPHY -->
 <section>
   <h2>Research Philosophy</h2>
   <div class="card">
     <p>
-      My research philosophy is built around verification-based engineering.
-      Analytical calculations must be supported by numerical simulations
-      to gain confidence in structural behaviour.
+      My work is grounded in verification-based engineering — analytical design
+      supported by numerical simulation to validate assumptions and behaviour.
     </p>
     <p>
-      I am particularly interested in the transition from Indian Standards
-      (IS 456) to European design philosophy (Eurocodes), especially in
-      partial safety factors, serviceability checks, and stress distribution.
+      I am particularly interested in IS-to-Eurocode transition, partial safety
+      factors, serviceability behaviour, and stress distribution.
     </p>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- PROJECTS -->
 <section>
   <h2>Research, Projects & Internship</h2>
   <div class="grid">
@@ -189,53 +170,41 @@ footer{
     <div class="card">
       <h3>Comparative RC Beam Design (IS 456 vs Eurocode 2)</h3>
       <p>
-        Independent analytical and numerical study of a singly reinforced
-        concrete beam designed using IS 456:2000 and EN 1992-1-1.
+        Analytical and numerical study of a singly reinforced concrete beam.
+        Manual design was verified using Abaqus finite element modelling.
       </p>
-      <p>
-        Manual design calculations were followed by finite element
-        verification using Abaqus to study stress distribution and
-        behavioural differences.
-      </p>
-      <img src="images/rc_beam_geometry.png" alt="RC Beam Geometry">
-      <div class="caption">RC beam geometry used for analytical comparison</div>
+      <img src="images/rc_beam_geometry.png">
+      <div class="caption">RC beam geometry</div>
     </div>
 
     <div class="card">
-      <h3>Finite Element Modelling & Verification</h3>
+      <h3>Finite Element Modelling</h3>
       <p>
-        The beam was modelled as a 3D solid with appropriate material
-        properties and boundary conditions to reflect analytical assumptions.
+        3D solid modelling with stress verification and comparison
+        against analytical bending theory.
       </p>
-      <img src="images/abaqus_mesh_model.png" alt="Abaqus FEM Model">
-      <img src="images/stress_distribution_plot.png" alt="Stress Distribution">
+      <img src="images/abaqus_mesh_model.png">
+      <img src="images/stress_distribution_plot.png">
     </div>
 
     <div class="card">
       <h3>Overflow Detection in Drainage Systems (ODDS)</h3>
       <p>
-        Academic project addressing overflow monitoring in urban
-        drainage systems using sensor-based logic.
+        Sensor-based monitoring project addressing overflow
+        detection in urban drainage systems.
       </p>
-      <img src="images/project_odds.jpg" alt="Overflow Detection Project">
-      <div class="caption">
-        Prototype and system workflow developed for overflow detection
-        in urban drainage infrastructure.
-      </div>
+      <img src="images/project_odds.jpg">
+      <div class="caption">System prototype and workflow</div>
       <p>
-        Awarded <b>2nd Prize</b> in a technical poster presentation.
+        Awarded <b>2nd Prize</b> in technical poster presentation.
       </p>
     </div>
 
     <div class="card">
       <h3>Industry Internship – Medini Technologies</h3>
       <p>
-        Completed a 15-week internship focusing on professional drafting,
-        modelling, and engineering documentation workflows.
-      </p>
-      <p>
-        Gained exposure to AutoCAD, Revit-based modelling, and
-        coordination drawings following industry standards.
+        15-week internship focusing on professional drafting,
+        BIM workflows, and engineering documentation.
       </p>
     </div>
 
@@ -244,63 +213,54 @@ footer{
 
 <div class="divider"></div>
 
-<!-- DOCUMENTS -->
 <section>
   <h2>Academic Records & Certifications</h2>
   <div class="grid">
 
-    <div class="card"><h3>Degree Certificate</h3><iframe src="documents/degree_certificate.pdf"></iframe></div>
-    <div class="card"><h3>Merit / Gold Medal Certificate</h3><iframe src="documents/merit_certificate.pdf"></iframe></div>
-    <div class="card"><h3>Consolidated Transcript</h3><iframe src="documents/transcript.pdf"></iframe></div>
-    <div class="card"><h3>Semester Marksheets</h3><iframe src="documents/semester_marksheets.pdf"></iframe></div>
+    <div class="card"><h3>Degree Certificate</h3><a href="documents/degree_certificate.pdf" target="_blank"><iframe src="documents/degree_certificate.pdf" class="cert-frame"></iframe></a></div>
+    <div class="card"><h3>Merit / Gold Medal</h3><a href="documents/merit_certificate.pdf" target="_blank"><iframe src="documents/merit_certificate.pdf" class="cert-frame"></iframe></a></div>
+    <div class="card"><h3>Transcript</h3><a href="documents/transcript.pdf" target="_blank"><iframe src="documents/transcript.pdf" class="cert-frame"></iframe></a></div>
+    <div class="card"><h3>Semester Marksheets</h3><a href="documents/semester_marksheets.pdf" target="_blank"><iframe src="documents/semester_marksheets.pdf" class="cert-frame"></iframe></a></div>
 
-    <div class="card"><h3>AUTOCAD</h3><iframe src="documents/AUTOCAD.pdf"></iframe></div>
-    <div class="card"><h3>INTRENSHIP</h3><iframe src="documents/INTRENSHIP.pdf"></iframe></div>
-    <div class="card"><h3>LUMION</h3><iframe src="documents/LUMION.pdf"></iframe></div>
-    <div class="card"><h3>PRIMEVERA</h3><iframe src="documents/PRIMEVERA.pdf"></iframe></div>
-    <div class="card"><h3>REVIT ARCH</h3><iframe src="documents/REVIT ARCH.pdf"></iframe></div>
-    <div class="card"><h3>REVIT MEP</h3><iframe src="documents/REVIT MEP.pdf"></iframe></div>
-    <div class="card"><h3>SKETCHUP</h3><iframe src="documents/SKETCHUP.pdf"></iframe></div>
-    <div class="card"><h3>STAADPRO</h3><iframe src="documents/STAADPRO.pdf"></iframe></div>
+    <div class="card"><h3>AUTOCAD</h3><a href="documents/AUTOCAD.pdf" target="_blank"><iframe src="documents/AUTOCAD.pdf" class="cert-frame"></iframe></a></div>
+    <div class="card"><h3>INTRENSHIP</h3><a href="documents/INTRENSHIP.pdf" target="_blank"><iframe src="documents/INTRENSHIP.pdf" class="cert-frame"></iframe></a></div>
+    <div class="card"><h3>LUMION</h3><a href="documents/LUMION.pdf" target="_blank"><iframe src="documents/LUMION.pdf" class="cert-frame"></iframe></a></div>
+    <div class="card"><h3>PRIMEVERA</h3><a href="documents/PRIMEVERA.pdf" target="_blank"><iframe src="documents/PRIMEVERA.pdf" class="cert-frame"></iframe></a></div>
+    <div class="card"><h3>REVIT ARCH</h3><a href="documents/REVIT ARCH.pdf" target="_blank"><iframe src="documents/REVIT ARCH.pdf" class="cert-frame"></iframe></a></div>
+    <div class="card"><h3>REVIT MEP</h3><a href="documents/REVIT MEP.pdf" target="_blank"><iframe src="documents/REVIT MEP.pdf" class="cert-frame"></iframe></a></div>
+    <div class="card"><h3>SKETCHUP</h3><a href="documents/SKETCHUP.pdf" target="_blank"><iframe src="documents/SKETCHUP.pdf" class="cert-frame"></iframe></a></div>
+    <div class="card"><h3>STAADPRO</h3><a href="documents/STAADPRO.pdf" target="_blank"><iframe src="documents/STAADPRO.pdf" class="cert-frame"></iframe></a></div>
 
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- GRADUATION -->
 <section>
   <h2>Graduation & Recognition</h2>
   <div class="grid">
-    <img src="images/graduation_photo_1.jpg"
-         alt="Graduation Ceremony Photo 1"
-         class="recognition-img">
-    <img src="images/graduation_photo_2.jpg"
-         alt="Graduation Ceremony Photo 2"
-         class="recognition-img">
+    <img src="images/graduation_photo_1.jpg" class="recognition-img">
+    <img src="images/graduation_photo_2.jpg" class="recognition-img">
   </div>
 
   <video controls muted preload="auto">
     <source src="videos/gold_medal_ceremony.mp4" type="video/mp4">
-    Your browser does not support the video tag.
   </video>
 </section>
 
 <div class="divider"></div>
 
-<!-- WHY ACCESS -->
 <section>
   <h2>Why ACCESS – TU Dresden</h2>
   <div class="card">
     <p>
-      ACCESS aligns directly with my academic direction and long-term goals.
-      Its emphasis on structural mechanics, numerical methods,
-      and Eurocode-based design reflects the way I already approach
-      engineering problems.
+      ACCESS aligns directly with my academic direction and research goals.
+      Its emphasis on structural mechanics, numerical methods, and Eurocode-based
+      design mirrors the way I approach engineering problems.
     </p>
     <p>
-      I see ACCESS not as a change in direction, but as a continuation
-      of my effort to develop into a research-oriented structural engineer.
+      I view ACCESS as a continuation of my academic discipline,
+      not a redirection — a step toward advanced research and doctoral study.
     </p>
   </div>
 </section>
