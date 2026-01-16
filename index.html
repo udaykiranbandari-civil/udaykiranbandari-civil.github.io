@@ -5,340 +5,222 @@
 <title>Uday Kiran Bandari | Academic Dossier</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#050a14;
-  --panel:#0c1426;
-  --card:#101b34;
+  --bg:#0b1220;
+  --card:#121a2f;
   --accent:#4f9cff;
-  --accent2:#7dd3fc;
-  --text:#e8edf6;
-  --muted:#9aa6c2;
-  --line:rgba(255,255,255,.08);
+  --text:#e6ebf5;
+  --muted:#9aa4bf;
+  --line:rgba(255,255,255,0.08);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui}
 
 body{
-  background:radial-gradient(circle at 20% 10%,#0e1a3a,#050a14 70%);
+  background:linear-gradient(180deg,#0b1220,#0e1730);
   color:var(--text);
   overflow-x:hidden;
 }
 
-section{
-  max-width:1400px;
-  margin:auto;
-  padding:120px 32px;
+/* ===== INTRO VIDEO ===== */
+#intro{
+  position:fixed;
+  inset:0;
+  background:black;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-h1{font-size:4rem;font-weight:900}
-h2{font-size:2.6rem;color:var(--accent);margin-bottom:24px}
-h3{font-size:1.4rem;margin-bottom:12px}
-p{color:var(--muted);font-size:1.1rem;line-height:1.9}
+#intro video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+#enterBtn{
+  position:absolute;
+  bottom:60px;
+  padding:14px 28px;
+  font-size:1rem;
+  border:none;
+  border-radius:30px;
+  background:rgba(0,0,0,0.6);
+  color:white;
+  cursor:pointer;
+  backdrop-filter:blur(10px);
+}
+
+/* ===== MAIN CONTENT ===== */
+main{
+  opacity:0;
+  transition:opacity 1.5s ease;
+}
+
+main.show{
+  opacity:1;
+}
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:100px 24px;
+}
+
+h1{font-size:3rem}
+h2{color:var(--accent);margin-bottom:18px}
+p{color:var(--muted);max-width:900px}
+
+.card{
+  background:var(--card);
+  border-radius:16px;
+  padding:32px;
+  box-shadow:0 25px 60px rgba(0,0,0,.4);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:26px;
+}
+
+img,video{
+  width:100%;
+  border-radius:14px;
+  margin-top:16px;
+}
 
 .divider{
   height:1px;
-  margin:120px auto;
-  max-width:1100px;
   background:linear-gradient(to right,transparent,var(--line),transparent);
+  margin:80px 0;
 }
 
-/* INTRO VIDEO */
-#intro{
-  position:fixed;inset:0;z-index:9999;background:black
-}
-#intro video{width:100%;height:100%;object-fit:cover}
-#enter{
-  position:absolute;bottom:30px;right:30px;
-  padding:10px 20px;border:1px solid var(--accent);
-  background:rgba(0,0,0,.6);color:white;cursor:pointer
-}
-
-main{opacity:0;transition:opacity 2.2s ease}
-
-/* HERO */
-.hero{
-  display:grid;
-  grid-template-columns:1.4fr 1fr;
-  gap:80px;
-  align-items:center;
-}
-.hero img{
-  width:320px;border-radius:50%;
-  border:4px solid var(--accent);
-  box-shadow:0 0 80px rgba(79,156,255,.45);
-}
-
-/* CARDS */
-.card{
-  background:linear-gradient(180deg,#111c36,#0b1329);
-  border-radius:22px;
-  padding:44px;
-  box-shadow:0 40px 100px rgba(0,0,0,.6);
-  position:relative;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:36px;
-}
-
-/* REVEAL */
+/* Reveal animation */
 .reveal{
   opacity:0;
-  transform:translateY(70px);
-  transition:1.3s cubic-bezier(.2,.7,.3,1)
+  transform:translateY(40px);
+  transition:all 1.1s ease;
 }
-.reveal.show{opacity:1;transform:none}
-
-/* TIMELINE */
-.timeline{
-  border-left:2px solid var(--accent);
-  padding-left:40px;
-}
-.event{
-  margin-bottom:60px;
-  position:relative;
-}
-.event::before{
-  content:"";
-  position:absolute;
-  left:-51px;top:6px;
-  width:14px;height:14px;
-  background:var(--accent);
-  border-radius:50%;
-  box-shadow:0 0 18px var(--accent);
+.reveal.visible{
+  opacity:1;
+  transform:none;
 }
 
-/* HOVER DETAILS */
-.details{
-  margin-top:14px;
-  padding:14px;
-  background:#0a1330;
-  border-radius:12px;
-  display:none;
-  font-size:.95rem;
-}
-.card:hover .details{display:block}
-
-/* EUROCODE SYMBOLS */
-.symbols{
-  font-size:1.2rem;
-  color:var(--accent2);
-  opacity:.6;
-  animation:float 6s infinite alternate;
-}
-@keyframes float{
-  from{transform:translateY(0)}
-  to{transform:translateY(-14px)}
-}
-
-/* DOC LINKS */
-.doc{
-  border:1px solid var(--line);
-  padding:22px;border-radius:16px;
-  transition:.4s
-}
-.doc:hover{
-  transform:translateY(-8px);
-  border-color:var(--accent)
-}
-.doc a{
-  display:inline-block;margin-top:10px;
-  color:var(--accent);text-decoration:none;font-weight:600
-}
-
-/* MEDIA */
-img,video{
-  width:100%;
-  border-radius:18px;
-  box-shadow:0 30px 70px rgba(0,0,0,.6)
-}
-
-/* FOOTER */
 footer{
-  text-align:center;padding:70px;
+  text-align:center;
+  padding:60px;
+  color:var(--muted);
   border-top:1px solid var(--line);
-  color:var(--muted)
-}
-
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr;text-align:center}
 }
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
+<!-- ===== INTRO ===== -->
 <div id="intro">
-  <video autoplay muted playsinline>
+  <video id="introVideo" autoplay muted playsinline>
     <source src="videos/gold_medal_ceremony.mp4" type="video/mp4">
   </video>
-  <button id="enter">Enter Academic Dossier</button>
+  <button id="enterBtn">Enter Academic Dossier</button>
 </div>
 
-<main id="main">
+<!-- ===== MAIN ===== -->
+<main id="content">
 
-<!-- HERO -->
-<section class="hero reveal">
-  <div>
-    <h1>Uday Kiran <span style="color:var(--accent)">Bandari</span></h1>
+<section class="reveal">
+  <h1>Uday Kiran Bandari</h1>
+  <p>
+    Gold Medalist in Civil Engineering (CGPA 9.5 · German GPA ≈ 1.25).
+    Research-oriented engineer focusing on computational structural engineering,
+    Eurocode-based design, and finite-element verification.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<section class="reveal">
+  <h2>Research Philosophy</h2>
+  <div class="card">
     <p>
-      Gold Medalist · Civil Engineer · Research-Oriented Candidate<br>
-      CGPA 9.5 / German GPA ≈ 1.25
+      I approach structural engineering as a balance between
+      analytical reasoning and numerical verification.
+      My interest lies in understanding how design codes translate
+      safety philosophy into structural behaviour.
     </p>
-    <p>
-      Focused on <b>computational structural engineering</b>,
-      Eurocode-based design philosophy, and verification-driven analysis.
-    </p>
-    <div class="symbols">γ<sub>G</sub> · γ<sub>Q</sub> · f<sub>ck</sub> · E<sub>cm</sub></div>
   </div>
-  <img src="images/Uday_Kiran_Bandari_Profile.png">
 </section>
 
 <div class="divider"></div>
 
-<!-- RESEARCH PHILOSOPHY -->
 <section class="reveal">
-<h2>Research Philosophy</h2>
-<div class="card">
-<p>
-I believe structural engineering is not the application of clauses,
-but the interpretation of <b>structural behaviour</b>.
-Codes are tools — not answers.
-</p>
-<p>
-My approach emphasizes:
-<ul style="margin-top:18px;color:var(--muted)">
-<li>Understanding assumptions behind code equations</li>
-<li>Verifying analytical design through numerical simulation</li>
-<li>Interpreting results using mechanics, not software output</li>
-</ul>
-</p>
-</div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PROJECT TIMELINE -->
-<section class="reveal">
-<h2>Recent Research, Projects & Internship</h2>
-
-<div class="timeline">
-
-  <div class="event card">
-    <h3>Comparative RC Beam Design (IS 456 vs Eurocode 2)</h3>
-    <p>
-      Analytical design and finite element verification of a singly reinforced
-      concrete beam under limit state design.
-    </p>
-    <div class="details">
-      <b>Assumptions:</b> Plane sections remain plane, linear elastic analysis<br>
-      <b>Verification:</b> Von-Mises stress contours in Abaqus<br>
-      <b>Insight:</b> Eurocode partial factors influence stress redistribution
+  <h2>Recent Research & Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>IS 456 vs Eurocode 2 RC Beam</h3>
+      <p>Manual design + Abaqus FEA verification.</p>
+      <img src="images/rc_beam_geometry.png">
+    </div>
+    <div class="card">
+      <h3>Finite Element Modelling</h3>
+      <p>3D solid discretization & stress validation.</p>
+      <img src="images/abaqus_mesh_model.png">
+    </div>
+    <div class="card">
+      <h3>Stress Behaviour</h3>
+      <p>Von-Mises stress interpretation.</p>
+      <img src="images/stress_distribution_plot.png">
     </div>
   </div>
+</section>
 
-  <div class="event card">
-    <h3>Overflow Detection in Drainage Systems (ODDS)</h3>
-    <p>
-      Infrastructure monitoring project focused on overflow detection
-      in urban drainage networks.
-    </p>
-    <div class="details">
-      <b>Approach:</b> System logic & sensor-based monitoring<br>
-      <b>Outcome:</b> 2nd Prize in technical poster presentation
+<div class="divider"></div>
+
+<section class="reveal">
+  <h2>Recognition</h2>
+  <div class="grid">
+    <div>
+      <img src="images/graduation_photo_1.jpg">
+    </div>
+    <div>
+      <img src="images/graduation_photo_2.jpg">
     </div>
   </div>
-
-  <div class="event card">
-    <h3>Industry Internship – Medini Technologies Pvt. Ltd.</h3>
-    <p>
-      15-week internship focusing on professional drafting,
-      modelling, and documentation workflows.
-    </p>
-    <div class="details">
-      <b>Exposure:</b> AutoCAD, Revit, coordination drawings<br>
-      <b>Learning:</b> Accuracy, accountability, professional standards
-    </div>
-  </div>
-
-</div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CERTIFICATIONS -->
-<section class="reveal">
-<h2>Certifications & Technical Credentials</h2>
-<div class="grid">
-  <div class="doc">AUTOCAD<a href="documents/AUTOCAD.pdf">Reviewer Download</a></div>
-  <div class="doc">INTRENSHIP<a href="documents/INTRENSHIP.pdf">Reviewer Download</a></div>
-  <div class="doc">LUMION<a href="documents/LUMION.pdf">Reviewer Download</a></div>
-  <div class="doc">PRIMEVERA<a href="documents/PRIMEVERA.pdf">Reviewer Download</a></div>
-  <div class="doc">REVIT ARCH<a href="documents/REVIT ARCH.pdf">Reviewer Download</a></div>
-  <div class="doc">REVIT MEP<a href="documents/REVIT MEP.pdf">Reviewer Download</a></div>
-  <div class="doc">SKETCHUP<a href="documents/SKETCHUP.pdf">Reviewer Download</a></div>
-  <div class="doc">STAADPRO<a href="documents/STAADPRO.pdf">Reviewer Download</a></div>
-</div>
-</section>
-
-<div class="divider"></div>
-
-<!-- RECOGNITION -->
-<section class="reveal">
-<h2>Recognition</h2>
-<div class="grid">
-  <img src="images/graduation_photo_1.jpg">
-  <img src="images/graduation_photo_2.jpg">
-</div>
-</section>
-
-<div class="divider"></div>
-
-<!-- WHY ACCESS -->
-<section class="reveal">
-<h2>Why ACCESS – TU Dresden</h2>
-<div class="card">
-<p>
-ACCESS aligns precisely with my academic direction:
-mechanics-driven design, Eurocode philosophy,
-and computational verification.
-</p>
-<p>
-The program’s emphasis on structural mechanics,
-numerical methods, and research depth reflects
-how I already approach engineering problems —
-making ACCESS not a transition, but a continuation.
-</p>
-</div>
 </section>
 
 <footer>
-Academic Dossier · Uday Kiran Bandari · 2026
+Academic Dossier · Prepared for TU Dresden ACCESS  
+<br>Uday Kiran Bandari
 </footer>
 
 </main>
 
 <script>
+/* ===== INTRO EXIT SAFE ===== */
 const intro=document.getElementById("intro");
-const main=document.getElementById("main");
-document.getElementById("enter").onclick=()=>{
-  intro.style.display="none";main.style.opacity=1
-};
-setTimeout(()=>{
-  intro.style.display="none";main.style.opacity=1
-},22000);
+const content=document.getElementById("content");
+const btn=document.getElementById("enterBtn");
 
+function enterSite(){
+  intro.style.display="none";
+  content.classList.add("show");
+}
+
+btn.onclick=enterSite;
+
+// Safety timeout (prevents black screen)
+setTimeout(enterSite,6000);
+
+/* Reveal animation */
 const obs=new IntersectionObserver(e=>{
-  e.forEach(x=>x.isIntersecting && x.target.classList.add("show"))
-},{threshold:.2});
-document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+  e.forEach(x=>x.isIntersecting&&x.target.classList.add("visible"))
+},{threshold:0.15});
+document.querySelectorAll(".reveal").forEach(r=>obs.observe(r));
 </script>
 
 </body>
