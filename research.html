@@ -1,382 +1,252 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>From IS to EN — Visual Research (Animated Showcase)</title>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-<meta name="description" content="Animated, interactive slideshow of FEA screenshots with captions and full-size lightbox.">
-<style>
-  :root{
-    --tu-blue:#004080;
-    --accent:#d94800;
-    --bg:#f6fbff;
-    --card:#ffffff;
-    --muted:#6b7280;
-    --glass: rgba(255,255,255,0.6);
-    --max-width:1180px;
-    --radius:14px;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Lato,system-ui,Arial;background:linear-gradient(180deg,#f8fbff,#eef7ff);color:#072032}
-  header{background:linear-gradient(90deg,var(--tu-blue),#0b4a7a);color:#fff;padding:28px 18px;text-align:center;border-bottom:6px solid rgba(255,255,255,0.06)}
-  header h1{margin:0;font-weight:700;letter-spacing:0.2px}
-  header p{margin:6px 0 0 0;opacity:0.9}
-  .container{max-width:var(--max-width);margin:26px auto;padding:0 18px}
-  .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 20px 50px rgba(2,10,30,0.08);overflow:hidden}
-  /* showcase */
-  .showcase{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
-  @media (max-width:980px){.showcase{grid-template-columns:1fr;}.meta-col{order:2}}
-  .stage{position:relative;border-radius:10px;overflow:hidden;min-height:420px;background:#041424}
-  .slide{position:absolute;inset:0;display:grid;place-items:center;padding:18px;opacity:0;transform:scale(1.02);transition:opacity .9s cubic-bezier(.2,.9,.3,1),transform 18s linear}
-  .slide.visible{opacity:1;transform:scale(1)}
-  .slide img{max-width:100%;max-height:78vh;border-radius:8px;box-shadow:0 10px 40px rgba(2,10,30,0.5);transition:transform 20s linear;transform-origin:center}
-  /* Ken Burns subtle zoom on visible slide */
-  .slide.visible img{transform:scale(1.06) translateY(-2%);}
-  /* caption */
-  .caption{position:absolute;left:18px;bottom:18px;background:linear-gradient(180deg,rgba(0,0,0,0.45),rgba(0,0,0,0.28));backdrop-filter:blur(6px);color:#fff;padding:10px 14px;border-radius:10px;max-width:78%;transform:translateY(12px);opacity:0;transition:opacity .6s,transform .6s}
-  .slide.visible .caption{opacity:1;transform:none}
-  .caption h3{margin:0;font-size:1rem}
-  .caption p{margin:6px 0 0 0;font-size:.92rem;color:rgba(255,255,255,0.92)}
-  /* controls */
-  .controls{display:flex;gap:8px;align-items:center;margin-top:14px}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
-  .btn.primary{background:var(--tu-blue);color:#fff}
-  .btn.ghost{background:transparent;border:2px solid var(--tu-blue);color:var(--tu-blue)}
-  .btn.icon{width:44px;height:44px;justify-content:center}
-  /* progress ring */
-  .progress-wrap{display:flex;align-items:center;gap:12px}
-  .progress-bar{width:220px;height:8px;background:#e8f1fb;border-radius:99px;overflow:hidden}
-  .progress-bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ff8a4b);width:0%;transition:width linear}
-  /* thumbnails */
-  .thumbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-  .thumb{width:110px;height:70px;border-radius:8px;overflow:hidden;border:3px solid transparent;cursor:pointer;flex-shrink:0;background:#fff;box-shadow:0 6px 18px rgba(2,10,30,0.06);transition:transform .18s,box-shadow .18s,border-color .18s}
-  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-  .thumb:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(2,10,30,0.12)}
-  .thumb.active{border-color:var(--accent)}
-  /* meta / explanation column */
-  .meta-col{padding-left:4px;display:flex;flex-direction:column;gap:12px}
-  .meta-col h2{margin:0;color:var(--tu-blue)}
-  .meta-col p{margin:0;color:var(--muted)}
-  .meta-box{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:10px;padding:12px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.6)}
-  .meta-key{font-weight:700;color:#093b59}
-  /* lightbox */
-  .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,20,0.88);z-index:120;padding:20px}
-  .lightbox.open{display:flex}
-  .lightbox .box{position:relative;max-width:95%;max-height:95%;border-radius:12px;overflow:hidden}
-  .lightbox img{display:block;width:100%;height:auto;max-height:95vh;object-fit:contain}
-  .lightbox .topbar{position:absolute;top:10px;right:12px;display:flex;gap:10px;z-index:5}
-  .icon-btn{background:rgba(255,255,255,0.92);border-radius:8px;border:none;padding:8px 10px;cursor:pointer;font-weight:700}
-  .lb-caption{position:absolute;left:18px;bottom:14px;color:#fff;background:linear-gradient(180deg,rgba(0,0,0,0.5),rgba(0,0,0,0.2));padding:8px 10px;border-radius:8px;max-width:90%}
-  /* missing notice */
-  .notice{background:#fff7f3;border-left:5px solid var(--accent);padding:10px;border-radius:8px;color:#6b2d00;margin-bottom:12px}
-  /* responsive */
-  @media (max-width:860px){
-    .showcase{grid-template-columns:1fr}
-    .meta-col{order:2}
-    .thumb{width:76px;height:52px}
-    .progress-bar{display:none}
-  }
-</style>
-</head>
-<body>
-<header>
-  <h1>From IS → EN — Visual Research</h1>
-  <p>Animated FEA showcase: geometry → mesh → loads → results. Click slides to enlarge, use keyboard or thumbnails to navigate.</p>
-</header>
+  <meta charset="UTF-8">
+  <title>Research & Projects | Uday Kiran Bandari</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<main class="container">
-  <div id="missingNotice" style="display:none" class="notice"></div>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121a2f;
+      --accent:#4f9cff;
+      --text:#e6ebf5;
+      --muted:#9aa4bf;
+      --line:rgba(255,255,255,0.08);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:"Inter",system-ui,sans-serif;
+    }
+
+    body{
+      background:linear-gradient(180deg,#0b1220,#0e1730);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    section{
+      max-width:1100px;
+      margin:auto;
+      padding:90px 24px;
+    }
+
+    h1{
+      font-size:3rem;
+      letter-spacing:-1px;
+    }
+
+    h2{
+      color:var(--accent);
+      font-size:2.1rem;
+      margin-bottom:18px;
+    }
+
+    h3{
+      font-size:1.25rem;
+      margin-bottom:10px;
+      color:#fff;
+    }
+
+    p{
+      color:var(--muted);
+      max-width:900px;
+      font-size:1.05rem;
+    }
+
+    .divider{
+      height:1px;
+      background:linear-gradient(to right,transparent,var(--line),transparent);
+      margin:70px 0;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      padding:34px;
+      box-shadow:0 25px 60px rgba(0,0,0,0.35);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:26px;
+      margin-top:30px;
+    }
+
+    .img-block img{
+      width:100%;
+      border-radius:12px;
+      margin-top:14px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.45);
+    }
+
+    /* reveal animation */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all 1.1s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    footer{
+      text-align:center;
+      padding:50px 20px;
+      color:var(--muted);
+      font-size:.95rem;
+      border-top:1px solid var(--line);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<section class="reveal">
+  <h1>Research & Academic Projects</h1>
+  <p>
+    This section presents my research orientation, analytical thinking,
+    and ability to connect structural design theory with numerical verification.
+    The focus is on **methodology, reasoning, and engineering judgement** —
+    not just software usage.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<!-- MAIN RESEARCH -->
+<section class="reveal">
+  <h2>Independent Research</h2>
 
   <div class="card">
-    <div class="showcase">
-      <!-- Stage -->
-      <div>
-        <div class="stage" id="stage" role="region" aria-label="FEA slideshow stage">
-          <!-- Slides inserted by JS -->
-        </div>
+    <h3>From IS 456 to Eurocode 2: Comparative Design and Finite Element Verification of a Reinforced Concrete Beam</h3>
 
-        <!-- controls -->
-        <div class="controls" style="justify-content:space-between;align-items:center;margin-top:14px">
-          <div style="display:flex;gap:8px;align-items:center">
-            <button class="btn icon" id="prev" title="Previous (Left Arrow)">◀</button>
-            <button class="btn icon" id="playPause" title="Play/Pause">⏸</button>
-            <button class="btn icon" id="next" title="Next (Right Arrow)">▶</button>
-            <button class="btn ghost" id="openReport" title="Open full report (PDF)">📄 Open Report</button>
-            <a class="btn primary" id="downloadAll" href="#" download="" title="Download current image">⬇ Download Image</a>
-          </div>
+    <p>
+      This research investigates the design philosophy differences between
+      <b>Indian Standard IS 456:2000</b> and <b>Eurocode 2 (EN 1992-1-1)</b>
+      through the detailed study of a singly reinforced concrete beam.
+      The study combines <b>manual analytical design</b> with
+      <b>finite element verification using Abaqus</b>.
+    </p>
 
-          <div class="progress-wrap" aria-hidden>
-            <div style="font-size:0.95rem;color:var(--muted)">Autoplay</div>
-            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i id="prog"></i></div>
-          </div>
-        </div>
+    <p style="margin-top:16px;">
+      The objective was not merely to compare code clauses,
+      but to understand how differences in safety philosophy,
+      partial factors, and serviceability checks influence
+      structural behaviour and design outcomes.
+    </p>
+  </div>
 
-        <!-- thumbnails -->
-        <div class="thumbs" id="thumbs" aria-label="Thumbnails"></div>
-      </div>
+  <div class="grid">
+    <div class="card img-block">
+      <h3>Problem Definition</h3>
+      <p>
+        A simply supported RC beam with defined geometry and loading
+        was selected to ensure a clear comparison between IS and EN provisions.
+      </p>
+      <img src="images/rc_beam_geometry.png" alt="RC Beam Geometry">
+    </div>
 
-      <!-- Meta column -->
-      <aside class="meta-col" aria-label="Project summary">
-        <div>
-          <h2>FEA at a glance</h2>
-          <div class="meta-box" style="margin-top:8px">
-            <div><span class="meta-key">Span:</span> 4000 mm</div>
-            <div><span class="meta-key">Section:</span> 230 × 300 mm</div>
-            <div><span class="meta-key">Load:</span> UDL = 15 kN/m</div>
-            <div><span class="meta-key">Materials:</span> Concrete M25 · Steel Fe500</div>
-          </div>
-        </div>
+    <div class="card img-block">
+      <h3>Finite Element Modelling</h3>
+      <p>
+        The beam was modelled as a 3D solid in Abaqus,
+        discretized using appropriate finite elements,
+        with boundary conditions matching analytical assumptions.
+      </p>
+      <img src="images/abaqus_mesh_model.png" alt="Finite Element Mesh">
+    </div>
 
-        <div style="margin-top:12px">
-          <h3 style="margin:0;color:var(--tu-blue)">Why this matters</h3>
-          <p class="muted" style="margin-top:6px">This visual narrative demonstrates how hand calculations compare to Abaqus verification. The committee can quickly see geometry, meshing strategy, boundary conditions and result contours.</p>
-        </div>
-
-        <div style="margin-top:12px">
-          <h3 style="margin:0;color:var(--tu-blue)">Controls</h3>
-          <ul style="margin:8px 0 0 18px;color:var(--muted)">
-            <li>Auto-play with progress bar</li>
-            <li>Click thumbnail to jump</li>
-            <li>Click image to open full-size lightbox + download</li>
-            <li>Keyboard: ← → Space Esc</li>
-          </ul>
-        </div>
-      </aside>
+    <div class="card img-block">
+      <h3>Stress Verification</h3>
+      <p>
+        Von-Mises stress contours were evaluated to verify
+        stress distribution, peak values, and consistency
+        with analytical bending behaviour.
+      </p>
+      <img src="images/stress_distribution_plot.png" alt="Stress Distribution">
     </div>
   </div>
-</main>
 
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox" aria-hidden="true">
-  <div class="box" role="dialog" aria-modal="true" aria-label="Image preview">
-    <div class="topbar">
-      <button class="icon-btn" id="prevLB" title="Previous">◀</button>
-      <button class="icon-btn" id="nextLB" title="Next">▶</button>
-      <button class="icon-btn" id="closeLB" title="Close">✕</button>
-    </div>
-    <img id="lbImg" alt="Expanded figure">
-    <div class="lb-caption" id="lbCaption"></div>
+  <p style="margin-top:32px;">
+    This work strengthened my understanding of
+    <b>design code philosophy</b>,
+    <b>structural behaviour</b>,
+    and the role of <b>numerical verification</b>
+    in modern structural engineering practice —
+    aligning strongly with research-oriented programs such as ACCESS.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<!-- OTHER PROJECTS -->
+<section class="reveal">
+  <h2>Academic & Applied Projects</h2>
+
+  <div class="card">
+    <h3>Overflow Detection in Drainage Systems (ODDS)</h3>
+    <p>
+      A sensor-based monitoring project developed as part of my bachelor’s studies.
+      The project focused on real-world infrastructure problems,
+      system integration, and team coordination.
+    </p>
+
+    <p style="margin-top:12px;">
+      Achieved <b>2nd Prize</b> in a poster presentation,
+      demonstrating both technical clarity and communication skills.
+    </p>
   </div>
-</div>
+
+  <div class="divider"></div>
+
+  <div class="card">
+    <h3>Extensive Survey Project</h3>
+    <p>
+      Led a team of 15 students across multiple field surveys
+      involving highways, water supply systems, tanks,
+      and town planning layouts.
+    </p>
+
+    <p style="margin-top:12px;">
+      Utilized <b>Total Station</b> for precise measurements and
+      processed survey data using ECAD and AutoCAD,
+      gaining hands-on experience in data accuracy,
+      coordination, and technical documentation.
+    </p>
+  </div>
+</section>
+
+<footer>
+  Research & Projects · Academic Dossier  
+  <br>Uday Kiran Bandari
+</footer>
 
 <script>
-/* ================= CONFIG ===============
-   Update filenames or captions here if needed
-   Filenames must match files in repo root (encoding is handled)
-   ====================================== */
-const images = [
-  { src: "figure 1.png", alt: "Geometry overview", caption: "Geometry — beam length 4000 mm, section 230 × 300 mm. Block geometry shows partitions used for mesh control." },
-  { src: "fig 2.png",    alt: "Wireframe and rebars", caption: "Wireframe & rebar layout: embedded reinforcement positions and preliminary geometry." },
-  { src: "fig 3.png",    alt: "Mesh and block partitions", caption: "Mesh & block partitions: hexahedral meshing strategy and block divisions used to control element size." },
-  { src: "fig 4.png",    alt: "Loads & supports", caption: "Loads & BCs: Uniformly distributed load applied as pressure with end supports modelled." },
-  { src: "fig 4a.png",   alt: "load applying UDL", caption: "magnitude" },
-  { src: "fig 5a.png",   alt: "Concrete properties", caption: "Material settings: Concrete M25 (elastic properties for verification run)." },
-  { src: "fig 5b.png",   alt: "Steel rebar properties", caption: "Rebar: Steel Fe500 properties defined for reinforcement modeling." },
-  { src: "fig 6.png",    alt: "U2 displacement contour", caption: "Deformed shape and U2 displacement: midspan deflection (approx -1.98 mm for this case)." },
-  { src: "fig 7.png",    alt: "von Mises stress", caption: "Stress (S, Mises) contour showing peak stress regions under the applied loading." },
-  { src: "fig 8.png",    alt: "Result comparison", caption: "Result summary: comparison plot of Abaqus vs manual calculations for deflection/stress — demonstrates agreement." }
-];
-/* ======================================== */
-
-const stage = document.getElementById('stage');
-const thumbs = document.getElementById('thumbs');
-const prev = document.getElementById('prev');
-const next = document.getElementById('next');
-const playPause = document.getElementById('playPause');
-const prog = document.getElementById('prog');
-const speedSelect = document.getElementById('speedSelect') || {value:'3500'}; // optional
-const openReport = document.getElementById('openReport');
-const downloadAll = document.getElementById('downloadAll');
-const missingNotice = document.getElementById('missingNotice');
-
-const lightbox = document.getElementById('lightbox');
-const lbImg = document.getElementById('lbImg');
-const lbCaption = document.getElementById('lbCaption');
-const prevLB = document.getElementById('prevLB');
-const nextLB = document.getElementById('nextLB');
-const closeLB = document.getElementById('closeLB');
-
-let slides = [];
-let current = 0;
-let playing = true;
-let timer = null;
-let progressTimer = null;
-let autoMs = parseInt(speedSelect.value || '3500', 10);
-let missing = [];
-
-/* helper to encode file paths (handles spaces, special chars) */
-function safe(path){ return encodeURI(path); }
-
-/* build slides + thumbs */
-images.forEach((it, i) => {
-  // slide
-  const fig = document.createElement('figure');
-  fig.className = 'slide';
-  fig.dataset.index = i;
-  const img = document.createElement('img');
-  img.src = safe(it.src);
-  img.alt = it.alt || `Figure ${i+1}`;
-  img.loading = 'lazy';
-  fig.appendChild(img);
-
-  const cap = document.createElement('div');
-  cap.className = 'caption';
-  cap.innerHTML = `<h3>Figure ${i+1}</h3><p>${it.caption || ''}</p>`;
-  fig.appendChild(cap);
-
-  // error handling
-  img.addEventListener('error', () => {
-    console.warn('Missing image:', it.src);
-    missing.push(it.src);
-    cap.innerHTML = `<h3>Image missing</h3><p>File not found: <code>${it.src}</code>. Please upload to repo root or edit filenames in the page.</p>`;
-    img.style.opacity = '0.12';
-    img.style.filter = 'grayscale(80%)';
-  });
-
-  // click to open lightbox
-  fig.addEventListener('click', (e) => {
-    if(e.target.tagName.toLowerCase() === 'button') return;
-    openLightbox(i);
-  });
-
-  stage.appendChild(fig);
-  slides.push(fig);
-
-  // thumb
-  const tb = document.createElement('button');
-  tb.className = 'thumb';
-  tb.type = 'button';
-  tb.dataset.index = i;
-  const timg = document.createElement('img');
-  timg.src = safe(it.src);
-  timg.alt = it.alt || `Thumb ${i+1}`;
-  timg.loading = 'lazy';
-  tb.appendChild(timg);
-  tb.addEventListener('click', (ev) => {
-    ev.stopPropagation();
-    go(i);
-  });
-  thumbs.appendChild(tb);
-});
-
-/* show slide */
-function show(n){
-  if(n < 0) n = slides.length - 1;
-  if(n >= slides.length) n = 0;
-  slides.forEach((s, idx) => s.classList.toggle('visible', idx === n));
-  Array.from(thumbs.children).forEach((t, idx) => t.classList.toggle('active', idx === n));
-  current = n;
-  // update download link to current image
-  const cur = images[current];
-  downloadAll.href = safe(cur.src);
-  downloadAll.download = cur.src.split('/').pop();
-  // update aria
-  stage.setAttribute('aria-label', `Slide ${current+1} of ${slides.length}`);
-  resetProgress();
-}
-
-/* autoplay */
-function start(){
-  stop();
-  playing = true;
-  playPause.textContent = '⏸';
-  timer = setInterval(()=> nextSlide(), autoMs);
-  startProgress();
-}
-function stop(){
-  playing = false;
-  playPause.textContent = '▶';
-  if(timer) { clearInterval(timer); timer = null; }
-  stopProgress();
-}
-
-/* progress */
-function resetProgress(){
-  prog.style.width = '0%';
-  stopProgress();
-  if(playing) startProgress();
-}
-function startProgress(){
-  const start = performance.now();
-  const dur = autoMs;
-  stopProgress();
-  (function loop(now){
-    const elapsed = now - start;
-    const pct = Math.min(100, (elapsed / dur) * 100);
-    prog.style.width = pct + '%';
-    if(pct < 100) progressTimer = requestAnimationFrame(loop);
-  })(performance.now());
-}
-function stopProgress(){ if(progressTimer){ cancelAnimationFrame(progressTimer); progressTimer = null; } }
-
-/* navigation */
-function prevSlide(){ show((current-1+slides.length)%slides.length); restartIfPlaying(); }
-function nextSlide(){ show((current+1)%slides.length); restartIfPlaying(); }
-function go(index){ show(index); restartIfPlaying(); }
-function restartIfPlaying(){ if(playing){ stop(); start(); } }
-
-/* keyboard support */
-document.addEventListener('keydown', (e) => {
-  if(e.key === 'ArrowLeft'){ prevSlide(); e.preventDefault(); }
-  if(e.key === 'ArrowRight'){ nextSlide(); e.preventDefault(); }
-  if(e.key === ' '){ e.preventDefault(); togglePlay(); }
-  if(e.key === 'Escape'){ closeLightbox(); }
-});
-
-/* play/pause toggle */
-function togglePlay(){ if(playing) stop(); else start(); }
-
-/* lightbox */
-function openLightbox(i){
-  const it = images[i];
-  lbImg.src = safe(it.src);
-  lbImg.alt = it.alt || `Figure ${i+1}`;
-  lbCaption.textContent = it.caption || '';
-  lightbox.classList.add('open');
-  lightbox.setAttribute('aria-hidden','false');
-}
-function closeLightbox(){
-  lightbox.classList.remove('open');
-  lightbox.setAttribute('aria-hidden','true');
-  lbImg.src = '';
-}
-prevLB.addEventListener('click', ()=> { openLightbox((current-1+images.length)%images.length); });
-nextLB.addEventListener('click', ()=> { openLightbox((current+1)%images.length); });
-closeLB.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', (e)=> { if(e.target === lightbox) closeLightbox(); });
-
-/* UI wiring */
-prev.addEventListener('click', prevSlide);
-next.addEventListener('click', nextSlide);
-playPause.addEventListener('click', togglePlay);
-openReport.addEventListener('click', ()=> { location.href = 'research.pdf'; });
-speedSelect && speedSelect.addEventListener('change', ()=> {
-  autoMs = parseInt(speedSelect.value,10);
-  if(playing){ stop(); start(); }
-});
-
-/* initial */
-show(0);
-start();
-
-/* after init: show missing files notice if any */
-setTimeout(()=> {
-  const uniq = Array.from(new Set(missing));
-  if(uniq.length){
-    missingNotice.style.display = 'block';
-    missingNotice.innerHTML = '<strong>Missing images:</strong> ' + uniq.map(x => `<code>${x}</code>`).join(', ') + '.<br>Rename files or update the `images` array in this file.';
-    console.warn('Missing:', uniq);
-  }
-}, 800);
-
-/* responsive lightbox keyboard */
-document.addEventListener('keydown', (e)=>{
-  if(lightbox.classList.contains('open')){
-    if(e.key === 'ArrowLeft'){ prevSlide(); openLightbox(current); }
-    if(e.key === 'ArrowRight'){ nextSlide(); openLightbox(current); }
-  }
-});
+  const reveals=document.querySelectorAll('.reveal');
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  },{threshold:0.2});
+  reveals.forEach(r=>observer.observe(r));
 </script>
+
 </body>
 </html>
