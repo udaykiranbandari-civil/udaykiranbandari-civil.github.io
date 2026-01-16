@@ -2,302 +2,232 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Uday Kiran Bandari | Academic Dossier</title>
+<title>Uday Kiran Bandari | Academic Documentary Dossier</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#0a0f1c;
-  --panel:#11182d;
-  --panel-2:#0e1528;
+  --bg:#070b17;
+  --panel:#0e1430;
   --accent:#4f9cff;
-  --text:#e8edf7;
-  --muted:#9aa4bf;
+  --text:#e9eef8;
+  --muted:#9aa6c4;
   --line:rgba(255,255,255,.08);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Inter",system-ui,sans-serif}
-
 html{scroll-behavior:smooth}
 
 body{
-  background:linear-gradient(180deg,#0a0f1c,#0c1330);
+  background:linear-gradient(180deg,#070b17,#0b1230);
   color:var(--text);
-  line-height:1.65;
+  line-height:1.75;
 }
 
-/* LAYOUT */
-.wrapper{
-  display:grid;
-  grid-template-columns:260px 1fr;
-}
-
-/* SIDE INDEX */
-aside{
-  position:fixed;
-  top:0;
-  left:0;
-  height:100vh;
-  width:260px;
-  padding:40px 24px;
-  background:rgba(10,15,28,.9);
-  backdrop-filter:blur(12px);
-  border-right:1px solid var(--line);
-}
-
-aside h1{
-  font-size:1.1rem;
-  letter-spacing:.5px;
-  margin-bottom:40px;
-}
-
-aside a{
-  display:block;
-  margin-bottom:16px;
-  text-decoration:none;
-  color:var(--muted);
-  font-size:.95rem;
-  position:relative;
-  padding-left:18px;
-}
-
-aside a::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:7px;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:var(--muted);
-  opacity:.4;
-}
-
-aside a.active{
-  color:var(--accent);
-}
-
-aside a.active::before{
-  background:var(--accent);
-  opacity:1;
-}
-
-/* CONTENT */
-main{
-  margin-left:260px;
-}
-
+/* GLOBAL */
 section{
   max-width:1150px;
   margin:auto;
-  padding:110px 40px;
+  padding:140px 40px;
 }
 
-h2{
-  color:var(--accent);
-  font-size:2rem;
-  margin-bottom:26px;
-}
-
-h3{
-  font-size:1.25rem;
-  margin-bottom:12px;
-}
+h1{font-size:3.2rem;letter-spacing:-1px}
+h2{font-size:2.3rem;color:var(--accent);margin-bottom:28px}
+h3{font-size:1.35rem;margin-bottom:12px}
 
 p{
   color:var(--muted);
-  max-width:950px;
-  font-size:1.05rem;
+  font-size:1.07rem;
+  max-width:960px;
+}
+
+.divider{
+  height:1px;
+  background:linear-gradient(to right,transparent,var(--line),transparent);
+  margin:120px auto;
+  max-width:900px;
 }
 
 /* PANELS */
 .panel{
-  background:linear-gradient(180deg,var(--panel),var(--panel-2));
+  background:linear-gradient(180deg,#0f1635,#0b1129);
   border:1px solid var(--line);
-  border-radius:18px;
-  padding:34px;
+  border-radius:20px;
+  padding:42px;
+  box-shadow:0 30px 70px rgba(0,0,0,.55);
 }
-
-/* GRID */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 
 /* MEDIA */
 img,video{
   width:100%;
-  border-radius:14px;
-  box-shadow:0 20px 45px rgba(0,0,0,.5);
+  border-radius:16px;
+  box-shadow:0 25px 55px rgba(0,0,0,.6);
 }
 
-/* REVEAL */
+/* GRIDS (SAFE) */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+
+@media(max-width:1000px){
+  .grid-2,.grid-3{grid-template-columns:1fr}
+  section{padding:110px 26px}
+}
+
+/* CINEMATIC REVEAL */
 .reveal{
   opacity:0;
-  transform:translateY(50px);
-  transition:1.1s cubic-bezier(.2,.9,.3,1);
+  transform:translateY(70px);
+  transition:1.3s cubic-bezier(.2,.9,.3,1);
 }
-.reveal.visible{
-  opacity:1;
-  transform:none;
-}
+.reveal.visible{opacity:1;transform:none}
 
 footer{
+  padding:90px 30px;
   text-align:center;
-  padding:60px;
-  border-top:1px solid var(--line);
   color:var(--muted);
-}
-
-@media(max-width:1100px){
-  .wrapper{grid-template-columns:1fr}
-  aside{display:none}
-  main{margin-left:0}
+  border-top:1px solid var(--line);
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
+<!-- PROLOGUE -->
+<section class="reveal">
+  <h1>Uday Kiran <span style="color:var(--accent)">Bandari</span></h1>
+  <p style="margin-top:22px">
+    Gold Medalist · Civil Engineer · Research-oriented applicant  
+    This page is an academic documentary — not a portfolio.
+  </p>
+</section>
 
-<!-- SIDE INDEX -->
-<aside>
-  <h1>ACADEMIC DOSSIER</h1>
-  <a href="#identity">01 Identity</a>
-  <a href="#academics">02 Academic Record</a>
-  <a href="#research">03 Research Framework</a>
-  <a href="#skills">04 Computational Skills</a>
-  <a href="#documents">05 Document Vault</a>
-  <a href="#recognition">06 Recognition</a>
-  <a href="#access">07 Why ACCESS</a>
-</aside>
-
-<main>
+<div class="divider"></div>
 
 <!-- IDENTITY -->
-<section id="identity" class="reveal">
+<section class="reveal">
+  <h2>Identity</h2>
   <div class="grid-2">
     <div>
-      <h2>Identity</h2>
       <p>
-        I am a Gold Medalist Civil Engineer (CGPA 9.5/10; German GPA ≈ 1.25) with
-        a strong inclination toward computational structural engineering,
-        verification-based design, and the transition from Indian Standards to
-        Eurocode-based methodologies.
+        I am a Civil Engineering graduate with a CGPA of <b>9.5/10</b>
+        (German GPA ≈ <b>1.25</b>), graduating as <b>Branch Topper and Gold Medalist</b>.
+      </p>
+      <p style="margin-top:18px">
+        My academic interest lies in understanding <b>structural behaviour</b>
+        beyond formula-based design — through analytical reasoning,
+        verification, and computational modelling.
       </p>
     </div>
-    <img src="images/Uday_Kiran_Bandari_Profile.png">
+    <img src="images/Uday_Kiran_Bandari_Profile.png" alt="Uday Kiran Bandari">
   </div>
 </section>
 
-<!-- ACADEMICS -->
-<section id="academics" class="reveal">
-  <h2>Academic Record</h2>
-  <div class="panel grid-3">
-    <div>
-      <h3>Performance</h3>
-      <p>Consistent top performance across all semesters, culminating in Branch Rank 1.</p>
-    </div>
-    <div>
-      <h3>Core Domains</h3>
-      <p>Structural Analysis, RCC, Numerical Methods, OR, Engineering Mathematics.</p>
-    </div>
-    <div>
-      <h3>Pedagogy</h3>
-      <p>Full-time Mathematics Teacher — strengthening conceptual depth and clarity.</p>
+<div class="divider"></div>
+
+<!-- ACADEMIC FOUNDATION -->
+<section class="reveal">
+  <h2>Academic Foundation</h2>
+  <div class="panel">
+    <p>
+      My academic journey reflects consistency rather than isolated performance.
+      Strong fundamentals in mathematics and structural subjects formed
+      the basis for advanced analytical thinking during my undergraduate studies.
+    </p>
+    <div class="grid-3" style="margin-top:30px">
+      <p><b>Core Areas</b><br>Structural Analysis, RCC, Numerical Methods</p>
+      <p><b>Strength</b><br>Engineering Mathematics & Logical Reasoning</p>
+      <p><b>Pedagogy</b><br>Full-time Mathematics Teacher</p>
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
 
 <!-- RESEARCH -->
-<section id="research" class="reveal">
+<section class="reveal">
   <h2>Research Framework</h2>
   <div class="panel">
     <p>
-      Independent study comparing IS 456 and Eurocode 2 through analytical design
-      and finite element verification using Abaqus, focusing on design philosophy,
-      partial safety factors, and serviceability logic.
+      Independent research comparing <b>IS 456:2000</b> and
+      <b>Eurocode 2 (EN 1992-1-1)</b> using a reinforced concrete beam
+      designed analytically and verified through finite element analysis in Abaqus.
+    </p>
+    <p style="margin-top:18px">
+      The study focused on <b>design philosophy</b>, partial safety factors,
+      serviceability logic, and verification — not clause listing.
     </p>
   </div>
 
-  <div class="grid-3" style="margin-top:30px">
-    <img src="images/rc_beam_geometry.png">
-    <img src="images/abaqus_mesh_model.png">
-    <img src="images/stress_distribution_plot.png">
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="reveal">
-  <h2>Computational & Technical Skills</h2>
-  <div class="panel grid-2">
-    <p>
-      AutoCAD, Revit, STAAD.Pro, Abaqus, Python, BIM workflows,
-      FEM modelling, numerical verification.
-    </p>
-    <p>
-      Emphasis on verification-based modelling rather than software-driven outputs.
-    </p>
+  <div class="grid-3" style="margin-top:36px">
+    <img src="images/rc_beam_geometry.png" alt="RC Beam Geometry">
+    <img src="images/abaqus_mesh_model.png" alt="FEM Mesh">
+    <img src="images/stress_distribution_plot.png" alt="Stress Verification">
   </div>
 </section>
 
-<!-- DOCUMENTS -->
-<section id="documents" class="reveal">
-  <h2>Academic Document Vault</h2>
+<div class="divider"></div>
+
+<!-- COMPUTATIONAL THINKING -->
+<section class="reveal">
+  <h2>Computational Thinking</h2>
+  <div class="panel">
+    <p>
+      Software is treated as a verification tool rather than a design shortcut.
+      My workflow emphasizes modelling assumptions, boundary conditions,
+      result interpretation, and validation against analytical behaviour.
+    </p>
+    <p style="margin-top:18px">
+      Tools: AutoCAD, Revit, STAAD.Pro, Abaqus, Python, BIM workflows.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DOCUMENT VAULT -->
+<section class="reveal">
+  <h2>Academic Evidence Vault</h2>
   <div class="grid-3">
     <a class="panel" href="documents/transcript.pdf" target="_blank">Transcript</a>
     <a class="panel" href="documents/semester_marksheets.pdf" target="_blank">Marksheets</a>
-    <a class="panel" href="documents/degree_certificate.pdf" target="_blank">Degree</a>
+    <a class="panel" href="documents/degree_certificate.pdf" target="_blank">Degree Certificate</a>
     <a class="panel" href="documents/gold_medal_certificate.pdf" target="_blank">Gold Medal</a>
     <a class="panel" href="documents/module_handbook.pdf" target="_blank">Module Handbook</a>
+    <a class="panel" href="documents/internship_certificate.pdf" target="_blank">Internship</a>
   </div>
 </section>
 
+<div class="divider"></div>
+
 <!-- RECOGNITION -->
-<section id="recognition" class="reveal">
+<section class="reveal">
   <h2>Recognition</h2>
   <div class="grid-2">
     <img src="images/graduation_photo_1.jpg">
     <img src="images/graduation_photo_2.jpg">
   </div>
-  <video controls style="margin-top:30px" src="images/gold_medal_ceremony.mp4"></video>
+  <video controls style="margin-top:34px">
+    <source src="images/gold_medal_ceremony.mp4" type="video/mp4">
+  </video>
 </section>
 
+<div class="divider"></div>
+
 <!-- WHY ACCESS -->
-<section id="access" class="reveal">
-  <h2>Why ACCESS</h2>
+<section class="reveal">
+  <h2>Why ACCESS — TU Dresden</h2>
   <div class="panel">
     <p>
-      ACCESS uniquely aligns with my interest in computational mechanics,
-      verification-based design, and research-oriented learning. Its structure
-      supports transition into doctoral-level work and advanced structural research.
+      ACCESS aligns precisely with my interest in computational mechanics,
+      verification-based structural design, and research-oriented learning.
+      Its emphasis on numerical methods, advanced mechanics, and academic rigor
+      supports my long-term goal of doctoral research and academic contribution.
     </p>
   </div>
 </section>
 
 <footer>
-Academic Dossier · Uday Kiran Bandari · 2026
-</footer>
-
-</main>
-</div>
-
-<script>
-const sections=document.querySelectorAll("section");
-const links=document.querySelectorAll("aside a");
-const io=new IntersectionObserver(e=>{
-  e.forEach(x=>{
-    if(x.isIntersecting){
-      links.forEach(l=>l.classList.remove("active"));
-      const id=x.target.getAttribute("id");
-      document.querySelector(`aside a[href="#${id}"]`)?.classList.add("active");
-      x.target.classList.add("visible");
-    }
-  })
-},{threshold:.3});
-sections.forEach(s=>io.observe(s));
-</script>
-
-</body>
-</html>
+Academic Documentary Dossier · Uday Kiran Bandari · 2026
+</foot
