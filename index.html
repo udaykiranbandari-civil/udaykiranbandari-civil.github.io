@@ -2,266 +2,323 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Uday Kiran Bandari | Academic Documentary</title>
+<title>Uday Kiran Bandari – Academic Profile</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* =======================
+   TU DRESDEN–STYLE THEME
+   ======================= */
 :root{
-  --bg:#070b17;
-  --panel:#0f1638;
-  --accent:#4f9cff;
-  --text:#e9eef8;
-  --muted:#9aa6c4;
-  --line:rgba(255,255,255,.08);
+  --bg:#f7f8fa;
+  --panel:#ffffff;
+  --accent:#005aa9;
+  --text:#1b1f23;
+  --muted:#5f6b7a;
+  --line:#dfe3e8;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,sans-serif}
 html{scroll-behavior:smooth}
 
 body{
-  background:linear-gradient(180deg,#070b17,#0b1230);
+  background:var(--bg);
   color:var(--text);
-  line-height:1.75;
+  line-height:1.7;
 }
 
-/* layout */
-section{
-  max-width:1150px;
+/* =======================
+   HEADER (PORTAL STYLE)
+   ======================= */
+header{
+  background:#ffffff;
+  border-bottom:1px solid var(--line);
+}
+
+.header-inner{
+  max-width:1200px;
   margin:auto;
-  padding:140px 32px;
+  padding:26px 32px;
 }
 
-h1{font-size:3.2rem;letter-spacing:-1px}
-h2{font-size:2.3rem;color:var(--accent);margin-bottom:26px}
-h3{font-size:1.35rem;margin-bottom:12px}
+.header-inner h1{
+  font-size:2.1rem;
+  font-weight:600;
+}
 
-p{
+.header-inner p{
   color:var(--muted);
-  font-size:1.07rem;
-  max-width:960px;
+  margin-top:6px;
 }
 
-.divider{
-  height:1px;
-  background:linear-gradient(to right,transparent,var(--line),transparent);
-  margin:120px auto;
+/* =======================
+   NAVIGATION
+   ======================= */
+nav{
+  background:#ffffff;
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.nav-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 32px;
+  display:flex;
+  gap:26px;
+  flex-wrap:wrap;
+}
+
+.nav-inner a{
+  text-decoration:none;
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.nav-inner a:hover{
+  color:var(--accent);
+}
+
+/* =======================
+   CONTENT SECTIONS
+   ======================= */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:90px 32px;
+}
+
+section h2{
+  font-size:1.9rem;
+  color:var(--accent);
+  margin-bottom:22px;
+}
+
+section p{
   max-width:900px;
+  color:var(--muted);
+  font-size:1.05rem;
 }
 
-/* panels */
+/* =======================
+   PANELS & GRIDS
+   ======================= */
 .panel{
-  background:linear-gradient(180deg,#101848,#0b112e);
+  background:var(--panel);
   border:1px solid var(--line);
-  border-radius:20px;
-  padding:42px;
-  box-shadow:0 30px 70px rgba(0,0,0,.55);
+  padding:34px;
+  margin-top:26px;
 }
 
-/* grids */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:42px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:34px;
+  margin-top:26px;
+}
 
-@media(max-width:1000px){
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:26px;
+  margin-top:26px;
+}
+
+@media(max-width:900px){
   .grid-2,.grid-3{grid-template-columns:1fr}
-  section{padding:110px 24px}
 }
 
-/* media */
+/* =======================
+   MEDIA
+   ======================= */
 img,video{
   width:100%;
-  border-radius:16px;
-  box-shadow:0 25px 55px rgba(0,0,0,.6);
+  border:1px solid var(--line);
 }
 
-/* reveal animation */
+/* =======================
+   DOCUMENT LINKS
+   ======================= */
+.doc{
+  display:block;
+  padding:18px;
+  border:1px solid var(--line);
+  background:#fff;
+  text-decoration:none;
+  color:var(--text);
+}
+
+.doc:hover{
+  border-color:var(--accent);
+}
+
+/* =======================
+   SUBTLE MOTION
+   ======================= */
 .reveal{
   opacity:0;
-  transform:translateY(70px);
-  transition:1.2s cubic-bezier(.2,.9,.3,1);
+  transform:translateY(40px);
+  transition:0.9s ease;
 }
 .reveal.visible{
   opacity:1;
   transform:none;
 }
 
-/* document links */
-.doc{
-  display:block;
-  text-decoration:none;
-  color:var(--text);
-}
-.doc:hover{color:var(--accent)}
-
+/* =======================
+   FOOTER
+   ======================= */
 footer{
-  padding:90px 30px;
+  background:#ffffff;
+  border-top:1px solid var(--line);
+  padding:40px 32px;
   text-align:center;
   color:var(--muted);
-  border-top:1px solid var(--line);
+  font-size:.9rem;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PROLOGUE -->
-<section class="reveal">
-  <h1>Uday Kiran <span style="color:var(--accent)">Bandari</span></h1>
-  <p style="margin-top:22px">
-    Gold Medalist · Civil Engineer · Research-Oriented Applicant
-  </p>
-  <p style="margin-top:18px">
-    This is an academic documentary — not a portfolio.
-  </p>
-</section>
+<header>
+  <div class="header-inner">
+    <h1>Uday Kiran Bandari</h1>
+    <p>Academic Profile · Civil Engineering · Research Orientation</p>
+  </div>
+</header>
 
-<div class="divider"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="#profile">Profile</a>
+    <a href="#academics">Academic Record</a>
+    <a href="#research">Research</a>
+    <a href="#skills">Skills</a>
+    <a href="#documents">Documents</a>
+    <a href="#recognition">Recognition</a>
+    <a href="#access">Why ACCESS</a>
+  </div>
+</nav>
 
-<!-- IDENTITY -->
-<section class="reveal">
-  <h2>Identity & Academic Positioning</h2>
+<!-- PROFILE -->
+<section id="profile" class="reveal">
+  <h2>Profile</h2>
   <div class="grid-2">
     <div>
       <p>
-        I am a Civil Engineering graduate with a <b>CGPA of 9.5/10</b>
+        I am a Civil Engineering graduate with a CGPA of <b>9.5/10</b>
         (German GPA ≈ <b>1.25</b>), graduating as
         <b>Branch Topper and Gold Medalist</b>.
       </p>
-      <p style="margin-top:18px">
-        My academic interest lies in understanding
-        <b>structural behaviour</b> beyond formula-based design —
-        through analytical reasoning, verification,
-        and computational modelling.
-      </p>
-      <p style="margin-top:18px">
-        I currently work as a full-time <b>Mathematics Teacher</b>,
-        strengthening conceptual clarity, logical explanation,
-        and disciplined problem decomposition.
+      <p style="margin-top:16px">
+        My academic interest lies in structural analysis,
+        reinforced concrete design, and computational verification,
+        with a strong focus on understanding structural behaviour
+        beyond formula-based application.
       </p>
     </div>
-    <img src="images/Uday_Kiran_Bandari_Profile.png" alt="Profile">
+    <img src="images/Uday_Kiran_Bandari_Profile.png" alt="Profile Photo">
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ACADEMIC FOUNDATION -->
-<section class="reveal">
-  <h2>Academic Foundation</h2>
+<!-- ACADEMICS -->
+<section id="academics" class="reveal">
+  <h2>Academic Record</h2>
   <div class="panel">
-    <p>
-      My academic record reflects consistency rather than isolated performance.
-      Strong foundations in mathematics and structural subjects formed
-      the basis for advanced analytical thinking during my undergraduate studies.
-    </p>
-    <div class="grid-3" style="margin-top:34px">
-      <p><b>Core Domains</b><br>Structural Analysis, RCC, Numerical Methods</p>
-      <p><b>Strength</b><br>Engineering Mathematics & Logic</p>
-      <p><b>Recognition</b><br>Gold Medal · Branch Rank 1</p>
+    <div class="grid-3">
+      <p><b>Degree</b><br>B.E. Civil Engineering</p>
+      <p><b>Performance</b><br>CGPA 9.5 / Gold Medal</p>
+      <p><b>Strength</b><br>Mathematics & Structural Subjects</p>
     </div>
   </div>
 </section>
-
-<div class="divider"></div>
 
 <!-- RESEARCH -->
-<section class="reveal">
-  <h2>Research Framework</h2>
+<section id="research" class="reveal">
+  <h2>Research Orientation</h2>
   <div class="panel">
     <p>
       Independent research comparing <b>IS 456:2000</b> and
-      <b>Eurocode 2 (EN 1992-1-1)</b> using reinforced concrete beam design,
-      verified through finite element analysis in Abaqus.
+      <b>Eurocode 2 (EN 1992-1-1)</b> using analytical RC beam design
+      verified through finite element modelling in Abaqus.
     </p>
-    <p style="margin-top:18px">
+    <p style="margin-top:16px">
       The focus was on design philosophy, partial safety factors,
-      serviceability logic, and verification —
-      not clause comparison.
+      serviceability behaviour, and numerical verification.
     </p>
   </div>
 
-  <div class="grid-3" style="margin-top:36px">
+  <div class="grid-3">
     <img src="images/rc_beam_geometry.png">
     <img src="images/abaqus_mesh_model.png">
     <img src="images/stress_distribution_plot.png">
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- COMPUTATIONAL THINKING -->
-<section class="reveal">
-  <h2>Computational & Technical Thinking</h2>
+<!-- SKILLS -->
+<section id="skills" class="reveal">
+  <h2>Technical & Computational Skills</h2>
   <div class="panel">
     <p>
-      Software is treated as a verification tool rather than a design shortcut.
-      Emphasis is placed on modelling assumptions, boundary conditions,
-      and result interpretation.
-    </p>
-    <p style="margin-top:18px">
-      Tools: AutoCAD, Revit, STAAD.Pro, Abaqus, Python, BIM workflows.
+      AutoCAD, Revit, STAAD.Pro, Abaqus, Python, BIM workflows.
+      Emphasis on verification-based modelling and interpretation.
     </p>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- DOCUMENT VAULT -->
-<section class="reveal">
-  <h2>Academic Evidence Vault</h2>
+<!-- DOCUMENTS -->
+<section id="documents" class="reveal">
+  <h2>Academic Documents</h2>
   <div class="grid-3">
-    <a class="panel doc" href="documents/transcript.pdf" target="_blank">Transcript</a>
-    <a class="panel doc" href="documents/semester_marksheets.pdf" target="_blank">Semester Marksheets</a>
-    <a class="panel doc" href="documents/degree_certificate.pdf" target="_blank">Degree Certificate</a>
-    <a class="panel doc" href="documents/gold_medal_certificate.pdf" target="_blank">Gold Medal Certificate</a>
-    <a class="panel doc" href="documents/module_handbook.pdf" target="_blank">Module Handbook</a>
-    <a class="panel doc" href="documents/internship_certificate.pdf" target="_blank">Internship Certificate</a>
+    <a class="doc" href="documents/transcript.pdf" target="_blank">Transcript</a>
+    <a class="doc" href="documents/semester_marksheets.pdf" target="_blank">Semester Marksheets</a>
+    <a class="doc" href="documents/degree_certificate.pdf" target="_blank">Degree Certificate</a>
+    <a class="doc" href="documents/gold_medal_certificate.pdf" target="_blank">Gold Medal Certificate</a>
+    <a class="doc" href="documents/module_handbook.pdf" target="_blank">Module Handbook</a>
+    <a class="doc" href="documents/internship_certificate.pdf" target="_blank">Internship Certificate</a>
   </div>
 </section>
-
-<div class="divider"></div>
 
 <!-- RECOGNITION -->
-<section class="reveal">
+<section id="recognition" class="reveal">
   <h2>Recognition</h2>
   <div class="grid-2">
     <img src="images/graduation_photo_1.jpg">
     <img src="images/graduation_photo_2.jpg">
   </div>
-  <video controls style="margin-top:36px">
+  <video controls style="margin-top:26px">
     <source src="images/gold_medal_ceremony.mp4" type="video/mp4">
   </video>
 </section>
 
-<div class="divider"></div>
-
 <!-- WHY ACCESS -->
-<section class="reveal">
-  <h2>Why ACCESS — TU Dresden</h2>
+<section id="access" class="reveal">
+  <h2>Why ACCESS (TU Dresden)</h2>
   <div class="panel">
     <p>
-      The ACCESS program aligns precisely with my interest in
-      computational mechanics, verification-based structural design,
-      and research-oriented learning.
+      The ACCESS program aligns with my interest in computational mechanics,
+      numerical verification, and research-oriented structural engineering.
     </p>
-    <p style="margin-top:18px">
-      Its academic rigor, emphasis on numerical methods,
-      and preparation for doctoral research
-      support my long-term goal of contributing to
-      advanced structural engineering research.
+    <p style="margin-top:16px">
+      Its academic rigor and emphasis on advanced mechanics
+      provide a strong foundation for doctoral research
+      and long-term academic contribution.
     </p>
   </div>
 </section>
 
 <footer>
-Academic Documentary Dossier · Uday Kiran Bandari · 2026
+© Uday Kiran Bandari · Academic Profile · 2026
 </footer>
 
 <script>
-const observer=new IntersectionObserver(e=>{
-  e.forEach(x=>{
-    if(x.isIntersecting)x.target.classList.add("visible");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add("visible")}
   });
 },{threshold:0.25});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
