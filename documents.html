@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Academic Documents | Uday Kiran Bandari</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121a2f;
+      --accent:#4f9cff;
+      --text:#e6ebf5;
+      --muted:#9aa4bf;
+      --line:rgba(255,255,255,0.08);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:"Inter",system-ui,sans-serif;
+    }
+
+    body{
+      background:linear-gradient(180deg,#0b1220,#0e1730);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    section{
+      max-width:1100px;
+      margin:auto;
+      padding:90px 24px;
+    }
+
+    h1{
+      font-size:3rem;
+      letter-spacing:-1px;
+    }
+
+    h2{
+      color:var(--accent);
+      font-size:2.1rem;
+      margin-bottom:18px;
+    }
+
+    h3{
+      font-size:1.2rem;
+      margin-bottom:8px;
+      color:#fff;
+    }
+
+    p{
+      color:var(--muted);
+      max-width:900px;
+      font-size:1.05rem;
+    }
+
+    .divider{
+      height:1px;
+      background:linear-gradient(to right,transparent,var(--line),transparent);
+      margin:70px 0;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      padding:34px;
+      box-shadow:0 25px 60px rgba(0,0,0,0.35);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:26px;
+      margin-top:26px;
+    }
+
+    .doc-tile{
+      background:#0f1935;
+      border-radius:14px;
+      padding:22px;
+      border:1px solid var(--line);
+      transition:transform .3s ease,border .3s ease;
+    }
+
+    .doc-tile:hover{
+      transform:translateY(-6px);
+      border-color:var(--accent);
+    }
+
+    .doc-tile a{
+      color:var(--accent);
+      font-weight:600;
+      text-decoration:none;
+      display:inline-block;
+      margin-top:10px;
+    }
+
+    /* reveal */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all 1.1s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    footer{
+      text-align:center;
+      padding:50px 20px;
+      color:var(--muted);
+      font-size:.95rem;
+      border-top:1px solid var(--line);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<section class="reveal">
+  <h1>Academic Documents</h1>
+  <p>
+    This section provides official academic documents
+    supporting my educational background, achievements,
+    and professional experience.
+    All documents are provided for transparency and verification.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ACADEMIC RECORDS -->
+<section class="reveal">
+  <h2>Academic Records</h2>
+
+  <div class="card">
+    <div class="grid">
+      <div class="doc-tile">
+        <h3>Semester Marksheets</h3>
+        <p>Individual semester-wise academic performance records.</p>
+        <a href="documents/semester_marksheets.pdf" target="_blank">Open PDF</a>
+      </div>
+
+      <div class="doc-tile">
+        <h3>Consolidated Transcript</h3>
+        <p>Official transcript issued by the institution.</p>
+        <a href="documents/transcript.pdf" target="_blank">Open PDF</a>
+      </div>
+
+      <div class="doc-tile">
+        <h3>Study Certificate</h3>
+        <p>Certificate confirming period of study and enrollment.</p>
+        <a href="documents/study_certificate.pdf" target="_blank">Open PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DEGREE & RECOGNITION -->
+<section class="reveal">
+  <h2>Degree & Recognition</h2>
+
+  <div class="card">
+    <div class="grid">
+      <div class="doc-tile">
+        <h3>Provisional Degree Certificate</h3>
+        <p>Issued upon completion of the Bachelor of Engineering program.</p>
+        <a href="documents/provisional_degree_certificate.pdf" target="_blank">Open PDF</a>
+      </div>
+
+      <div class="doc-tile">
+        <h3>Final Degree Certificate</h3>
+        <p>Official Bachelor of Engineering degree certificate.</p>
+        <a href="documents/degree_certificate.pdf" target="_blank">Open PDF</a>
+      </div>
+
+      <div class="doc-tile">
+        <h3>Merit / Gold Medal Certificate</h3>
+        <p>Recognition for academic excellence as Branch Topper.</p>
+        <a href="documents/gold_medal_certificate.pdf" target="_blank">Open PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CURRICULUM -->
+<section class="reveal">
+  <h2>Curriculum & Modules</h2>
+
+  <div class="card">
+    <div class="grid">
+      <div class="doc-tile">
+        <h3>Module Handbook (B.E. Civil Engineering)</h3>
+        <p>Detailed syllabus and curriculum structure of the bachelor’s program.</p>
+        <a href="documents/module_handbook.pdf" target="_blank">Open PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section class="reveal">
+  <h2>Experience & Internships</h2>
+
+  <div class="card">
+    <div class="grid">
+      <div class="doc-tile">
+        <h3>Industry Internship Certificate</h3>
+        <p>15-week internship at Medini Technologies Pvt. Ltd.</p>
+        <a href="documents/internship_certificate.pdf" target="_blank">Open PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LOR -->
+<section class="reveal">
+  <h2>Letters of Recommendation</h2>
+
+  <div class="card">
+    <div class="grid">
+      <div class="doc-tile">
+        <h3>Academic Letter of Recommendation</h3>
+        <p>Issued by faculty member (for application verification).</p>
+        <a href="documents/lor_academic.pdf" target="_blank">Open PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Academic Documents · Verification Section  
+  <br>Uday Kiran Bandari
+</footer>
+
+<script>
+  const reveals=document.querySelectorAll('.reveal');
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  },{threshold:0.2});
+  reveals.forEach(r=>observer.observe(r));
+</script>
+
+</body>
+</html>
