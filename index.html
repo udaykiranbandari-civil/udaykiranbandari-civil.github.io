@@ -1,18 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Test</title>
-  <style>
-    body{
-      background:black;
-      color:white;
-      font-family:Arial;
-      padding:100px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Uday Kiran Bandari | Academic Documentary</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  background:linear-gradient(180deg,#070b17,#0b1230);
+  color:#e9eef8;
+}
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:140px 32px;
+}
+
+h1{font-size:3.2rem;letter-spacing:-1px}
+h2{color:#4f9cff;font-size:2.2rem;margin-bottom:22px}
+p{color:#9aa6c4;font-size:1.05rem;line-height:1.7}
+
+.divider{
+  height:1px;
+  background:linear-gradient(to right,transparent,rgba(255,255,255,.1),transparent);
+  margin:100px auto;
+  max-width:900px;
+}
+
+/* reveal animation */
+.reveal{
+  opacity:0;
+  transform:translateY(60px);
+  transition:1.2s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+</style>
 </head>
+
 <body>
-  <h1>Uday Kiran Bandari</h1>
-  <p>If you can see this, GitHub Pages is working.</p>
+
+<section class="reveal">
+  <h1>Uday Kiran <span style="color:#4f9cff">Bandari</span></h1>
+  <p style="margin-top:20px">
+    Gold Medalist · Civil Engineer · Research-Oriented Applicant
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<section class="reveal">
+  <h2>Purpose of This Page</h2>
+  <p>
+    This is not a portfolio.  
+    This is an academic documentary — created to present identity,
+    intellectual trajectory, research orientation, and evidence
+    in a single, coherent narrative.
+  </p>
+</section>
+
+<script>
+const observer=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting){x.target.classList.add("visible")}
+  })
+},{threshold:0.25});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
+
 </body>
 </html>
