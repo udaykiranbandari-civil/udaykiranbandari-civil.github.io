@@ -30,6 +30,44 @@
       line-height:1.7;
     }
 
+    /* ---------- TOP NAVIGATION ---------- */
+    .top-nav{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11,18,32,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner{
+      max-width: 1100px;
+      margin: auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand a{
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .links a{
+      margin-left: 18px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .links a:hover{
+      color: var(--accent);
+    }
+    /* ------------------------------------ */
+
     section{
       max-width:1100px;
       margin:auto;
@@ -100,7 +138,6 @@
       margin-top:10px;
     }
 
-    /* reveal */
     .reveal{
       opacity:0;
       transform:translateY(40px);
@@ -123,14 +160,28 @@
 
 <body>
 
+<!-- NAVIGATION -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <a href="index.html">Uday Kiran Bandari</a>
+    </div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="documents.html">Documents</a>
+      <a href="recognition.html">Recognition</a>
+    </div>
+  </div>
+</nav>
+
 <!-- HEADER -->
 <section class="reveal">
   <h1>Academic Documents</h1>
   <p>
-    This section provides official academic documents
-    supporting my educational background, achievements,
-    and professional experience.
-    All documents are provided for transparency and verification.
+    This section provides official academic documents supporting my educational background,
+    achievements, and professional experience. All documents are provided for transparency
+    and verification.
   </p>
 </section>
 
@@ -139,24 +190,18 @@
 <!-- ACADEMIC RECORDS -->
 <section class="reveal">
   <h2>Academic Records</h2>
-
   <div class="card">
     <div class="grid">
       <div class="doc-tile">
         <h3>Semester Marksheets</h3>
-        <p>Individual semester-wise academic performance records.</p>
         <a href="documents/semester_marksheets.pdf" target="_blank">Open PDF</a>
       </div>
-
       <div class="doc-tile">
         <h3>Consolidated Transcript</h3>
-        <p>Official transcript issued by the institution.</p>
         <a href="documents/transcript.pdf" target="_blank">Open PDF</a>
       </div>
-
       <div class="doc-tile">
         <h3>Study Certificate</h3>
-        <p>Certificate confirming period of study and enrollment.</p>
         <a href="documents/study_certificate.pdf" target="_blank">Open PDF</a>
       </div>
     </div>
@@ -165,79 +210,22 @@
 
 <div class="divider"></div>
 
-<!-- DEGREE & RECOGNITION -->
+<!-- DEGREE -->
 <section class="reveal">
   <h2>Degree & Recognition</h2>
-
   <div class="card">
     <div class="grid">
       <div class="doc-tile">
         <h3>Provisional Degree Certificate</h3>
-        <p>Issued upon completion of the Bachelor of Engineering program.</p>
         <a href="documents/provisional_degree_certificate.pdf" target="_blank">Open PDF</a>
       </div>
-
       <div class="doc-tile">
         <h3>Final Degree Certificate</h3>
-        <p>Official Bachelor of Engineering degree certificate.</p>
         <a href="documents/degree_certificate.pdf" target="_blank">Open PDF</a>
       </div>
-
       <div class="doc-tile">
-        <h3>Merit / Gold Medal Certificate</h3>
-        <p>Recognition for academic excellence as Branch Topper.</p>
+        <h3>Gold Medal Certificate</h3>
         <a href="documents/gold_medal_certificate.pdf" target="_blank">Open PDF</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CURRICULUM -->
-<section class="reveal">
-  <h2>Curriculum & Modules</h2>
-
-  <div class="card">
-    <div class="grid">
-      <div class="doc-tile">
-        <h3>Module Handbook (B.E. Civil Engineering)</h3>
-        <p>Detailed syllabus and curriculum structure of the bachelor’s program.</p>
-        <a href="documents/module_handbook.pdf" target="_blank">Open PDF</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- EXPERIENCE -->
-<section class="reveal">
-  <h2>Experience & Internships</h2>
-
-  <div class="card">
-    <div class="grid">
-      <div class="doc-tile">
-        <h3>Industry Internship Certificate</h3>
-        <p>15-week internship at Medini Technologies Pvt. Ltd.</p>
-        <a href="documents/internship_certificate.pdf" target="_blank">Open PDF</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- LOR -->
-<section class="reveal">
-  <h2>Letters of Recommendation</h2>
-
-  <div class="card">
-    <div class="grid">
-      <div class="doc-tile">
-        <h3>Academic Letter of Recommendation</h3>
-        <p>Issued by faculty member (for application verification).</p>
-        <a href="documents/lor_academic.pdf" target="_blank">Open PDF</a>
       </div>
     </div>
   </div>
