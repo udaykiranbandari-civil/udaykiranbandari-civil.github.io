@@ -2,238 +2,210 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Uday Kiran Bandari | Academic Profile</title>
+<title>Uday Kiran Bandari | Cinematic Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --bg:#f7f8fa;
-  --panel:#ffffff;
-  --accent:#005aa9;
-  --text:#1b1f23;
-  --muted:#5f6b7a;
-  --line:#dfe3e8;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+html,body{scroll-behavior:smooth;background:#050510;color:#fff}
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,sans-serif}
-html{scroll-behavior:smooth}
-
+/* ===== BACKGROUND ===== */
 body{
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.7;
+  background:
+    radial-gradient(circle at top,#1b2cff22,#000),
+    linear-gradient(180deg,#050510,#020208);
 }
 
-/* HEADER */
-header{
-  background:#ffffff;
-  border-bottom:1px solid var(--line);
-}
-.header-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:26px 32px;
-}
-.header-inner h1{font-size:2rem;font-weight:600}
-.header-inner p{color:var(--muted);margin-top:6px;font-size:.95rem}
-
-/* NAV */
-nav{
-  background:#ffffff;
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:100;
-}
-.nav-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:10px 32px;
+/* ===== HERO ===== */
+.hero{
+  height:100vh;
   display:flex;
-  gap:22px;
-  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
 }
-.nav-inner a{
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-50%;
+  background:
+    conic-gradient(from 0deg,#1e90ff,#8a2be2,#1e90ff);
+  animation:spin 20s linear infinite;
+  opacity:.25;
+}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.hero-content{
+  position:relative;
+  text-align:center;
+  z-index:2;
+}
+
+.hero h1{
+  font-size:4rem;
+  font-weight:900;
+  text-shadow:0 0 40px #1e90ff;
+}
+
+.hero p{
+  margin-top:16px;
+  font-size:1.3rem;
+  color:#cbd5ff;
+}
+
+/* ===== FLOATING IMAGE ===== */
+.hero img{
+  width:200px;
+  border-radius:50%;
+  margin-top:30px;
+  border:4px solid #1e90ff;
+  box-shadow:0 0 60px #1e90ff;
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-18px)}
+}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;
+  top:20px;
+  right:20px;
+  display:flex;
+  gap:12px;
+  z-index:999;
+}
+
+nav a{
   text-decoration:none;
-  color:var(--muted);
-  font-size:.9rem;
+  padding:10px 16px;
+  background:#111;
+  border:1px solid #1e90ff;
+  color:#fff;
+  font-size:.85rem;
+  border-radius:999px;
+  transition:.3s;
 }
-.nav-inner a:hover{color:var(--accent)}
 
-/* SECTIONS */
+nav a:hover{
+  background:#1e90ff;
+  box-shadow:0 0 25px #1e90ff;
+}
+
+/* ===== SECTIONS ===== */
 section{
-  max-width:1200px;
-  margin:auto;
-  padding:90px 32px;
+  padding:140px 10%;
+  position:relative;
 }
+
 section h2{
-  font-size:1.8rem;
-  color:var(--accent);
-  margin-bottom:22px;
-}
-section p{
-  max-width:900px;
-  color:var(--muted);
-  font-size:1.02rem;
+  font-size:3rem;
+  margin-bottom:30px;
+  text-shadow:0 0 20px #1e90ff;
 }
 
-/* PANELS */
-.panel{
-  background:var(--panel);
-  border:1px solid var(--line);
-  padding:34px;
-  margin-top:26px;
+/* ===== GLASS CARDS ===== */
+.card{
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.2);
+  padding:40px;
+  margin-bottom:40px;
+  box-shadow:0 0 40px #000;
 }
 
-/* GRIDS */
-.grid-2{
+/* ===== GRID ===== */
+.grid{
   display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:36px;
-  margin-top:26px;
-}
-.grid-3{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:26px;
-  margin-top:26px;
-}
-@media(max-width:900px){
-  .grid-2,.grid-3{grid-template-columns:1fr}
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
 }
 
-/* MEDIA */
+/* ===== IMAGES ===== */
 img,video{
   width:100%;
-  border:1px solid var(--line);
+  border-radius:16px;
+  box-shadow:0 0 40px #000;
 }
 
-/* DOC LINKS */
+/* ===== DOC LINKS ===== */
 .doc{
   display:block;
-  padding:18px;
-  border:1px solid var(--line);
-  background:#fff;
+  padding:20px;
+  border:1px solid #1e90ff;
   text-decoration:none;
-  color:var(--text);
-  font-size:.95rem;
+  color:#fff;
+  transition:.3s;
 }
-.doc:hover{border-color:var(--accent)}
 
-/* ENGINEER-CINEMATIC MOTION */
+.doc:hover{
+  background:#1e90ff;
+  box-shadow:0 0 30px #1e90ff;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  padding:60px;
+  text-align:center;
+  background:#020208;
+  border-top:1px solid #1e90ff;
+}
+
+/* ===== REVEAL ===== */
 .reveal{
   opacity:0;
-  transform:translateY(24px);
-  transition:0.7s linear;
+  transform:translateY(80px) scale(.95);
+  transition:1s cubic-bezier(.2,.8,.2,1);
 }
 .reveal.visible{
   opacity:1;
   transform:none;
-}
-
-/* FOOTER */
-footer{
-  background:#ffffff;
-  border-top:1px solid var(--line);
-  padding:40px 32px;
-  text-align:center;
-  color:var(--muted);
-  font-size:.85rem;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-inner">
-    <h1>Uday Kiran Bandari</h1>
-    <p>Academic Profile · Civil Engineering · Research Orientation</p>
-  </div>
-</header>
-
 <nav>
-  <div class="nav-inner">
-    <a href="#profile">Profile</a>
-    <a href="#academics">Academic Record</a>
-    <a href="#research">Research</a>
-    <a href="#documents">Documents</a>
-    <a href="#recognition">Recognition</a>
-    <a href="#access">Why ACCESS</a>
-  </div>
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#docs">Docs</a>
+  <a href="#recognition">Awards</a>
 </nav>
 
-<!-- PROFILE + INTERACTIVE STRUCTURAL IDENTITY -->
-<section id="profile" class="reveal">
-  <h2>Profile</h2>
-
-  <div class="grid-2">
-
-    <div>
-      <p>
-        Civil Engineering graduate with a CGPA of <b>9.5/10</b>
-        (German GPA ≈ <b>1.25</b>), graduating as
-        <b>Branch Topper and Gold Medalist</b>.
-      </p>
-
-      <p style="margin-top:14px">
-        My academic focus lies in understanding
-        <b>structural behaviour</b> through analytical reasoning,
-        design codes, and verification-based computational analysis.
-      </p>
-
-      <p style="margin-top:14px">
-        The interactive structural element represents my approach:
-        precise, systematic, and grounded in fundamentals.
-      </p>
-    </div>
-
-    <!-- INTERACTIVE RC BEAM -->
-    <div style="cursor:pointer"
-         onclick="document.getElementById('research').scrollIntoView({behavior:'smooth'})">
-
-      <svg viewBox="0 0 420 220" width="100%">
-        <polygon points="80,60 340,40 380,140 120,160"
-                 fill="none" stroke="#005aa9" stroke-width="2"/>
-        <line x1="80" y1="60" x2="120" y2="160" stroke="#005aa9" stroke-width="2"/>
-        <line x1="340" y1="40" x2="380" y2="140" stroke="#005aa9" stroke-width="2"/>
-        <line x1="110" y1="145" x2="360" y2="128" stroke="#9aa6c4" stroke-width="1"/>
-        <line x1="110" y1="135" x2="360" y2="118" stroke="#9aa6c4" stroke-width="1"/>
-        <polygon points="120,130 360,115 360,125 120,140"
-                 fill="rgba(0,90,169,0.15)"/>
-        <text x="130" y="195" font-size="12" fill="#5f6b7a">
-          RC Beam · Analytical + FEM Representation
-        </text>
-      </svg>
-
-    </div>
-
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>Uday Kiran Bandari</h1>
+    <p>Civil Engineer · Gold Medalist · Research Driven</p>
+    <img src="images/Uday_Kiran_Bandari_Profile.png">
   </div>
-</section>
+</div>
 
-<!-- ACADEMICS -->
-<section id="academics" class="reveal">
-  <h2>Academic Record</h2>
-  <div class="panel grid-3">
-    <p><b>Degree</b><br>B.E. Civil Engineering</p>
-    <p><b>Performance</b><br>CGPA 9.5 · Gold Medal</p>
-    <p><b>Strength</b><br>Mathematics & Structural Analysis</p>
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <h2>Who I Am</h2>
+  <div class="card">
+    <p>
+      I am a Civil Engineer with a CGPA of <b>9.5/10</b>,
+      Gold Medalist, deeply interested in
+      <b>structural behaviour, FEM, and computational engineering</b>.
+      I enjoy blending engineering with creativity and presentation.
+    </p>
   </div>
 </section>
 
 <!-- RESEARCH -->
 <section id="research" class="reveal">
-  <h2>Research Orientation</h2>
-  <div class="panel">
-    <p>
-      Independent research comparing IS 456 and Eurocode 2
-      through analytical RC beam design verified using
-      finite element modelling in Abaqus.
-    </p>
-  </div>
-  <div class="grid-3">
+  <h2>Research & Engineering</h2>
+  <div class="grid">
     <img src="images/rc_beam_geometry.png">
     <img src="images/abaqus_mesh_model.png">
     <img src="images/stress_distribution_plot.png">
@@ -241,57 +213,38 @@ footer{
 </section>
 
 <!-- DOCUMENTS -->
-<section id="documents" class="reveal">
-  <h2>Academic Documents</h2>
-  <div class="grid-3">
-    <a class="doc" href="documents/transcript.pdf" target="_blank">Transcript</a>
-    <a class="doc" href="documents/semester_marksheets.pdf" target="_blank">Semester Marksheets</a>
-    <a class="doc" href="documents/degree_certificate.pdf" target="_blank">Degree Certificate</a>
-    <a class="doc" href="documents/gold_medal_certificate.pdf" target="_blank">Gold Medal Certificate</a>
+<section id="docs" class="reveal">
+  <h2>Academic Proof</h2>
+  <div class="grid">
+    <a class="doc" href="documents/transcript.pdf">Transcript</a>
+    <a class="doc" href="documents/semester_marksheets.pdf">Marksheets</a>
+    <a class="doc" href="documents/degree_certificate.pdf">Degree</a>
+    <a class="doc" href="documents/gold_medal_certificate.pdf">Gold Medal</a>
   </div>
 </section>
 
 <!-- RECOGNITION -->
 <section id="recognition" class="reveal">
   <h2>Recognition</h2>
-  <div class="grid-2">
+  <div class="grid">
     <img src="images/graduation_photo_1.jpg">
     <img src="images/graduation_photo_2.jpg">
   </div>
-  <video controls style="margin-top:24px">
-    <source src="images/gold_medal_ceremony.mp4" type="video/mp4">
+  <video controls style="margin-top:30px">
+    <source src="images/gold_medal_ceremony.mp4">
   </video>
 </section>
 
-<!-- WHY ACCESS -->
-<section id="access" class="reveal">
-  <h2>Target Programme</h2>
-  <div class="panel grid-2">
-    <div>
-      <p>
-        Target Programme:
-        <b>Advanced Computational Civil Engineering Structural Studies (ACCESS)</b>
-      </p>
-      <p style="margin-top:14px">
-        TU Dresden provides an academically rigorous environment
-        aligned with computational mechanics, numerical methods,
-        and research-oriented structural engineering.
-      </p>
-    </div>
-    <img src="images/tu_dresden_logo.png">
-  </div>
-</section>
-
 <footer>
-Prepared independently · Academic profile · 2026
+  Built with passion · Designed to impress · 2026
 </footer>
 
 <script>
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add("visible")}
-  });
-},{threshold:0.25});
+const observer=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting)x.target.classList.add("visible")
+  })
+},{threshold:.2});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
 
