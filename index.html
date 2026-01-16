@@ -1,245 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uday Kiran Bandari | Academic Dossier</title>
+<meta charset="UTF-8">
+<title>Uday Kiran Bandari | Academic Dossier</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #0b1220;
-      --card: #121a2f;
-      --accent: #4f9cff;
-      --text: #e6ebf5;
-      --muted: #9aa4bf;
-      --line: rgba(255,255,255,0.08);
-    }
+<style>
+:root{
+  --bg:#0b1220;
+  --card:#121a2f;
+  --accent:#4f9cff;
+  --text:#e6ebf5;
+  --muted:#9aa4bf;
+  --line:rgba(255,255,255,0.08);
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Inter", system-ui, sans-serif;
-    }
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Inter",system-ui,sans-serif}
 
-    body {
-      background: linear-gradient(180deg, #0b1220, #0e1730);
-      color: var(--text);
-      line-height: 1.7;
-    }
+body{
+  background:linear-gradient(180deg,#0b1220,#0e1730);
+  color:var(--text);
+  line-height:1.7;
+  scroll-behavior:smooth;
+}
 
-    /* ---------- TOP NAVIGATION ---------- */
-    .top-nav{
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(11,18,32,0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(11,18,32,.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:14px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.nav-inner a{
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:18px;
+  font-weight:500;
+}
+.nav-inner a:hover{color:var(--accent)}
+.brand a{
+  color:var(--text);
+  font-weight:700;
+  letter-spacing:.3px;
+  margin-left:0;
+}
 
-    .nav-inner{
-      max-width: 1100px;
-      margin: auto;
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+/* SECTIONS */
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:100px 24px;
+}
+h1{font-size:3.2rem;letter-spacing:-1px}
+h2{color:var(--accent);font-size:2.1rem;margin-bottom:18px}
+h3{font-size:1.25rem;margin-bottom:10px}
+p{color:var(--muted);max-width:900px;font-size:1.05rem}
 
-    .brand a{
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
+.divider{
+  height:1px;
+  background:linear-gradient(to right,transparent,var(--line),transparent);
+  margin:80px 0;
+}
 
-    .links a{
-      margin-left: 18px;
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 500;
-    }
+.card{
+  background:var(--card);
+  border-radius:16px;
+  padding:34px;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
 
-    .links a:hover{
-      color: var(--accent);
-    }
-    /* ------------------------------------ */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:26px;
+  margin-top:30px;
+}
 
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 90px 24px;
-    }
+img,video{
+  width:100%;
+  border-radius:14px;
+  box-shadow:0 18px 40px rgba(0,0,0,.45);
+}
 
-    h1 {
-      font-size: 3.1rem;
-      letter-spacing: -1px;
-    }
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+.hero img{
+  width:280px;
+  border-radius:50%;
+  border:4px solid var(--accent);
+  justify-self:center;
+}
 
-    h2 {
-      font-size: 2.1rem;
-      margin-bottom: 18px;
-      color: var(--accent);
-    }
+/* ANIMATION */
+.reveal{opacity:0;transform:translateY(40px);transition:1.1s}
+.reveal.visible{opacity:1;transform:none}
 
-    h3 {
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-      color: #ffffff;
-    }
+footer{
+  text-align:center;
+  padding:50px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+}
 
-    p {
-      color: var(--muted);
-      max-width: 900px;
-      font-size: 1.05rem;
-    }
-
-    .divider {
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--line), transparent);
-      margin: 70px 0;
-    }
-
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .hero img {
-      width: 280px;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      box-shadow: 0 0 40px rgba(79,156,255,0.4);
-      justify-self: center;
-    }
-
-    .hero span {
-      color: var(--accent);
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 34px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.35);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 26px;
-      margin-top: 30px;
-    }
-
-    .img-block img {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 12px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1.1s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    footer {
-      text-align: center;
-      padding: 50px 20px;
-      color: var(--muted);
-      font-size: 0.95rem;
-      border-top: 1px solid var(--line);
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-    }
-  </style>
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;text-align:center}
+}
+</style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
-<nav class="top-nav">
+<nav>
   <div class="nav-inner">
-    <div class="brand">
-      <a href="index.html">Uday Kiran Bandari</a>
-    </div>
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="research.html">Research</a>
-      <a href="documents.html">Documents</a>
-      <a href="recognition.html">Recognition</a>
-      <a href="why-access.html">Why ACCESS</a>
+    <div class="brand"><a href="#home">Uday Kiran Bandari</a></div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#academics">Academics</a>
+      <a href="#research">Research</a>
+      <a href="#documents">Documents</a>
+      <a href="#recognition">Recognition</a>
+      <a href="#why-access">Why ACCESS</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO / IDENTITY -->
-<section class="hero reveal">
+<!-- HOME -->
+<section id="home" class="hero reveal">
   <div>
-    <h1>Uday Kiran <span>Bandari</span></h1>
+    <h1>Uday Kiran <span style="color:var(--accent)">Bandari</span></h1>
     <p>
       Gold Medalist in Civil Engineering (CGPA 9.5/10 · German GPA ≈ 1.25).  
-      Research-oriented engineer with a strong focus on <b>computational structural engineering</b>,
-      reinforced concrete design, and the transition from Indian Standards (IS) to European
-      design philosophy (Eurocodes).
-    </p>
-
-    <p style="margin-top:20px;">
-      My academic journey is defined by consistency, disciplined self-study,
-      and a deep interest in understanding structural behaviour beyond formulas —
-      through analytical reasoning and finite-element verification.
+      Research-oriented engineer focused on computational structural engineering,
+      IS → Eurocode transition, and verification-based design.
     </p>
   </div>
-
-  <img src="images/Uday_Kiran_Bandari_Profile.png" alt="Uday Kiran Bandari">
+  <img src="images/Uday_Kiran_Bandari_Profile.png">
 </section>
 
 <div class="divider"></div>
 
-<!-- ACADEMIC PROFILE -->
-<section class="reveal">
-  <h2>Academic Profile</h2>
+<!-- ACADEMICS -->
+<section id="academics" class="reveal">
+<h2>Academic Profile</h2>
+<div class="card">
+<p>
+Bachelor of Engineering in Civil Engineering — Branch Topper & Gold Medalist.
+Strong foundation in Structural Analysis, RCC, Numerical Methods,
+Operational Research, and Engineering Mathematics.
+</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RESEARCH -->
+<section id="research" class="reveal">
+<h2>Research & Projects</h2>
+
+<div class="grid">
   <div class="card">
-    <p>
-      I completed my Bachelor of Engineering in Civil Engineering at
-      <b>Ballari Institute of Technology and Management</b>, graduating as
-      <b>Branch Topper and Gold Medalist</b>.
-    </p>
+    <h3>IS 456 → Eurocode 2 (Abaqus FEM)</h3>
+    <p>Manual design + finite element verification of RC beam.</p>
   </div>
+  <div><img src="images/rc_beam_geometry.png"></div>
+  <div><img src="images/abaqus_mesh_model.png"></div>
+  <div><img src="images/stress_distribution_plot.png"></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DOCUMENTS -->
+<section id="documents" class="reveal">
+<h2>Academic Documents</h2>
+<div class="grid">
+  <div class="card"><a href="documents/semester_marksheets.pdf" target="_blank">Semester Marksheets</a></div>
+  <div class="card"><a href="documents/transcript.pdf" target="_blank">Transcript</a></div>
+  <div class="card"><a href="documents/degree_certificate.pdf" target="_blank">Degree Certificate</a></div>
+  <div class="card"><a href="documents/gold_medal_certificate.pdf" target="_blank">Gold Medal Certificate</a></div>
+  <div class="card"><a href="documents/module_handbook.pdf" target="_blank">Module Handbook</a></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RECOGNITION -->
+<section id="recognition" class="reveal">
+<h2>Recognition</h2>
+<div class="grid">
+  <img src="images/graduation_photo_1.jpg">
+  <img src="images/graduation_photo_2.jpg">
+</div>
+<video controls src="images/gold_medal_ceremony.mp4"></video>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY ACCESS -->
+<section id="why-access" class="reveal">
+<h2>Why ACCESS?</h2>
+<div class="card">
+<p>
+ACCESS aligns perfectly with my interest in computational mechanics,
+verification-based design, and research-oriented learning.
+Its structure prepares me for PhD-level work and advanced structural research.
+</p>
+</div>
 </section>
 
 <footer>
-  Academic Dossier · Prepared for Research-Oriented Master’s Programs  
-  <br>Uday Kiran Bandari · 2026
+Academic Dossier · Uday Kiran Bandari · 2026
 </footer>
 
 <script>
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.2 });
-  reveals.forEach(r => observer.observe(r));
+const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add("visible")),{threshold:.2});
+document.querySelectorAll(".reveal").forEach(r=>obs.observe(r));
 </script>
 
 </body>
