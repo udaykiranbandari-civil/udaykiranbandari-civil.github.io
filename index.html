@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Uday Kiran Bandari | Academic Dossier</title>
+<title>Uday Kiran Bandari | Academic Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
   --accent:#4f9cff;
   --text:#e6ebf5;
   --muted:#9aa4bf;
-  --border:rgba(255,255,255,.1);
+  --border:rgba(255,255,255,.12);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
@@ -32,10 +32,10 @@ section{
 }
 
 h1{font-size:3.2rem;font-weight:900}
-h2{font-size:2.2rem;color:var(--accent);margin-bottom:24px}
-h3{font-size:1.3rem;margin-bottom:12px}
+h2{font-size:2.3rem;color:var(--accent);margin-bottom:24px}
+h3{font-size:1.35rem;margin-bottom:12px}
 
-p{color:var(--muted);max-width:980px;font-size:1.05remm}
+p{color:var(--muted);max-width:980px;font-size:1.05rem}
 
 .divider{
   height:1px;
@@ -46,15 +46,15 @@ p{color:var(--muted);max-width:980px;font-size:1.05remm}
 .card{
   background:var(--panel);
   padding:40px;
-  border-radius:16px;
+  border-radius:18px;
   border:1px solid var(--border);
-  box-shadow:0 30px 70px rgba(0,0,0,.5);
+  box-shadow:0 30px 70px rgba(0,0,0,.55);
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:32px;
 }
 
 img{
@@ -98,21 +98,20 @@ footer{
 
 <body>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section>
   <h1>Uday Kiran Bandari</h1>
   <p>
     Gold Medalist in Civil Engineering (CGPA 9.5 / German GPA ≈ 1.25).  
-    Research-oriented civil engineer with strong interest in
-    computational structural engineering, reinforced concrete behaviour,
-    and Eurocode-based design philosophy.
+    Research-oriented civil engineer focused on computational structural engineering,
+    reinforced concrete behaviour, and Eurocode-based design philosophy.
   </p>
-  <img src="images/Uday_Kiran_Bandari_Profile.png">
+  <img src="images/Uday_Kiran_Bandari_Profile.png" alt="Uday Kiran Bandari">
 </section>
 
 <div class="divider"></div>
 
-<!-- WHO I AM -->
+<!-- ================= WHO I AM ================= -->
 <section>
   <h2>Who I Am</h2>
   <div class="card">
@@ -132,7 +131,7 @@ footer{
 
 <div class="divider"></div>
 
-<!-- RESEARCH PHILOSOPHY -->
+<!-- ================= RESEARCH PHILOSOPHY ================= -->
 <section>
   <h2>Research Philosophy</h2>
   <div class="card">
@@ -151,7 +150,7 @@ footer{
 
 <div class="divider"></div>
 
-<!-- PROJECTS -->
+<!-- ================= PROJECTS ================= -->
 <section>
   <h2>Research, Projects & Internship</h2>
   <div class="grid">
@@ -167,7 +166,7 @@ footer{
         verification using Abaqus to study stress distribution and
         behavioural differences.
       </p>
-      <img src="images/rc_beam_geometry.png">
+      <img src="images/rc_beam_geometry.png" alt="RC Beam Geometry">
       <div class="caption">RC beam geometry used for analytical comparison</div>
     </div>
 
@@ -177,8 +176,8 @@ footer{
         The beam was modelled as a 3D solid with appropriate material
         properties and boundary conditions to reflect analytical assumptions.
       </p>
-      <img src="images/abaqus_mesh_model.png">
-      <img src="images/stress_distribution_plot.png">
+      <img src="images/abaqus_mesh_model.png" alt="Abaqus FEM Model">
+      <img src="images/stress_distribution_plot.png" alt="Stress Distribution">
     </div>
 
     <div class="card">
@@ -187,6 +186,14 @@ footer{
         Academic project addressing overflow monitoring in urban
         drainage systems using sensor-based logic.
       </p>
+
+      <img src="images/project_odds.jpg" alt="Overflow Detection Project">
+
+      <div class="caption">
+        Prototype and system workflow developed for overflow detection
+        in urban drainage infrastructure.
+      </div>
+
       <p>
         Emphasis was placed on problem identification, system logic,
         and communication of engineering solutions.
@@ -211,7 +218,7 @@ footer{
 
 <div class="divider"></div>
 
-<!-- DOCUMENTS -->
+<!-- ================= DOCUMENTS ================= -->
 <section>
   <h2>Academic Records & Certifications</h2>
   <div class="grid">
@@ -235,23 +242,23 @@ footer{
 
 <div class="divider"></div>
 
-<!-- GRADUATION -->
+<!-- ================= GRADUATION ================= -->
 <section>
   <h2>Graduation & Recognition</h2>
   <div class="grid">
-    <img src="images/graduation_photo_1.jpg">
-    <img src="images/graduation_photo_2.jpg">
+    <img src="images/graduation_photo_1.jpg" alt="Graduation Ceremony Photo 1">
+    <img src="images/graduation_photo_2.jpg" alt="Graduation Ceremony Photo 2">
   </div>
 
-  <video controls preload="metadata">
-    <source src="./videos/gold_medal_ceremony.mp4" type="video/mp4">
+  <video controls muted preload="auto">
+    <source src="videos/gold_medal_ceremony.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </section>
 
 <div class="divider"></div>
 
-<!-- WHY ACCESS -->
+<!-- ================= WHY ACCESS ================= -->
 <section>
   <h2>Why ACCESS – TU Dresden</h2>
   <div class="card">
@@ -269,7 +276,7 @@ footer{
 </section>
 
 <footer>
-Academic Dossier · Uday Kiran Bandari · 2026
+Academic Portfolio · Uday Kiran Bandari · 2026
 </footer>
 
 </body>
