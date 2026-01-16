@@ -1,253 +1,257 @@
 <!doctype html>
-<!-- index.html — Final portfolio for Uday Kiran Bandari -->
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Uday Kiran Bandari — Portfolio</title>
-  <meta name="description" content="Civil Engineer, Gold Medalist — Portfolio for TU Dresden ACCESS application." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-  <meta name="theme-color" content="#004080" />
+  <meta charset="utf-8">
+  <title>Uday Kiran Bandari | Academic Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Academic portfolio of Uday Kiran Bandari – Computational Structural Engineering, IS to Eurocode transition, Abaqus FEA. ACCESS applicant, TU Dresden.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Theme tokens */
     :root{
-      --tu-blue:#004080;
-      --accent-orange:#d94800;
-      --bg:#f8fafc;
+      --primary:#004080;
+      --accent:#d94800;
+      --bg:#f7f9fc;
       --card:#ffffff;
       --muted:#6b7280;
-      --radius:12px;
-      --max-width:1100px;
-      --shadow: 0 10px 30px rgba(2,6,23,0.06);
+      --max:1050px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:var(--bg);font-family:Lato,system-ui,Segoe UI,Roboto,Arial;color:#071124}
-    a{color:var(--tu-blue)}
-    code{background:#f1f5f9;padding:2px 6px;border-radius:6px}
-
-    /* Header */
-    header{background:var(--tu-blue);color:#fff;padding:48px 18px;position:relative;overflow:hidden}
-    .container{max-width:var(--max-width);margin:0 auto;padding:0 18px}
-    .hero{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-    .hero-left{flex:1;min-width:240px}
-    h1{margin:0;font-size:clamp(1.6rem,3.8vw,2.6rem);letter-spacing:0.3px}
-    .subtitle{margin:8px 0 0 0;font-size:1rem;opacity:0.95}
-    .badges{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-    .badge{background:rgba(255,255,255,0.08);padding:8px 12px;border-radius:999px;font-weight:700;display:flex;gap:8px;align-items:center}
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--accent-orange);display:inline-block}
-    .profile-wrap{width:220px}
-    .profile{width:220px;height:220px;border-radius:50%;object-fit:cover;border:4px solid var(--accent-orange);box-shadow:0 6px 18px rgba(0,0,0,0.18);display:block}
-    nav{margin-top:16px}
-    .nav-links{display:inline-flex;gap:10px;flex-wrap:wrap}
-    .nav-links a{color:white;text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:700}
-    .nav-links a:hover{background:rgba(255,255,255,0.06)}
-
-    /* Main */
-    main{padding:36px 0}
-    section{padding:18px 0}
-    h2{color:var(--tu-blue);margin:0 0 12px 0}
-    .grid{display:grid;grid-template-columns:1fr 340px;gap:22px;align-items:start}
-    .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .28s,box-shadow .28s}
-    .card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(2,6,23,0.12)}
-    .accent-line{height:5px;background:var(--accent-orange);width:140px;border-radius:6px;margin:10px 0}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;border:0;cursor:pointer}
-    .btn-orange{background:var(--accent-orange);color:#fff}
-    .btn-outline{background:transparent;border:2px solid var(--tu-blue);color:var(--tu-blue)}
-    .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
-    .tile{display:block;padding:14px;border-radius:10px;background:linear-gradient(180deg,#fff,#f8fbff);text-decoration:none;color:inherit;border:1px solid #eef2f7}
-    .tile strong{color:var(--tu-blue)}
-    @media (max-width:980px){
-      .grid{grid-template-columns:1fr}
-      .profile-wrap{width:160px}
-      .profile{width:160px;height:160px}
-      .nav-links{display:none}
+    body{
+      margin:0;
+      font-family:Lato, system-ui;
+      background:var(--bg);
+      color:#0f172a;
+      line-height:1.6;
     }
-    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.3,1)}
-    .reveal.visible{opacity:1;transform:none}
-    footer{padding:18px 0;background:var(--tu-blue);color:#fff;text-align:center;margin-top:28px}
-    /* small icons inline */
-    .icon { width:18px;height:18px;vertical-align:middle;margin-right:8px;display:inline-block;fill:currentColor }
+    header{
+      background:var(--primary);
+      color:white;
+      padding:56px 20px;
+    }
+    .container{
+      max-width:var(--max);
+      margin:auto;
+    }
+    h1{
+      margin:0;
+      font-size:2.4rem;
+    }
+    .subtitle{
+      margin-top:10px;
+      font-size:1.05rem;
+      opacity:.95;
+    }
+    .badges{
+      display:flex;
+      gap:12px;
+      margin-top:16px;
+      flex-wrap:wrap;
+    }
+    .badge{
+      background:rgba(255,255,255,.12);
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:.9rem;
+    }
+    nav{
+      margin-top:20px;
+    }
+    nav a{
+      color:white;
+      margin-right:16px;
+      font-weight:700;
+      text-decoration:none;
+    }
+    nav a:hover{ text-decoration:underline }
+
+    main{
+      padding:48px 20px;
+    }
+    section{
+      margin-bottom:36px;
+    }
+    .card{
+      background:var(--card);
+      padding:28px;
+      border-radius:14px;
+      box-shadow:0 12px 32px rgba(0,0,0,.06);
+    }
+    h2{
+      color:var(--primary);
+      margin-top:0;
+    }
+    h3{
+      margin-bottom:6px;
+    }
+    ul{
+      margin-left:18px;
+    }
+    .muted{
+      color:var(--muted);
+    }
+    .btn{
+      display:inline-block;
+      margin-top:14px;
+      padding:10px 16px;
+      border-radius:10px;
+      font-weight:700;
+      text-decoration:none;
+    }
+    .btn-primary{
+      background:var(--accent);
+      color:white;
+    }
+    .btn-outline{
+      border:2px solid var(--primary);
+      color:var(--primary);
+    }
+    .images{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:16px;
+      margin-top:18px;
+    }
+    .images img{
+      width:100%;
+      border-radius:10px;
+    }
+    footer{
+      background:var(--primary);
+      color:white;
+      text-align:center;
+      padding:20px;
+      font-size:.9rem;
+    }
   </style>
 </head>
+
 <body>
-  <!-- Header / Hero -->
-  <header>
-    <div class="container">
-      <div class="hero" role="banner">
-        <div class="hero-left">
-          <h1>Uday Kiran Bandari</h1>
-          <p class="subtitle">Civil Engineer · Gold Medalist · Aspiring ACCESS Candidate</p>
 
-          <div class="badges" aria-hidden>
-            <div class="badge"><span class="dot" aria-hidden></span>9.5 CGPA</div>
-            <div class="badge"><span class="dot" aria-hidden></span>Gold Medal</div>
-            <div class="badge"><span class="dot" aria-hidden></span>Winter 2026</div>
-          </div>
+<header>
+  <div class="container">
+    <h1>Uday Kiran Bandari</h1>
+    <p class="subtitle">
+      Computational Structural Engineering · Reinforced Concrete · Finite Element Analysis (Abaqus)
+    </p>
 
-          <nav aria-label="Primary navigation" style="margin-top:12px">
-            <div class="nav-links" id="primary-nav">
-              <a href="#about">About</a>
-              <a href="#research">Research</a>
-              <a href="#project">Project</a>
-              <a href="#documents">Documents</a>
-              <a href="#cv">CV</a>
-              <a href="#contact">Contact</a>
-            </div>
-          </nav>
-        </div>
-
-        <!-- profile image: replace HEADSHOT.png in repo root -->
-        <div class="profile-wrap" aria-hidden>
-          <img src="HEADSHOT.png" alt="Uday Kiran Bandari - profile photo" class="profile" />
-        </div>
-      </div>
+    <div class="badges">
+      <div class="badge">Gold Medalist</div>
+      <div class="badge">CGPA 9.5 / 10</div>
+      <div class="badge">ACCESS Applicant · Winter 2026</div>
     </div>
-  </header>
 
-  <!-- Main content -->
-  <main class="container" id="top">
-    <!-- About -->
-    <section id="about" class="reveal" aria-labelledby="about-heading">
-      <div class="card">
-        <h2 id="about-heading">About Me</h2>
-        <div class="accent-line" aria-hidden></div>
-        <p>I am <strong>Uday Kiran Bandari</strong>, a Civil Engineering graduate (9.5/10, Gold Medalist) from Ballari Institute of Technology and Management. My focus is computational structural engineering, finite element analysis and BIM workflows. I have hands-on experience with AutoCAD, Revit, STAAD.Pro, SketchUp, Lumion, QGIS and Python. My research looks at adapting IS code practice to Eurocodes and producing reproducible Abaqus workflows for verification.</p>
-      </div>
-    </section>
+    <nav>
+      <a href="#profile">Academic Profile</a>
+      <a href="#research">Research</a>
+      <a href="#capstone">Capstone</a>
+      <a href="#access">Why ACCESS</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <!-- Research -->
-    <section id="research" class="reveal" aria-labelledby="research-heading">
-      <div class="card">
-        <h2 id="research-heading">Research</h2>
-        <h3>From IS to EN — Bridging Indian and European Concrete Design</h3>
-        <p>Comparative study of IS 456 and Eurocode 2 for a singly reinforced concrete beam (4 m span) — manual calculations and Abaqus linear verification.</p>
-        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn btn-orange" href="research.pdf" target="_blank" rel="noopener">📘 Download Report</a>
-          <a class="btn btn-outline" href="research.html" target="_blank" rel="noopener">🧠 Visual Research Page</a>
-        </div>
-      </div>
-    </section>
+<main class="container">
 
-    <!-- Project -->
-    <section id="project" class="reveal" aria-labelledby="project-heading">
-      <div class="card">
-        <h2 id="project-heading">Major Project</h2>
-        <h3>Overflow Detection in Drainage Systems (ODDS)</h3>
-        <p>IoT-based monitoring solution using MQ2 gas, float and tilt sensors integrated with NodeMCU to detect overflow events and alert operators for municipal response. Led the project from concept to prototype and dashboard integration.</p>
-        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn btn-orange" href="final report word.docx" target="_blank" rel="noopener">📄 Full Report</a>
-          <a class="btn btn-outline" href="FINAL PROJECT CERTIFICATE .pdf" target="_blank" rel="noopener">🏅 Certificate</a>
-        </div>
-      </div>
-    </section>
+<section id="profile">
+  <div class="card">
+    <h2>Academic Profile</h2>
+    <p>
+      I am a Civil Engineering graduate and <strong>Gold Medalist</strong> with a strong academic focus on
+      <strong>computational structural engineering</strong>.
+      My undergraduate training emphasized analytical design,
+      which I have extended toward <strong>numerical verification and finite element modeling</strong>.
+    </p>
 
-    <!-- Documents -->
-    <section id="documents" class="reveal" aria-labelledby="docs-heading">
-      <div class="card">
-        <h2 id="docs-heading">Documents & Academic Records</h2>
-        <p style="margin-top:6px">Click any tile to open the file. Place the actual files in the same folder as this page.</p>
-        <div class="tiles" role="list" aria-label="Academic documents">
-          <a class="tile" role="listitem" href="cv.pdf" target="_blank" rel="noopener"><strong>CV (cv.pdf)</strong></a>
-          <a class="tile" role="listitem" href="10th_marksheet.pdf" target="_blank" rel="noopener"><strong>10th Marksheet</strong></a>
-          <a class="tile" role="listitem" href="12th_marksheet.pdf" target="_blank" rel="noopener"><strong>12th Marksheet</strong></a>
-          <a class="tile" role="listitem" href="engineering_marksheets_transcripts.pdf" target="_blank" rel="noopener"><strong>Engineering Transcripts</strong></a>
-          <a class="tile" role="listitem" href="provisional_degree_certificate.pdf" target="_blank" rel="noopener"><strong>Provisional Degree</strong></a>
-          <a class="tile" role="listitem" href="degree_certificate.pdf" target="_blank" rel="noopener"><strong>Final Degree</strong></a>
-          <a class="tile" role="listitem" href="merit_certificate_gold_medal.pdf" target="_blank" rel="noopener"><strong>Gold Medal Certificate</strong></a>
-          <a class="tile" role="listitem" href="module_handbook_bachelors.pdf" target="_blank" rel="noopener"><strong>Module Handbook</strong></a>
-        </div>
-      </div>
-    </section>
+    <p>
+      My academic interest lies in the <strong>transition from Indian Standard (IS) based design
+      to European Eurocode-oriented structural analysis</strong>,
+      with particular emphasis on reinforced concrete behavior,
+      serviceability performance, and numerical validation using Abaqus.
+    </p>
+  </div>
+</section>
 
-    <!-- CV -->
-    <section id="cv" class="reveal" aria-labelledby="cv-heading">
-      <div class="card">
-        <h2 id="cv-heading">Curriculum Vitae</h2>
-        <p>Download or preview the CV below (PDF recommended).</p>
+<section id="research">
+  <div class="card">
+    <h2>Research Work</h2>
+    <h3>From IS to EN — Comparative RC Beam Design and FEA Verification</h3>
 
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
-          <a class="btn btn-orange" href="cv.pdf" target="_blank" rel="noopener">📄 Download CV</a>
-          <button class="btn btn-outline" onclick="toggleCvPreview()">🔍 Toggle CV preview</button>
-        </div>
+    <p>
+      This study investigates a singly reinforced concrete beam
+      designed using <strong>IS 456:2000</strong> and <strong>Eurocode 2 (EN 1992-1-1)</strong>,
+      followed by linear elastic finite element verification in Abaqus.
+    </p>
 
-        <div id="cvPreview" style="margin-top:12px;display:none">
-          <p style="color:var(--muted);margin:0 0 8px 0">Preview (PDF):</p>
-          <iframe id="cvFrame" src="cv.pdf" style="width:100%;height:520px;border:1px solid #e6eef9;border-radius:8px"></iframe>
-        </div>
+    <h4>Methodology</h4>
+    <ul>
+      <li>Manual design using IS 456 provisions</li>
+      <li>Equivalent Eurocode 2 design using partial safety factors</li>
+      <li>3D solid modeling and meshing in Abaqus</li>
+      <li>Comparison of deflection and stress response</li>
+    </ul>
 
-        <div style="margin-top:12px">
-          <h4 style="margin:0 0 8px 0">Selected Achievements</h4>
-          <ul style="margin:0 0 0 18px;color:var(--muted)">
-            <li>Gold Medal — Branch Topper, Civil Engineering (June 2025)</li>
-            <li>2nd Prize, Poster Presentation — Overflow Detection</li>
-            <li>2nd Prize, Short Film Competition — Director/Actor/Editor</li>
-            <li>15-week internship at Medini Technologies — BIM & structural design tools</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="reveal" aria-labelledby="contact-heading">
-      <div class="card">
-        <h2 id="contact-heading">Contact</h2>
-
-        <!-- Email + LinkedIn with small icons -->
-        <p>
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden focusable="false"><path d="M2 4.5C2 3.67 2.67 3 3.5 3h17c.83 0 1.5.67 1.5 1.5v15c0 .83-.67 1.5-1.5 1.5h-17A1.5 1.5 0 0 1 2 19.5v-15zM20.5 5l-8.5 6L3.5 5h17z" /></svg>
-          <a href="mailto:budaykiranuday@gmail.com" id="emailLink">budaykiranuday@gmail.com</a>
-        </p>
-
-        <p style="margin-top:8px">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden focusable="false"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11.5 19.5h-3v-8h3v8zm-1.5-9.3c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13 9.3h-3v-4.2c0-1.003-.02-2.295-1.4-2.295-1.403 0-1.617 1.095-1.617 2.225v4.27h-3v-8h2.884v1.095h.041c.401-.76 1.379-1.56 2.84-1.56 3.037 0 3.6 2 3.6 4.6v3.865z"/></svg>
-          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/uday_kiran_bandari" target="_blank" rel="noopener" id="linkedinLink">linkedin.com/in/uday_kiran_bandari</a>
-        </p>
-
-        <p style="margin-top:8px;color:var(--muted)">Nationality: Indian · Date of birth: 06 Mar 2003 · Place of birth: Hospet, India.</p>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer role="contentinfo">
-    <div class="container">
-      <small>© 2025 Uday Kiran Bandari • Prepared for TU Dresden ACCESS applications</small>
+    <div class="images">
+      <img src="images/rc_beam_geometry.png" alt="RC Beam Geometry">
+      <img src="images/abaqus_mesh_model.png" alt="Finite Element Mesh">
+      <img src="images/stress_distribution_plot.png" alt="Stress Distribution">
     </div>
-  </footer>
 
-  <!-- Scripts -->
-  <script>
-    // IntersectionObserver reveal
-    (function(){
-      const reveals = document.querySelectorAll('.reveal');
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            obs.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.12 });
-      reveals.forEach((r, i) => { r.style.transitionDelay = (i * 120) + 'ms'; io.observe(r); });
-    })();
+    <a class="btn btn-primary" href="Research_IS_to_EN_Concrete_Design.pdf" target="_blank">
+      Download Research Report (PDF)
+    </a>
+  </div>
+</section>
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
-        const href = this.getAttribute('href');
-        if(href.length > 1){ e.preventDefault(); const el = document.querySelector(href); el && el.scrollIntoView({behavior:'smooth',block:'start'}); }
-      });
-    });
+<section id="capstone">
+  <div class="card">
+    <h2>Undergraduate Capstone Project</h2>
+    <h3>Overflow Detection in Drainage Systems (ODDS)</h3>
 
-    // Toggle CV preview
-    function toggleCvPreview(){
-      const p = document.getElementById('cvPreview');
-      if(!p) return;
-      p.style.display = (p.style.display === 'none' || p.style.display === '') ? 'block' : 'none';
-      const frame = document.getElementById('cvFrame');
-      if(p.style.display === 'block' && frame) frame.src = frame.src;
-    }
-  </script>
+    <p>
+      An IoT-based monitoring system developed to detect drainage overflow events
+      using sensor integration and real-time alerts.
+      The project demonstrates interdisciplinary engineering thinking and system-level problem solving.
+    </p>
+
+    <p class="muted">
+      Included to show design coordination, implementation discipline, and applied engineering approach.
+    </p>
+  </div>
+</section>
+
+<section id="access">
+  <div class="card">
+    <h2>Why ACCESS – TU Dresden</h2>
+    <p>
+      The ACCESS program’s emphasis on <strong>finite element methods,
+      advanced numerical modeling, and research-oriented structural engineering</strong>
+      aligns directly with my academic direction.
+    </p>
+
+    <p>
+      My experience in IS-to-Eurocode comparison and Abaqus-based verification
+      provides a strong foundation to adapt to <strong>German engineering standards (DIN / EN)</strong>
+      and to contribute meaningfully to coursework and research projects at TU Dresden.
+    </p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="card">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:budaykiranuday@gmail.com">budaykiranuday@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/uday_kiran_bandari" target="_blank">linkedin.com/in/uday_kiran_bandari</a></p>
+    <p class="muted">Nationality: Indian · Date of Birth: 06 March 2003</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Academic Portfolio — Computational Structural Engineering · Prepared for TU Dresden ACCESS
+</footer>
+
 </body>
 </html>
