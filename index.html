@@ -25,93 +25,36 @@ body{
 }
 
 /* HERO */
-.hero{
-  position:relative;
-  height:100vh;
-  overflow:hidden;
-}
-
-.hero video{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
+.hero{position:relative;height:100vh;overflow:hidden}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-overlay{
-  position:absolute;
-  inset:0;
+  position:absolute;inset:0;
   background:linear-gradient(to bottom,rgba(5,8,20,.75),rgba(5,8,20,.9));
-  display:flex;
-  align-items:center;
+  display:flex;align-items:center
 }
-
-.hero-content{
-  max-width:1200px;
-  margin:auto;
-  padding:40px;
-}
-
-.hero h1{
-  font-size:3.5rem;
-  font-weight:900;
-}
-
-.hero p{
-  max-width:760px;
-  margin-top:20px;
-  font-size:1.15rem;
-  color:var(--muted);
-}
-
-.scroll-hint{
-  margin-top:40px;
-  font-size:0.95rem;
-  opacity:0.85;
-}
+.hero-content{max-width:1200px;margin:auto;padding:40px}
+.hero h1{font-size:3.5rem;font-weight:900}
+.hero p{max-width:760px;margin-top:20px;font-size:1.15rem;color:var(--muted)}
+.scroll-hint{margin-top:40px;font-size:.95rem;opacity:.85}
 
 /* SECTIONS */
-section{
-  max-width:1200px;
-  margin:auto;
-  padding:110px 24px;
-}
-
-h2{
-  font-size:2.4rem;
-  color:var(--accent);
-  margin-bottom:30px;
-}
-
-h3{
-  margin-bottom:14px;
-}
-
+section{max-width:1200px;margin:auto;padding:110px 24px}
+h2{font-size:2.4rem;color:var(--accent);margin-bottom:30px}
+h3{margin-bottom:14px}
 .card{
   background:var(--panel);
   padding:48px;
   border-radius:18px;
   box-shadow:0 30px 70px rgba(0,0,0,.6);
+  margin-bottom:50px;
 }
 
-p{
-  max-width:980px;
-  color:var(--muted);
-  font-size:1.05rem;
-  margin-bottom:14px;
-}
-
-.divider{
-  height:1px;
-  background:linear-gradient(to right,transparent,rgba(255,255,255,.12),transparent);
-  margin:120px 0;
-}
+p{max-width:980px;color:var(--muted);font-size:1.05rem;margin-bottom:14px}
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:32px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
 }
 
 img{
@@ -121,14 +64,13 @@ img{
   box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
-.profile{max-width:230px}
+.profile{max-width:220px}
 
 iframe{
   width:100%;
   height:360px;
   border:none;
   border-radius:12px;
-  margin-top:20px;
 }
 
 video.standard{
@@ -137,17 +79,13 @@ video.standard{
   border-radius:14px;
 }
 
-.logo{
-  max-width:160px;
+.small-img{
+  max-width:300px;
+  margin:auto;
   display:block;
-  margin:30px auto 0;
 }
 
-footer{
-  text-align:center;
-  padding:80px;
-  color:var(--muted);
-}
+footer{text-align:center;padding:80px;color:var(--muted)}
 </style>
 </head>
 
@@ -162,7 +100,7 @@ footer{
     <div class="hero-content">
       <h1>Uday Kiran Bandari</h1>
       <p>
-        Gold Medalist in Civil Engineering with a CGPA of 9.5.  
+        Gold Medalist in Civil Engineering with CGPA 9.5.  
         Civil Engineer and Mathematics Teacher.  
         Research oriented applicant for the ACCESS program at TU Dresden.
       </p>
@@ -176,99 +114,73 @@ footer{
 <h2>About Me</h2>
 <div class="card">
 <p>
-I am a Civil Engineering graduate with strong academic consistency and interest
-in structural engineering. Alongside engineering, I work as a Mathematics teacher,
-which has strengthened my logical reasoning, clarity of fundamentals, and
-problem solving approach.
+Civil Engineering graduate with strong academic consistency and interest in
+structural behaviour, design philosophy, and verification based engineering.
 </p>
 <p>
-My academic focus is on understanding structural behaviour in depth, including
-design assumptions, safety philosophy, and verification through analytical and
-numerical methods.
+Working as a Mathematics teacher has strengthened my logical reasoning,
+conceptual clarity, and analytical discipline.
 </p>
 <img src="images/Uday_Kiran_Bandari_Profile.png" class="profile">
 </div>
 </section>
 
-<div class="divider"></div>
-
 <!-- RESEARCH -->
 <section>
 <h2>Research, Seminar, Projects and Internship</h2>
-<div class="grid">
 
 <div class="card">
-<h3>RC Beam Design Using Indian and European Codes</h3>
+<h3>RC Beam Design Using IS 456 and Eurocode 2</h3>
 <p>
-This research compared reinforced concrete beam design using IS 456 and Eurocode 2.
-The objective was to understand differences in partial safety factors,
-serviceability requirements, and design philosophy.
+Comparative research on reinforced concrete beam design focusing on safety
+philosophy, serviceability, and partial safety factors. Analytical calculations
+were verified using Abaqus finite element modelling.
 </p>
-<p>
-Manual calculations were verified using finite element modelling in Abaqus,
-which helped study stress distribution and validate analytical assumptions.
-This work directly connects Indian education with European structural standards.
-</p>
-<img src="images/rc_beam_geometry.png">
-<img src="images/abaqus_mesh_model.png">
-<img src="images/stress_distribution_plot.png">
+<div class="grid">
+  <img src="images/rc_beam_geometry.png">
+  <img src="images/abaqus_mesh_model.png">
+  <img src="images/stress_distribution_plot.png">
+</div>
 </div>
 
 <div class="card">
 <h3>Overflow Detection in Drainage Systems</h3>
 <p>
-This project addressed urban drainage overflow using a sensor based monitoring system.
-The aim was early detection of overflow conditions to support better drainage management.
+Sensor based system for early detection of urban drainage overflow.
+Project was presented as a technical poster and awarded second prize.
 </p>
-<p>
-The project was presented as a technical poster and received second prize.
-It improved my applied problem solving skills and technical communication.
-</p>
-<img src="images/project_odds.jpg">
+<img src="images/project_odds.jpg" class="small-img">
 </div>
 
 <div class="card">
 <h3>Seminar on Sustainable Construction Materials</h3>
 <p>
-This seminar studied the use of recycled aggregates, bamboo, timber,
-and other renewable materials in construction.
-</p>
-<p>
-The work focused on sustainability, material behaviour, advantages,
-and limitations of alternative construction materials.
+Study on recycled aggregates, bamboo, timber, and renewable materials,
+focusing on sustainability, material behaviour, and limitations.
 </p>
 </div>
 
 <div class="card">
 <h3>Extensive Survey Project</h3>
 <p>
-A detailed field survey project covering old tank survey, new tank survey,
-highway alignment, town planning layouts, and water supply systems.
-</p>
-<p>
-The project involved accurate field measurements, data processing,
-and preparation of final drawings, providing strong practical exposure.
+Field survey covering tanks, highways, town planning, and water supply systems,
+including data collection, processing, and final drawings.
 </p>
 </div>
 
 <div class="card">
-<h3>Industry Internship at Medini Technologies</h3>
+<h3>Industry Internship</h3>
 <p>
-A fifteen week internship focused on AutoCAD drafting, BIM workflows,
-and professional documentation standards used in real projects.
+Fifteen week internship at Medini Technologies focusing on AutoCAD drafting,
+BIM workflows, and professional documentation practices.
 </p>
 </div>
 
-</div>
 </section>
-
-<div class="divider"></div>
 
 <!-- DOCUMENTS -->
 <section>
 <h2>Academic Documents and Certifications</h2>
-
-<div class="grid">
 
 <div class="card">
 <h3>Academic Records</h3>
@@ -301,21 +213,17 @@ and professional documentation standards used in real projects.
 </div>
 </div>
 
-</div>
 </section>
-
-<div class="divider"></div>
 
 <!-- RECOGNITION -->
 <section>
 <h2>Recognition and Achievements</h2>
 
-<img src="images/achievements.jpeg"
-     style="max-width:520px;margin:30px auto;display:block;">
+<img src="images/achievements.jpeg" class="small-img">
 
 <div class="grid">
-  <img src="images/graduation_photo_1.jpg" style="max-width:520px;">
-  <img src="images/graduation_photo_2.jpg" style="max-width:520px;">
+  <img src="images/graduation_photo_1.jpg" class="small-img">
+  <img src="images/graduation_photo_2.jpg" class="small-img">
 </div>
 
 <video class="standard" controls>
@@ -323,22 +231,20 @@ and professional documentation standards used in real projects.
 </video>
 </section>
 
-<div class="divider"></div>
-
-<!-- WHY TU DRESDEN -->
+<!-- WHY ACCESS -->
 <section>
-<h2>Why TU Dresden and the ACCESS Program</h2>
+<h2>Why TU Dresden and ACCESS</h2>
 <div class="card">
 <p>
-The ACCESS program at TU Dresden closely matches my academic background and goals.
-Its focus on structural mechanics, numerical methods, and Eurocode based design
-aligns strongly with my research and academic preparation.
+The ACCESS program aligns strongly with my academic preparation in structural
+mechanics, numerical methods, and Eurocode based design.
 </p>
 <p>
-I view ACCESS as a natural continuation of my academic journey and a strong
-foundation for advanced research and doctoral studies in structural engineering.
+My background in analytical design, finite element verification, field surveys,
+and applied projects prepares me well for the research oriented environment at
+TU Dresden.
 </p>
-<img src="images/tu_dresden_logo.png" class="logo">
+<img src="images/tu_dresden_logo.png" class="small-img">
 </div>
 </section>
 
@@ -348,4 +254,3 @@ Academic Portfolio of Uday Kiran Bandari. Prepared for the 2026 intake.
 
 </body>
 </html>
-
