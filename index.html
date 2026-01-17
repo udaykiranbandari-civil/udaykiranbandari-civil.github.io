@@ -2,113 +2,147 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Uday Kiran Bandari | Academic Dossier</title>
+<title>Uday Kiran Bandari | Academic Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#0b1220;
-  --panel:#111a33;
+  --bg:#0a0f1f;
+  --panel:#121a33;
   --accent:#4f9cff;
-  --text:#e6ebf5;
-  --muted:#9aa4bf;
-  --border:rgba(255,255,255,.12);
+  --text:#e9edff;
+  --muted:#a7b0d8;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
 
 body{
-  background:linear-gradient(180deg,#0b1220,#0e1730);
+  background:var(--bg);
   color:var(--text);
   line-height:1.9;
 }
 
+/* HERO */
+.hero{
+  position:relative;
+  height:100vh;
+  overflow:hidden;
+}
+
+.hero video{
+  position:absolute;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(5,8,20,.75),rgba(5,8,20,.9));
+  display:flex;
+  align-items:center;
+}
+
+.hero-content{
+  max-width:1200px;
+  margin:auto;
+  padding:40px;
+}
+
+.hero h1{
+  font-size:3.5rem;
+  font-weight:900;
+}
+
+.hero p{
+  max-width:700px;
+  margin-top:20px;
+  font-size:1.15rem;
+  color:var(--muted);
+}
+
+.scroll-hint{
+  margin-top:40px;
+  font-size:.95rem;
+  opacity:.8;
+}
+
+/* SECTIONS */
 section{
   max-width:1200px;
   margin:auto;
-  padding:100px 24px;
+  padding:110px 24px;
 }
 
-h1{font-size:3.2rem;font-weight:900}
-h2{font-size:2.3rem;color:var(--accent);margin-bottom:24px}
-h3{font-size:1.35rem;margin-bottom:12px}
-
-p{color:var(--muted);max-width:980px;font-size:1.05rem}
-
-.divider{
-  height:1px;
-  background:linear-gradient(to right,transparent,var(--border),transparent);
-  margin:100px 0;
+h2{
+  font-size:2.4rem;
+  color:var(--accent);
+  margin-bottom:30px;
 }
 
 .card{
   background:var(--panel);
-  padding:42px;
+  padding:48px;
   border-radius:18px;
-  border:1px solid var(--border);
-  box-shadow:0 30px 70px rgba(0,0,0,.55);
-  position:relative;
+  box-shadow:0 30px 70px rgba(0,0,0,.6);
+}
+
+p{max-width:980px;color:var(--muted);font-size:1.05rem}
+
+.divider{
+  height:1px;
+  background:linear-gradient(to right,transparent,rgba(255,255,255,.12),transparent);
+  margin:120px 0;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:32px;
+  gap:40px;
 }
 
-/* Images */
 img{
-  max-width:100%;
-  border-radius:14px;
-  margin-top:18px;
-  box-shadow:0 20px 50px rgba(0,0,0,.6);
-}
-
-.profile-img{max-width:260px}
-.recognition-img{max-width:420px}
-
-/* Video */
-video{
   width:100%;
   border-radius:14px;
-  margin-top:24px;
+  margin-top:20px;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
-/* PDF preview */
-.cert-frame{
+.profile{
+  max-width:260px;
+}
+
+iframe{
   width:100%;
   height:440px;
   border:none;
   border-radius:12px;
-  margin-top:18px;
-  background:#111;
-  box-shadow:0 16px 40px rgba(0,0,0,.7);
-  transition:transform .35s ease, box-shadow .35s ease;
+  margin-top:20px;
 }
 
-.cert-frame:hover{
-  transform:scale(1.15);
-  box-shadow:0 50px 110px rgba(0,0,0,.9);
+.cert{
+  transition:transform .3s ease;
+}
+
+.cert:hover{
+  transform:scale(1.1);
   z-index:10;
 }
 
-@media(max-width:900px){
-  .cert-frame:hover{transform:none}
-}
-
-.caption{
-  font-size:.95rem;
-  color:#b8c1dd;
-  margin-top:12px;
+video.standard{
+  width:100%;
+  margin-top:30px;
+  border-radius:14px;
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
 footer{
   text-align:center;
   padding:80px;
-  border-top:1px solid var(--border);
   color:var(--muted);
 }
 </style>
@@ -117,173 +151,143 @@ footer{
 <body>
 
 <!-- HERO -->
-<section>
-  <h1>Uday Kiran Bandari</h1>
-  <p>
-    Gold Medalist in Civil Engineering (CGPA 9.5 / German GPA ≈ 1.25).  
-    Research-oriented civil engineer with strong grounding in
-    structural mechanics, reinforced concrete design,
-    and computational verification.
-  </p>
-  <img src="images/Uday_Kiran_Bandari_Profile.png" class="profile-img">
-</section>
-
-<div class="divider"></div>
-
-<!-- WHO I AM -->
-<section>
-  <h2>Who I Am & What I Am Capable Of</h2>
-  <div class="card">
-    <p>
-      I am a civil engineering graduate trained to think analytically,
-      reason structurally, and verify assumptions rather than blindly apply formulas.
-      My academic strength lies in understanding *why* structures behave the way they do.
-    </p>
-    <p>
-      I am capable of performing manual structural design,
-      translating design intent into numerical models,
-      and critically interpreting results using engineering judgement.
-    </p>
-    <p>
-      My background as a mathematics teacher further strengthens my
-      conceptual clarity, logical reasoning, and ability to communicate
-      complex technical ideas precisely.
-    </p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- RESEARCH PHILOSOPHY -->
-<section>
-  <h2>Research Philosophy</h2>
-  <div class="card">
-    <p>
-      My academic philosophy is rooted in verification-based engineering.
-      Analytical calculations are meaningful only when supported
-      by numerical simulation and behavioural understanding.
-    </p>
-    <p>
-      I am particularly interested in the transition from Indian Standards (IS 456)
-      to Eurocode-based design philosophy, including differences in
-      partial safety factors, serviceability limits, and stress distribution.
-    </p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PROJECTS -->
-<section>
-  <h2>Research, Academic Projects & Internship</h2>
-  <div class="grid">
-
-    <div class="card">
-      <h3>Comparative RC Beam Design (IS 456 vs Eurocode 2)</h3>
-      <p>
-        Independent research comparing Indian and European reinforced concrete
-        design philosophies using a simply supported RC beam.
-      </p>
-      <p>
-        Manual design calculations were carried out under both codes,
-        followed by finite element verification in Abaqus to study
-        stress distribution and structural response.
-      </p>
-      <img src="images/rc_beam_geometry.png">
-    </div>
-
-    <div class="card">
-      <h3>Finite Element Modelling & Verification</h3>
-      <p>
-        Developed 3D solid finite element models to validate analytical assumptions.
-        Emphasis was placed on boundary conditions, material behaviour,
-        and interpretation of stress contours.
-      </p>
-      <img src="images/abaqus_mesh_model.png">
-      <img src="images/stress_distribution_plot.png">
-    </div>
-
-    <div class="card">
-      <h3>Overflow Detection in Drainage Systems (ODDS)</h3>
-      <p>
-        Academic project addressing real-world urban drainage overflow issues
-        through sensor-based monitoring logic.
-      </p>
-      <img src="images/project_odds.jpg">
-      <div class="caption">Awarded <b>2nd Prize</b> – Technical Poster Presentation</div>
-    </div>
-
-    <div class="card">
-      <h3>Industry Internship – Medini Technologies</h3>
-      <p>
-        Completed a 15-week internship focusing on drafting standards,
-        BIM workflows, and professional engineering documentation.
-      </p>
-      <p>
-        Gained hands-on experience with AutoCAD, Revit,
-        and coordination drawings used in practice.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- DOCUMENTS -->
-<section>
-  <h2>Academic Records & Certifications</h2>
-  <div class="grid">
-
-    <div class="card"><h3>Degree Certificate</h3><iframe class="cert-frame" src="documents/degree_certificate.pdf#page=1&zoom=page-width"></iframe></div>
-    <div class="card"><h3>Merit / Gold Medal Certificate</h3><iframe class="cert-frame" src="documents/merit_certificate.pdf#page=1&zoom=page-width"></iframe></div>
-    <div class="card"><h3>Transcript</h3><iframe class="cert-frame" src="documents/transcript.pdf#page=1&zoom=page-width"></iframe></div>
-    <div class="card"><h3>Semester Marksheets</h3><iframe class="cert-frame" src="documents/semester_marksheets.pdf#page=1&zoom=page-width"></iframe></div>
-
-    <div class="card"><h3>AUTOCAD</h3><iframe class="cert-frame" src="documents/AUTOCAD.pdf#page=1&zoom=page-width"></iframe></div>
-    <div class="card"><h3>INTRENSHIP</h3><iframe class="cert-frame" src="documents/INTRENSHIP.pdf#page=1&zoom=page-width"></iframe></div>
-    <div class="card"><h3>LUMION</h3><iframe class="cert-frame" src="documents/LUMION.pdf#page=1&zoom=page-width"></iframe></div>
-    <div class="card"><h3>PRIMEVERA</h3><iframe class="cert-frame" src="documents/PRIMEVERA.pdf#page=1&zoom=page-width"></iframe></div>
-    <div class="card"><h3>REVIT ARCH</h3><iframe class="cert-frame" src="documents/REVIT ARCH.pdf#page=1&zoom=page-width"></iframe></div>
-    <div class="card"><h3>REVIT MEP</h3><iframe class="cert-frame" src="documents/REVIT MEP.pdf#page=1&zoom=page-width"></iframe></div>
-    <div class="card"><h3>SKETCHUP</h3><iframe class="cert-frame" src="documents/SKETCHUP.pdf#page=1&zoom=page-width"></iframe></div>
-    <div class="card"><h3>STAADPRO</h3><iframe class="cert-frame" src="documents/STAADPRO.pdf#page=1&zoom=page-width"></iframe></div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- GRADUATION -->
-<section>
-  <h2>Graduation & Recognition</h2>
-  <div class="grid">
-    <img src="images/graduation_photo_1.jpg" class="recognition-img">
-    <img src="images/graduation_photo_2.jpg" class="recognition-img">
-  </div>
-
-  <video controls muted preload="auto">
+<div class="hero">
+  <video autoplay muted loop playsinline>
     <source src="videos/gold_medal_ceremony.mp4" type="video/mp4">
   </video>
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Uday Kiran Bandari</h1>
+      <p>
+        Gold Medalist in Civil Engineering · CGPA 9.5  
+        Civil Engineer & Mathematics Teacher  
+        Research-oriented candidate for ACCESS — TU Dresden
+      </p>
+      <div class="scroll-hint">Scroll to explore academic journey ↓</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section>
+<h2>About Me</h2>
+<div class="card">
+  <p>
+    I am a Civil Engineering graduate with a strong academic foundation and a disciplined,
+    research-oriented mindset. Alongside engineering, I work as a Mathematics teacher,
+    which has strengthened my analytical thinking, clarity of concepts, and ability to
+    reason rigorously — qualities essential for advanced engineering research.
+  </p>
+  <p>
+    My interest lies in understanding structural behaviour beyond equations: how design
+    philosophies influence safety, serviceability, and real-world performance of structures.
+  </p>
+  <img src="images/Uday_Kiran_Bandari_Profile.png" class="profile">
+</div>
 </section>
 
 <div class="divider"></div>
 
-<!-- WHY ACCESS -->
+<!-- RESEARCH -->
 <section>
-  <h2>Why ACCESS – TU Dresden</h2>
-  <div class="card">
-    <p>
-      ACCESS directly aligns with my research orientation,
-      computational focus, and Eurocode-based structural thinking.
-      Its curriculum reflects the analytical and verification-driven
-      approach I already follow.
-    </p>
-  </div>
+<h2>Research, Projects & Internship</h2>
+<div class="grid">
+
+<div class="card">
+<h3>IS 456 vs Eurocode 2 — RC Beam Study</h3>
+<p>
+A comparative research study on reinforced concrete beam design,
+focusing on differences in safety philosophy, partial factors,
+and stress behaviour between Indian and European codes.
+</p>
+<img src="images/rc_beam_geometry.png">
+</div>
+
+<div class="card">
+<h3>Finite Element Verification</h3>
+<p>
+Finite element modelling using Abaqus to verify analytical assumptions,
+stress distribution, and structural response.
+</p>
+<img src="images/abaqus_mesh_model.png">
+<img src="images/stress_distribution_plot.png">
+</div>
+
+<div class="card">
+<h3>Overflow Detection in Drainage Systems (ODDS)</h3>
+<p>
+Sensor-based monitoring project addressing urban drainage overflow,
+recognized with <b>2nd Prize</b> in technical poster presentation.
+</p>
+<img src="images/project_odds.jpg">
+</div>
+
+<div class="card">
+<h3>Industry Internship — Medini Technologies</h3>
+<p>
+15-week internship focused on AutoCAD drafting, BIM workflows,
+and professional engineering documentation.
+</p>
+</div>
+
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CERTIFICATIONS -->
+<section>
+<h2>Academic Records & Certifications</h2>
+<div class="grid">
+
+<div class="card"><h3>Degree Certificate</h3><iframe class="cert" src="documents/degree_certificate.pdf#page=1&zoom=page-width"></iframe></div>
+<div class="card"><h3>Merit / Gold Medal</h3><iframe class="cert" src="documents/merit_certificate.pdf#page=1&zoom=page-width"></iframe></div>
+<div class="card"><h3>Transcript</h3><iframe class="cert" src="documents/transcript.pdf#page=1&zoom=page-width"></iframe></div>
+<div class="card"><h3>Semester Marksheets</h3><iframe class="cert" src="documents/semester_marksheets.pdf#page=1&zoom=page-width"></iframe></div>
+
+<div class="card"><h3>AutoCAD</h3><iframe class="cert" src="documents/AUTOCAD.pdf#page=1&zoom=page-width"></iframe></div>
+<div class="card"><h3>Revit Architecture</h3><iframe class="cert" src="documents/REVIT ARCH.pdf#page=1&zoom=page-width"></iframe></div>
+<div class="card"><h3>Revit MEP</h3><iframe class="cert" src="documents/REVIT MEP.pdf#page=1&zoom=page-width"></iframe></div>
+<div class="card"><h3>STAAD.Pro</h3><iframe class="cert" src="documents/STAADPRO.pdf#page=1&zoom=page-width"></iframe></div>
+
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RECOGNITION -->
+<section>
+<h2>Gold Medal Recognition</h2>
+<div class="grid">
+  <img src="images/graduation_photo_1.jpg">
+  <img src="images/graduation_photo_2.jpg">
+</div>
+
+<video class="standard" controls>
+  <source src="videos/gold_medal_ceremony.mp4" type="video/mp4">
+</video>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY TU DRESDEN -->
+<section>
+<h2>Why TU Dresden — ACCESS</h2>
+<div class="card">
+<p>
+The ACCESS program at TU Dresden aligns perfectly with my academic direction.
+Its emphasis on structural mechanics, numerical methods, and Eurocode-based
+design reflects the verification-driven approach I already practice.
+</p>
+<p>
+I see ACCESS not as a transition, but as a continuation of my disciplined
+engineering journey toward advanced research and doctoral study.
+</p>
+</div>
 </section>
 
 <footer>
-Academic Dossier · Uday Kiran Bandari · 2026
+Academic Portfolio · Uday Kiran Bandari · 2026
 </footer>
 
 </body>
