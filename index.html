@@ -33,8 +33,7 @@ body{
 
 .hero video{
   position:absolute;
-  top:0;
-  left:0;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
@@ -100,6 +99,7 @@ p{
   max-width:980px;
   color:var(--muted);
   font-size:1.05rem;
+  margin-bottom:14px;
 }
 
 .divider{
@@ -121,39 +121,28 @@ img{
   box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
-.profile{
-  max-width:240px;
-}
+.profile{max-width:230px}
 
 iframe{
   width:100%;
-  height:440px;
+  height:420px;
   border:none;
   border-radius:12px;
   margin-top:20px;
 }
 
-.cert{
-  transition:transform .3s ease;
-}
-
-.cert:hover{
-  transform:scale(1.08);
-  z-index:10;
-}
+.cert:hover{transform:scale(1.05)}
 
 video.standard{
   width:100%;
   margin-top:30px;
   border-radius:14px;
-  box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
 .logo{
-  max-width:180px;
-  margin:30px auto 0;
+  max-width:160px;
   display:block;
-  opacity:0.9;
+  margin:30px auto 0;
 }
 
 footer{
@@ -177,7 +166,7 @@ footer{
       <p>
         Gold Medalist in Civil Engineering with a CGPA of 9.5.  
         Civil Engineer and Mathematics Teacher.  
-        Research oriented candidate for the ACCESS program at TU Dresden.
+        Research oriented applicant for the ACCESS program at TU Dresden.
       </p>
       <div class="scroll-hint">Scroll to explore my academic journey</div>
     </div>
@@ -188,17 +177,18 @@ footer{
 <section>
 <h2>About Me</h2>
 <div class="card">
-  <p>
-    I am a Civil Engineering graduate with a strong academic background and a disciplined,
-    research oriented mindset. Alongside engineering, I work as a Mathematics teacher,
-    which has helped me develop strong analytical thinking and conceptual clarity.
-  </p>
-  <p>
-    My academic interest lies in understanding structural behaviour in depth,
-    including how design assumptions, safety factors, and serviceability criteria
-    influence real world structural performance.
-  </p>
-  <img src="images/Uday_Kiran_Bandari_Profile.png" class="profile">
+<p>
+I am a Civil Engineering graduate with a strong academic foundation and consistent
+performance throughout my education. Along with engineering, I currently work
+as a Mathematics teacher, which has helped me develop clarity in fundamentals,
+logical thinking, and structured problem solving.
+</p>
+<p>
+My academic interest focuses on understanding how structures behave in reality,
+not only through formulas but also through assumptions, design philosophy,
+and verification methods used in modern engineering practice.
+</p>
+<img src="images/Uday_Kiran_Bandari_Profile.png" class="profile">
 </div>
 </section>
 
@@ -206,15 +196,21 @@ footer{
 
 <!-- RESEARCH -->
 <section>
-<h2>Research, Academic Projects and Internship</h2>
+<h2>Research, Seminar, Academic Projects and Internship</h2>
 <div class="grid">
 
 <div class="card">
-<h3>From Indian Standards to Eurocodes</h3>
+<h3>Comparative Study of RC Beam Design Using IS 456 and Eurocode 2</h3>
 <p>
-This independent research focused on comparing reinforced concrete beam design
-using IS 456 and Eurocode 2. The study examined differences in safety philosophy,
-partial safety factors, and serviceability requirements.
+This independent research studied the design of a reinforced concrete beam
+using Indian Standard IS 456 and Eurocode 2. The focus was on understanding
+differences in safety philosophy, partial safety factors, and serviceability limits.
+</p>
+<p>
+Manual calculations were supported by finite element analysis using Abaqus
+to verify stress distribution, deformation behaviour, and design assumptions.
+This work improved my understanding of Eurocode based design, which directly
+aligns with European structural engineering education.
 </p>
 <img src="images/rc_beam_geometry.png">
 <img src="images/abaqus_mesh_model.png">
@@ -222,29 +218,51 @@ partial safety factors, and serviceability requirements.
 </div>
 
 <div class="card">
-<h3>Overflow Detection in Drainage Systems</h3>
+<h3>Overflow Detection in Drainage Systems (ODDS)</h3>
 <p>
-A sensor based project addressing urban drainage overflow problems.
-The system focused on early detection and monitoring of overflow conditions.
-This project was presented as a technical poster and received second prize.
+This project addressed urban drainage overflow problems using a sensor based
+monitoring approach. The system aimed to detect overflow conditions early and
+support better drainage management.
+</p>
+<p>
+The project was presented as a technical poster and received second prize.
+It helped me gain experience in applied problem solving, teamwork, and
+technical presentation.
 </p>
 <img src="images/project_odds.jpg">
 </div>
 
 <div class="card">
-<h3>Extensive Survey Project</h3>
+<h3>Seminar on Sustainable Construction Materials</h3>
 <p>
-A large scale field survey project covering old tank survey, new tank survey,
-highway alignment, town planning layout, and water supply systems.
-The project involved detailed data collection, processing, and final drawings.
+This seminar explored the use of recycled aggregates, bamboo, timber, and other
+renewable materials in construction. The focus was on sustainability,
+environmental impact, and material performance.
+</p>
+<p>
+The seminar improved my ability to study literature, understand material behaviour,
+and communicate technical ideas clearly.
 </p>
 </div>
 
 <div class="card">
-<h3>Industry Internship</h3>
+<h3>Extensive Survey Project</h3>
 <p>
-A fifteen week internship at Medini Technologies focusing on AutoCAD drafting,
-BIM workflows, and professional engineering documentation practices.
+A comprehensive field survey project covering old tank survey, new tank survey,
+highway alignment, town planning layouts, and water supply systems.
+</p>
+<p>
+This project involved detailed measurements, data processing, and preparation
+of final drawings, helping me understand real world surveying practices and accuracy.
+</p>
+</div>
+
+<div class="card">
+<h3>Industry Internship at Medini Technologies</h3>
+<p>
+A fifteen week internship focusing on AutoCAD drafting, BIM workflows,
+and professional documentation. This experience helped me understand
+industry standards, project coordination, and technical responsibility.
 </p>
 </div>
 
@@ -253,28 +271,29 @@ BIM workflows, and professional engineering documentation practices.
 
 <div class="divider"></div>
 
-<!-- CERTIFICATIONS -->
+<!-- DOCUMENTS -->
 <section>
-<h2>Academic Records and Certifications</h2>
+<h2>Academic Documents and Certifications</h2>
 <div class="grid">
 
-<div class="card"><h3>Degree Certificate</h3><iframe class="cert" src="documents/degree_certificate.pdf#page=1"></iframe></div>
-<div class="card"><h3>Merit and Gold Medal Certificate</h3><iframe class="cert" src="documents/merit_certificate.pdf#page=1"></iframe></div>
-<div class="card"><h3>Academic Transcript</h3><iframe class="cert" src="documents/transcript.pdf#page=1"></iframe></div>
-<div class="card"><h3>Semester Marksheets</h3><iframe class="cert" src="documents/semester_marksheets.pdf#page=1"></iframe></div>
+<div class="card"><h3>Degree Certificate</h3><iframe src="documents/degree_certificate.pdf#page=1"></iframe></div>
+<div class="card"><h3>Merit and Gold Medal Certificate</h3><iframe src="documents/merit_certificate.pdf#page=1"></iframe></div>
+<div class="card"><h3>Academic Transcript</h3><iframe src="documents/transcript.pdf#page=1"></iframe></div>
+<div class="card"><h3>Semester Marksheets</h3><iframe src="documents/semester_marksheets.pdf#page=1"></iframe></div>
 
-<div class="card"><h3>Python Programming Certificate</h3><iframe class="cert" src="documents/Python.pdf#page=1"></iframe></div>
-<div class="card"><h3>C Programming Certificate</h3><iframe class="cert" src="documents/C.pdf#page=1"></iframe></div>
+<div class="card"><h3>Programming Certificates</h3>
+<iframe src="documents/Python.pdf#page=1"></iframe>
+<iframe src="documents/C.pdf#page=1"></iframe>
+</div>
 
-<div class="card">
-<h3>Engineering Software Certifications</h3>
-<iframe class="cert" src="documents/AUTOCAD.pdf#page=1"></iframe>
-<iframe class="cert" src="documents/REVIT ARCH.pdf#page=1"></iframe>
-<iframe class="cert" src="documents/REVIT MEP.pdf#page=1"></iframe>
-<iframe class="cert" src="documents/STAADPRO.pdf#page=1"></iframe>
-<iframe class="cert" src="documents/PRIMEVERA.pdf#page=1"></iframe>
-<iframe class="cert" src="documents/LUMION.pdf#page=1"></iframe>
-<iframe class="cert" src="documents/SKETCHUP.pdf#page=1"></iframe>
+<div class="card"><h3>Engineering Software Certifications</h3>
+<iframe src="documents/AUTOCAD.pdf#page=1"></iframe>
+<iframe src="documents/REVIT ARCH.pdf#page=1"></iframe>
+<iframe src="documents/REVIT MEP.pdf#page=1"></iframe>
+<iframe src="documents/STAADPRO.pdf#page=1"></iframe>
+<iframe src="documents/PRIMEVERA.pdf#page=1"></iframe>
+<iframe src="documents/LUMION.pdf#page=1"></iframe>
+<iframe src="documents/SKETCHUP.pdf#page=1"></iframe>
 </div>
 
 </div>
@@ -285,12 +304,11 @@ BIM workflows, and professional engineering documentation practices.
 <!-- RECOGNITION -->
 <section>
 <h2>Recognition and Achievements</h2>
-<img src="images/achievements.jpeg" style="max-width:720px;margin:auto;display:block;">
+<img src="images/achievements.jpeg" style="max-width:560px;margin:auto;display:block;">
 <div class="grid">
   <img src="images/graduation_photo_1.jpg">
   <img src="images/graduation_photo_2.jpg">
 </div>
-
 <video class="standard" controls>
   <source src="videos/gold_medal_ceremony.mp4" type="video/mp4">
 </video>
@@ -303,15 +321,13 @@ BIM workflows, and professional engineering documentation practices.
 <h2>Why TU Dresden and the ACCESS Program</h2>
 <div class="card">
 <p>
-The ACCESS program at TU Dresden strongly matches my academic direction.
+The ACCESS program at TU Dresden closely matches my academic background and goals.
 Its focus on structural mechanics, numerical methods, and Eurocode based design
-aligns directly with my research experience and long term goal of advanced study
-in structural engineering.
+aligns directly with my research and academic preparation.
 </p>
 <p>
-My background in analytical design, finite element verification, and field based
-engineering projects prepares me well for the rigorous and research oriented
-environment at TU Dresden.
+I see ACCESS as a natural continuation of my academic journey and a strong
+foundation for future research and doctoral studies in structural engineering.
 </p>
 <img src="images/tu_dresden_logo.png" class="logo">
 </div>
