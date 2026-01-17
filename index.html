@@ -33,8 +33,7 @@ body{
 
 .hero video{
   position:absolute;
-  top:0;
-  left:0;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
@@ -43,7 +42,7 @@ body{
 .hero-overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to bottom,rgba(5,8,20,.75),rgba(5,8,20,.9));
+  background:linear-gradient(to bottom,rgba(5,8,20,.75),rgba(5,8,20,.92));
   display:flex;
   align-items:center;
 }
@@ -60,16 +59,16 @@ body{
 }
 
 .hero p{
-  max-width:720px;
-  margin-top:20px;
+  max-width:760px;
+  margin-top:22px;
   font-size:1.15rem;
   color:var(--muted);
 }
 
 .scroll-hint{
-  margin-top:40px;
+  margin-top:42px;
   font-size:0.95rem;
-  opacity:0.85;
+  opacity:.85;
 }
 
 /* SECTIONS */
@@ -82,7 +81,11 @@ section{
 h2{
   font-size:2.4rem;
   color:var(--accent);
-  margin-bottom:30px;
+  margin-bottom:34px;
+}
+
+h3{
+  margin-bottom:14px;
 }
 
 .card{
@@ -118,15 +121,15 @@ img{
 }
 
 .profile{
-  max-width:260px;
+  max-width:230px;
 }
 
 iframe{
   width:100%;
-  height:440px;
+  height:420px;
   border:none;
   border-radius:12px;
-  margin-top:20px;
+  margin-top:22px;
 }
 
 .cert{
@@ -134,13 +137,13 @@ iframe{
 }
 
 .cert:hover{
-  transform:scale(1.1);
-  z-index:10;
+  transform:scale(1.15);
+  z-index:5;
 }
 
 video.standard{
   width:100%;
-  margin-top:30px;
+  margin-top:34px;
   border-radius:14px;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
@@ -164,11 +167,11 @@ footer{
     <div class="hero-content">
       <h1>Uday Kiran Bandari</h1>
       <p>
-        Gold Medalist in Civil Engineering with a CGPA of 9.5.  
-        Civil Engineer and Mathematics Teacher.  
+        Gold Medalist in Civil Engineering with a CGPA of 9.5.
+        Civil Engineer and Mathematics Teacher.
         Research oriented candidate for the ACCESS program at TU Dresden.
       </p>
-      <div class="scroll-hint">Scroll to explore my academic journey ↓</div>
+      <div class="scroll-hint">Scroll to explore my academic journey</div>
     </div>
   </div>
 </div>
@@ -183,8 +186,9 @@ footer{
     which has strengthened my analytical thinking, conceptual clarity, and logical reasoning.
   </p>
   <p>
-    My interest lies in understanding structural behaviour beyond equations, including how
-    design philosophies influence safety, serviceability, and real world performance.
+    My academic interest lies in understanding structural behaviour beyond equations,
+    including how design philosophy, material choice, and verification methods influence
+    real world structural performance.
   </p>
   <img src="images/Uday_Kiran_Bandari_Profile.png" class="profile">
 </div>
@@ -192,45 +196,63 @@ footer{
 
 <div class="divider"></div>
 
-<!-- RESEARCH -->
+<!-- PROJECTS -->
 <section>
 <h2>Research, Academic Projects and Internship</h2>
 <div class="grid">
 
 <div class="card">
-<h3>Reinforced Concrete Beam Design using Indian and European Codes</h3>
-<p>
-A comparative research study on reinforced concrete beam design, focusing on
-differences in safety philosophy, partial safety factors, and stress behaviour
-between Indian Standards and Eurocode provisions.
-</p>
-<img src="images/rc_beam_geometry.png">
-</div>
-
-<div class="card">
-<h3>Finite Element Modelling and Verification</h3>
-<p>
-Finite element modelling using Abaqus to verify analytical assumptions,
-stress distribution, and structural response under bending.
-</p>
-<img src="images/abaqus_mesh_model.png">
-<img src="images/stress_distribution_plot.png">
-</div>
-
-<div class="card">
 <h3>Overflow Detection in Drainage Systems</h3>
 <p>
-A sensor based monitoring project addressing urban drainage overflow,
-recognized with second prize in a technical poster presentation.
+This project addressed urban drainage overflow during high intensity rainfall events.
+A sensor based monitoring concept was developed to detect abnormal water levels
+within drainage channels and trigger early alerts.
+</p>
+<p>
+The work focused on preventive infrastructure monitoring rather than post event inspection.
+It emphasized practical application of drainage principles, system integration,
+and clear technical communication.
 </p>
 <img src="images/project_odds.jpg">
 </div>
 
 <div class="card">
+<h3>Sustainable Construction Materials Seminar</h3>
+<p>
+This seminar examined the use of recycled aggregates, bamboo, timber,
+and other renewable resources in building construction.
+The study focused on material performance, sustainability,
+and environmental impact.
+</p>
+<p>
+Key considerations included strength variability, durability,
+design limitations, and appropriate structural applications.
+The work strengthened my understanding of sustainable material selection
+and life cycle thinking in civil engineering.
+</p>
+</div>
+
+<div class="card">
+<h3>Extensive Survey Project</h3>
+<p>
+A large scale field survey covering existing and proposed tanks,
+highways, water supply systems, and town planning layouts.
+Measurements were carried out using Total Station
+and processed into technical drawings and layouts.
+</p>
+<p>
+This project provided hands on exposure to field accuracy,
+data processing, coordination, and real world engineering constraints.
+</p>
+</div>
+
+<div class="card">
 <h3>Industry Internship at Medini Technologies</h3>
 <p>
-A fifteen week internship focused on AutoCAD drafting, BIM workflows,
-and professional engineering documentation practices.
+A fifteen week internship focused on AutoCAD drafting,
+BIM workflows, and professional engineering documentation.
+The internship strengthened my understanding of
+industry standards and engineering practice.
 </p>
 </div>
 
@@ -239,21 +261,35 @@ and professional engineering documentation practices.
 
 <div class="divider"></div>
 
-<!-- CERTIFICATIONS -->
+<!-- CERTIFICATES -->
 <section>
 <h2>Academic Records and Certifications</h2>
 <div class="grid">
 
-<div class="card"><h3>Degree Certificate</h3><iframe class="cert" src="documents/degree_certificate.pdf#page=1&zoom=page-width"></iframe></div>
-<div class="card"><h3>Merit and Gold Medal Certificate</h3><iframe class="cert" src="documents/merit_certificate.pdf#page=1&zoom=page-width"></iframe></div>
-<div class="card"><h3>Academic Transcript</h3><iframe class="cert" src="documents/transcript.pdf#page=1&zoom=page-width"></iframe></div>
-<div class="card"><h3>Semester Marksheets</h3><iframe class="cert" src="documents/semester_marksheets.pdf#page=1&zoom=page-width"></iframe></div>
+<div class="card"><h3>Degree Certificate</h3><iframe class="cert" src="documents/degree_certificate.pdf#page=1"></iframe></div>
+<div class="card"><h3>Merit and Gold Medal Certificate</h3><iframe class="cert" src="documents/merit_certificate.pdf#page=1"></iframe></div>
+<div class="card"><h3>Academic Transcript</h3><iframe class="cert" src="documents/transcript.pdf#page=1"></iframe></div>
+<div class="card"><h3>Semester Marksheets</h3><iframe class="cert" src="documents/semester_marksheets.pdf#page=1"></iframe></div>
 
-<div class="card"><h3>AutoCAD Certification</h3><iframe class="cert" src="documents/AUTOCAD.pdf#page=1&zoom=page-width"></iframe></div>
-<div class="card"><h3>Revit Architecture Certification</h3><iframe class="cert" src="documents/REVIT ARCH.pdf#page=1&zoom=page-width"></iframe></div>
-<div class="card"><h3>Revit MEP Certification</h3><iframe class="cert" src="documents/REVIT MEP.pdf#page=1&zoom=page-width"></iframe></div>
-<div class="card"><h3>STAAD Pro Certification</h3><iframe class="cert" src="documents/STAADPRO.pdf#page=1&zoom=page-width"></iframe></div>
+<div class="card"><h3>AutoCAD Certification</h3><iframe class="cert" src="documents/AUTOCAD.pdf#page=1"></iframe></div>
+<div class="card"><h3>Revit Architecture Certification</h3><iframe class="cert" src="documents/REVIT ARCH.pdf#page=1"></iframe></div>
+<div class="card"><h3>Revit MEP Certification</h3><iframe class="cert" src="documents/REVIT MEP.pdf#page=1"></iframe></div>
+<div class="card"><h3>STAAD Pro Certification</h3><iframe class="cert" src="documents/STAADPRO.pdf#page=1"></iframe></div>
 
+<div class="card"><h3>Python Programming Certification</h3><iframe class="cert" src="documents/Python.pdf#page=1"></iframe></div>
+<div class="card"><h3>C Programming Certification</h3><iframe class="cert" src="documents/C.pdf#page=1"></iframe></div>
+
+</div>
+
+<div class="card" style="margin-top:60px">
+<h3>Early Academic and Co Curricular Achievements</h3>
+<p>
+This consolidated image represents academic ranks, competitions,
+and participation across school and undergraduate education.
+It reflects consistency, breadth of involvement,
+and long term academic discipline.
+</p>
+<img src="images/achievements.jpeg">
 </div>
 </section>
 
@@ -274,18 +310,25 @@ and professional engineering documentation practices.
 
 <div class="divider"></div>
 
-<!-- WHY TU DRESDEN -->
+<!-- ACCESS -->
 <section>
 <h2>Why TU Dresden and the ACCESS Program</h2>
 <div class="card">
 <p>
-The ACCESS program at TU Dresden aligns strongly with my academic direction.
-Its emphasis on structural mechanics, numerical methods, and Eurocode based
-design directly matches my interest in verification driven structural engineering.
+My academic projects, seminar work, survey experience,
+and research orientation form a coherent preparation for the ACCESS program.
+The program’s focus on structural mechanics, numerical methods,
+Eurocode based design, and verification driven engineering
+aligns directly with my interest in understanding structural behaviour
+through analytical reasoning supported by computation.
 </p>
 <p>
-I view ACCESS as a continuation of my academic discipline and preparation
-for advanced research and doctoral study in structural engineering.
+Through comparative code studies, sustainable materials analysis,
+field based survey work, and finite element verification,
+I have developed the mindset required for research oriented study.
+I view ACCESS not as a transition, but as a continuation
+of disciplined academic training aimed at advanced structural research
+and future doctoral study.
 </p>
 </div>
 </section>
